@@ -1,0 +1,42 @@
+Google App Engine Features:
+--> App Identity: access plus assertion of application identity using OAuth.
+--> Appstats Analytics: data visualization and analysis for app usage.
+--> Blobstore: allows app to store and serve large data objects.
+--> Capabilities: detects outage and scheduled maintenance for specific services.
+--> Channel: persistent connection between your application and JS clients (to send message in real-time without polling).
+--> Datastore: a schemaless object datastore with scalable storage.
+--> Datastore Backup/Restore: allow to import/export data to or from your app Datastore using the admin console.
+--> Dedicated Memcache: provides a fixed cache capacity assigned exclusively to your application.
+--> Go Runtime: Build your application in the Go programming lang.
+--> Google Cloud Endpoints: Generates APIs for Android, iOS and web clients (making it easier to create a web backend for your app).
+--> Google Cloud SQL: ability to use relational database that lives inside Google's Cloud.
+--> Google Cloud Storage Client Library: Read/Write to Google Cloud Storage.
+--> HRD Migration Tool: Migrates application data stored in the Blobstore or the deprecated Master/Slave Datastore into the GA High Replication Datastore.
+--> Images: Manipulate, combine and enhance images.
+--> Java Runtime: Build your application in the Java Programming Language.
+--> Logs: access to application and request logs from within your application.
+--> Mail: access to the GMail service.
+--> MapReduce: optimized adaptation of the MapReduce computing model for distributed computing over large datasets.
+--> Memcache: a distributed, in-memory data cache that can be used to greatly improve app performance.
+--> Modules: Factor applications into logical components that can share stateful services and communicate in a secure fashion.
+--> Multitenancy: Makes it easy to compartmentalize your data to serve many client org. from a single instance.
+--> OAuth: any app can be an OAuth consumer.
+--> OpenID: open tech. for authenticating users across various web services.
+--> PageSpeed: A family of tools that automatically optimizes the performance of your application.
+--> Prospective Search: A querying service that allows your application to match search queries against real-time data streams.
+--> PHP Runtime: build your app in PHP programming language.
+--> Python Runtime: Build your application in the Python programming language.
+--> Remote: Access App Engine from any application.
+--> Scheduled Tasks: configure tasks that run at defined times or regular intervals.
+--> Search: Perform Google-Like searches over structured data.
+--> SendGrid: use this library to send e-mails from your app and you can see stats on opens and etc.
+--> SSL for custom Domains: serve applications via HTTPS and HTTP from a custom domain rather than an appspot.com address.
+--> TaskQueue: Allow Applications to perform work outside of a user request, using small, discrete tasks, that are executed later.
+--> TaskQueue REST API: REST API for TQ.
+--> TaskQueue Tagging: Leases up to a specified number of tasks with the same tag from the queue for a specified period of time.
+--> Traffic Splitting: Routes incoming requests to different version of your app, allowing to do A/B testing and roll out new feature incrementally.
+--> Twilio: enables app to make and receive phone call ans texts (VOIP etc.)
+--> URL Fetch: Uses Google's networking infrastructure to efficiently issue HTTP and HTTPS request to URLs on the web.
+--> Users: allows users to sign in using GA or OpenID and address them using unique identifiers.
+--> XMPP: Allow an application to send and receive chat messages to and from any XMPP-compatible chat messaging service.
+ 
