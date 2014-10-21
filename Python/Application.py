@@ -32,45 +32,20 @@ def print_result(result):
 #                          Web USER RELATED CODE                               #
 ################################################################################
 
-
 """
-Example function that contains application logic and is created as an compositional
-part of a task.
+Very simple web server using cherrypy
 
-Spins a Web server
-
-First parameter refers to the Task object.
-
-Second parameter refers to a list of arguments.
-
+Simply spin a CherryPy webServer on a subprocess
 """
-def init_web(task_obj, args):
-
-  from twisted.web import server, resource
-  from twisted.internet import reactor
-
-  class WebProcess(resource.Resource):
-      isLeaf = True
-      def render_GET(self, request):
-          headers = request.getAllHeaders()
-          html_str = "<html> "
-          for header in headers:
-            html_str += (header + "\n")
-
-          html_str += "ip: " +request.getClientIP() + "\n"
-          html_str += "user: " + request.getUser()
-          html_str += "</html>"
-          return html_str
-
-
-  root = WebProcess()
-
-  import hello
-  root.putChild('hello', Hello())
-  site = server.Site(root)
-  reactor.listenTCP(8189, site)
-
-  print task_obj.creator
+def simple_web(task_obj, args):
+    # use the existing database...
+    import os
+    import signal
+    from subprocess import Popen
+    app = args[1]
+    # The os.setsid() is passed in the argument preexec_fn so
+    # it's run after the fork() and before  exec() to run the shell.
+    app._web = Popen(['python','-u', args[0]])
 ################################################################################
 #                         DATA USER RELATED CODE                               #
 ################################################################################
@@ -120,18 +95,39 @@ class Application (object):
     layer from the overlay network.
 
     Consisting of process pool (Web/Worker/Data), and corresponding queues.
+
+    cherry_py_instance: is the Instanciated object that contains the logic for the web_server
+
     """
 
-    def __init__(self, name="app_default"):
-        self.name = name
+    def __init__(self, name="app_default",port=4020):
+        self._name = name
         self.number_of_nodes = 0
         self.list_of_nodes = []
         self._queues = [DeferredQueue()] * 3
 
+        # web process pointer
+        self._web = ""
+
+        # here is the logic to join the DHT, currently using an implementation of Kademlia
+        from entangled.kademlia import node
+
+        knownNodes = [("127.0.0.1", 4020)]
+
+        self._ip_address = "127.0.0.1"
+
+        self._node = node.Node(4021)
+        self._node.joinNetwork(knownNodes)
 
     def __str__(self):
-        return "Application: [name] = " + self.name + " [number_of_nodes] = " + str(self.number_of_nodes)
+        return "Application: [name] = " + self._name + " [number_of_nodes] = " + str(self.number_of_nodes)
         #" [list_of_nodes] = " + str(self.list_of_nodes)
+
+    def addNode (self, node):
+        self.list_of_nodes.append(node)
+        self.number_of_nodes += 1
+
+        # next we need to make it a process...
 
     def addTask (self, task):
         # simply add the task to the corresponding queue
@@ -145,35 +141,92 @@ class Application (object):
     def run(self):
         # attempt to read from the web queue
         print "using the run method"
-        self.getTask(Task.Worker)
-        self.getTask(Task.Web)
-        self.getTask(Task.Data)
 
+        task_type = 0
+
+        # temp variable to hold a snapshot of the number of nodes in the app.
+        temp_nodes = self.number_of_nodes
+
+        # ctr
+        ctr = 0
+
+        # then publish the name of the application that you've deployed
+        self._node.iterativeStore(self._name, self._ip_address)
+
+        # simply loop forever over each queues
+        #while(True):
+
+
+        """
+        (1) Create any task(s) as a result of the current state of the app.
+        (2) Verify the queues contents.
+        (3) Prepare the task(s) to be sent to the corresponding nodes (Processes).
+        (4) Send the task(s).
+
+        ...
+
+        (5) Wait for at least one task to complete... then start back at (1).
+        """
+
+          #self.getTask(task_type)
+          #task_type += 1
+          #task_type = task_type % 3
+          #print "task_type = ", task_type
+
+
+class ApplicationNode (object):
+
+  """
+  This class represents an ApplicationNode which can be any type of process, except
+  Web because only the Application deployer can be the WebProcess as of now.
+  """
+
+  global id_count
+  id_count = 0
+
+  def __init__(self):
+
+      self._id = id_count + 1
+      self._process = ""
+      self._ip_address = "127.0.0.1"
+      self._port = 4023
+
+      # here is the logic to join the DHT, currently using an implementation of Kademlia
+      from entangled.kademlia import node
+
+      knownNodes = [("127.0.0.1", 4020)]
+
+      self._node = node.Node(self._port)
+      self._node.joinNetwork(knownNodes)
+
+
+  def __str__(self):
+      return "ApplicationNode: [id] = " + self._id + " [ip_address] = " + str(self._ip_address) + " [port] = " + str(self._port)
+
+
+  """
+  Contains the logic to join an active Application in the cloud.
+  """
+  def joinApplication(self, app_name):
+      result = self._node.iterativeFindValue(app_name)
+
+      result.addCallback(print_result)
+
+      return result
+
+
+  def print_result(self, app_name):
+      print "The result is... "
+
+      print self[app_name]
 
 
 if __name__ == '__main__':
 
+
+  # create a node object
+  app_node = ApplicationNode()
+  #app_node.joinApplication("appli")
+
   from twisted.internet import reactor
-
-
-  app = Application()
-
-  ex_task = Task("Robin the Web")
-  ex_task.type = Task.Web
-  ex_task.create(init_web, [])
-
-  ex_task_Wrk = Task("Robin the Worker")
-  ex_task_Wrk.type = Task.Worker
-  ex_task_Wrk.create(ex_function, [2,2])
-
-  ex_task_D = Task("Robin the Data")
-  ex_task_D.type = Task.Data
-  ex_task_D.create(ex_function, [3,2])
-
-  app.addTask(ex_task)
-  app.addTask(ex_task_Wrk)
-  app.addTask(ex_task_D)
-
-  app.run()
-
   reactor.run()

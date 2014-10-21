@@ -7,7 +7,6 @@ from twisted.application.service import Application
 from twisted.application import service, internet
 
 import networkserviceapi
-import custom_protocol
 import sys, re
 
 from twisted.internet import stdio

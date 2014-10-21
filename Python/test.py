@@ -1,1 +1,0 @@
-import rethinkdb as r

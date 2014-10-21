@@ -19,6 +19,9 @@ class Process (object):
   def __str__(self):
     return "Process [id] = " + str(self.id)
 
+  def _setParentNode(self, parent):
+    self._parent_node = parent
+
 
 """
 3 Specializations: Web, Worker, Data
@@ -104,9 +107,10 @@ class DataProcess(Process):
     log.flush()
 
   def stop(self):
-    
+
     import os
     import signal
+
     # Send the signal to all the process groups
     os.killpg(self.db_process.pid, signal.SIGTERM)
 
