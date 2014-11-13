@@ -112,16 +112,21 @@ class Application (object):
         # here is the logic to join the DHT, currently using an implementation of Kademlia
         from entangled.kademlia import node
 
-        knownNodes = [("127.0.0.1", 4020)]
+        knownNodes = [("127.0.0.1", 4021)]
 
         self._ip_address = "127.0.0.1"
 
-        self._node = node.Node(4021)
+        self._node = node.Node(4020)
         self._node.joinNetwork(knownNodes)
 
     def __str__(self):
         return "Application: [name] = " + self._name + " [number_of_nodes] = " + str(self.number_of_nodes)
         #" [list_of_nodes] = " + str(self.list_of_nodes)
+
+    def print_contacts(self):
+          print "app_node --> printcontacts"
+          self._node.printContacts()
+
 
     def addNode (self, node):
         self.list_of_nodes.append(node)
@@ -138,6 +143,12 @@ class Application (object):
         # and add a callback to fire it's deferred
         return self._queues[task_type].get().addCallback(task_func)
 
+    def launchApplication(self):
+        print "--> Launch Application : ", self._name
+        result = self._node.iterativeStore(self._name, self._ip_address)
+        print "called iterative store"
+        return result
+
     def run(self):
         # attempt to read from the web queue
         print "using the run method"
@@ -150,8 +161,36 @@ class Application (object):
         # ctr
         ctr = 0
 
+        from twisted.internet import reactor, task
+        thread = task.deferLater(reactor,5, self.print_contacts)
+        thread = task.deferLater(reactor,6, self.launchApplication)
         # then publish the name of the application that you've deployed
-        self._node.iterativeStore(self._name, self._ip_address)
+        #thread.addCallback(self.launchApplication)
+
+
+        from twisted.internet.protocol import Protocol, Factory
+        from twisted.internet import reactor
+        from twisted.internet.defer import Deferred
+        import cloudProtocol
+
+        d = Deferred()
+
+        factory = cloudProtocol.CloudClientFactory(d)
+        factory.protocol = cloudProtocol.CloudComms
+        factory.clients = []
+
+        reactor.listenTCP(64000, factory)
+
+        print "Cloud Comms server started"
+
+        #factory.protocol.message(factory.protocol,"Server's MEssage!")
+
+        reactor.run()
+
+
+        return d
+
+
 
         # simply loop forever over each queues
         #while(True):
@@ -172,61 +211,3 @@ class Application (object):
           #task_type += 1
           #task_type = task_type % 3
           #print "task_type = ", task_type
-
-
-class ApplicationNode (object):
-
-  """
-  This class represents an ApplicationNode which can be any type of process, except
-  Web because only the Application deployer can be the WebProcess as of now.
-  """
-
-  global id_count
-  id_count = 0
-
-  def __init__(self):
-
-      self._id = id_count + 1
-      self._process = ""
-      self._ip_address = "127.0.0.1"
-      self._port = 4023
-
-      # here is the logic to join the DHT, currently using an implementation of Kademlia
-      from entangled.kademlia import node
-
-      knownNodes = [("127.0.0.1", 4020)]
-
-      self._node = node.Node(self._port)
-      self._node.joinNetwork(knownNodes)
-
-
-  def __str__(self):
-      return "ApplicationNode: [id] = " + self._id + " [ip_address] = " + str(self._ip_address) + " [port] = " + str(self._port)
-
-
-  """
-  Contains the logic to join an active Application in the cloud.
-  """
-  def joinApplication(self, app_name):
-      result = self._node.iterativeFindValue(app_name)
-
-      result.addCallback(print_result)
-
-      return result
-
-
-  def print_result(self, app_name):
-      print "The result is... "
-
-      print self[app_name]
-
-
-if __name__ == '__main__':
-
-
-  # create a node object
-  app_node = ApplicationNode()
-  #app_node.joinApplication("appli")
-
-  from twisted.internet import reactor
-  reactor.run()
