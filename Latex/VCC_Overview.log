@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  19 NOV 2014 16:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  10 DEC 2014 12:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -548,27 +548,55 @@ Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \enit@inbox=\box41
 \enitdp@description=\count125
 )
-(./VCC_Overview.aux)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip52
+\bibsep=\skip53
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count126
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.0 (rcs-revision 1.7)
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2013/07/15 v3.0.0 (rcs-revision 1.9)
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryfit.code.tex
+File: tikzlibraryfit.code.tex 2013/07/12 v3.0.0 (rcs-revision 1.5)
+)
+\myframesep=\skip54
+\pgf@layerbox@background=\box42
+\pgf@layerboxsaved@background=\box43
+ (./VCC_Overview.aux
+
+LaTeX Warning: Label `cloud_sep_of_resp' multiply defined.
+
+
+LaTeX Warning: Label `cloud_sep_of_resp' multiply defined.
+
+)
 \openout1 = `VCC_Overview.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Try loading font information for U+msa on input line 19.
-
-(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Try loading font information for U+msa on input line 53.
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 19.
+LaTeX Font Info:    Try loading font information for U+msb on input line 53.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -609,91 +637,196 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 (/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count126
+\scratchcounter=\count127
 \scratchdimen=\dimen192
-\scratchbox=\box42
-\nofMPsegments=\count127
-\nofMParguments=\count128
+\scratchbox=\box44
+\nofMPsegments=\count128
+\nofMParguments=\count129
 \everyMPshowfont=\toks43
-\MPscratchCnt=\count129
+\MPscratchCnt=\count130
 \MPscratchDim=\dimen193
-\MPnumerator=\count130
-\makeMPintoPDFobject=\count131
+\MPnumerator=\count131
+\makeMPintoPDFobject=\count132
 \everyMPtoPDFconversion=\toks44
 ) ABD: EveryShipout initializing macros [1{/usr/local/texlive/2014/texmf-var/fo
 nts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 89--92
+
+Package natbib Warning: Citation `web20' on page 2 undefined on input line 110.
+
+
+
+Package natbib Warning: Citation `soa_cloud' on page 2 undefined on input line 
+129.
+
+
+Package natbib Warning: Citation `vaquero' on page 2 undefined on input line 12
+9.
+
+
+Package natbib Warning: Citation `ontology' on page 2 undefined on input line 1
+29.
+
+
+Package natbib Warning: Citation `panzieri' on page 2 undefined on input line 1
+29.
+
+
+Package natbib Warning: Citation `soa_cloud' on page 2 undefined on input line 
+130.
+
+
+Package natbib Warning: Citation `ontology' on page 2 undefined on input line 1
+30.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 138--141
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 92--95
+Underfull \hbox (badness 10000) in paragraph at lines 141--144
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 95--100
+Underfull \hbox (badness 10000) in paragraph at lines 144--149
+
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 149--152
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 100--103
+Underfull \hbox (badness 10000) in paragraph at lines 156--159
 
  []
 
+<c_ontology.png, id=18, 690.58pt x 487.8225pt>
+File: c_ontology.png Graphic file (type png)
+ <use c_ontology.png>
+Package pdftex.def Info: c_ontology.png used on input line 163.
+(pdftex.def)             Requested size: 355.65944pt x 251.2351pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 107--110
 
- []
+Package natbib Warning: Citation `ontology' on page 3 undefined on input line 1
+68.
 
-
-Underfull \vbox (badness 2790) has occurred while \output is active []
-
- [2]
-<cloud_sep_of_resp.jpg, id=18, 642.4pt x 381.425pt>
+[3 <./c_ontology.png>] <cloud_sep_of_resp.jpg, id=24, 642.4pt x 381.425pt>
 File: cloud_sep_of_resp.jpg Graphic file (type jpg)
 
 <use cloud_sep_of_resp.jpg>
-Package pdftex.def Info: cloud_sep_of_resp.jpg used on input line 130.
+Package pdftex.def Info: cloud_sep_of_resp.jpg used on input line 176.
 (pdftex.def)             Requested size: 355.65944pt x 211.17538pt.
- [3 <./cloud_sep_of_resp.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 164--167
+ [4 <./cloud_sep_of_resp.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 210--213
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 167--169
+Underfull \hbox (badness 10000) in paragraph at lines 213--215
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 169--172
+Underfull \hbox (badness 10000) in paragraph at lines 215--218
 
  []
 
-[4] [5] [6
+[5] <cathome_arch.jpg, id=31, 891.33pt x 415.5525pt>
+File: cathome_arch.jpg Graphic file (type jpg)
+ <use cathome_arch.jpg>
+Package pdftex.def Info: cathome_arch.jpg used on input line 298.
+(pdftex.def)             Requested size: 355.65944pt x 165.81224pt.
 
-] (./VCC_Overview.aux) ) 
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[6] [7 <./cathome_arch.jpg>] <p2pcs_arch.jpg, id=39, 612.2875pt x 412.54124pt>
+File: p2pcs_arch.jpg Graphic file (type jpg)
+
+<use p2pcs_arch.jpg>
+Package pdftex.def Info: p2pcs_arch.jpg used on input line 382.
+(pdftex.def)             Requested size: 355.65944pt x 239.63289pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[8] [9 <./p2pcs_arch.jpg>]
+
+Package natbib Warning: Citation `marzolla2011server' on page 10 undefined on i
+nput line 433.
+
+<p2pcs_vm_aggregation.png, id=46, 699.61375pt x 523.9575pt>
+File: p2pcs_vm_aggregation.png Graphic file (type png)
+
+<use p2pcs_vm_aggregation.png>
+Package pdftex.def Info: p2pcs_vm_aggregation.png used on input line 437.
+(pdftex.def)             Requested size: 355.65944pt x 266.36732pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Package natbib Warning: Citation `cgroups' on page 10 undefined on input line 4
+57.
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 471--474
+
+ []
+
+[11 <./p2pcs_vm_aggregation.png>] [12] (./VCC_Overview.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 52--56
+[]\OT1/cmr/m/n/10.95 Lewis, Brian (2011), ``Sep-a-ra-tion of re-spon-si-bil-i-t
+ies.'' Taken from
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--56
+\OT1/cmr/m/n/10.95 http://mythoughtsonit.com/2011/04/infrastructure-as-a-servic
+e-platform-as-a-service-
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [13
+
+])
+
+Package natbib Warning: There were undefined citations.
+
+[14] (./VCC_Overview.aux
+
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
+
+)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 13646 strings out of 493117
- 262647 string characters out of 6135433
- 306782 words of memory out of 5000000
- 16682 multiletter control sequences out of 15000+600000
- 9286 words of font info for 35 fonts, out of 8000000 for 9000
+ 14173 strings out of 493117
+ 270742 string characters out of 6135433
+ 319851 words of memory out of 5000000
+ 17171 multiletter control sequences out of 15000+600000
+ 9540 words of font info for 36 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 62i,9n,60p,439b,753s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2014/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmbx10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmcsc10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr9.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmti10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmti9.pfb>
-Output written on VCC_Overview.pdf (6 pages, 198045 bytes).
+ 62i,6n,57p,439b,690s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
+></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
+/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></us
+r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/l
+ocal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/
+local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on VCC_Overview.pdf (14 pages, 461752 bytes).
 PDF statistics:
- 55 PDF objects out of 1000 (max. 8388607)
- 38 compressed objects within 1 object stream
+ 89 PDF objects out of 1000 (max. 8388607)
+ 58 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 18 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 38 words of extra memory for PDF output out of 10000 (max. 10000000)
 

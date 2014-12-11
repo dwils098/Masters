@@ -1,0 +1,48 @@
+Collaborative Applications over peer-to-peer systems - Challenges and Solutions (2013)
+
+Defn.: Collaborative P2P systems is a P2P system that aggregates a group(s) of
+diverse resources to accomplish a greater task. Such collaboration involving
+diverse and application specific resources and dynamic QoS goals stress the
+current P2P architectures.
+
+Motivation of this paper: This paper attempts to formalize the P2P resource
+collaboration problem and reviews the current solutions. In order to provide a
+objective comparison framework they propose different Key Phases in resource
+collaboration.
+
+Key Phases:
+  (1) Advertise: Each node advertises its resources and their capabilities using
+  one or more Resource Specification (RS). A Resource is characterized by a set
+  attributes A and a typical RS would be:
+                RS = (a_1 = v_1; a_2 = v_2; ...; a_i = v_i)
+    where a_x has a value v_x that belongs to a given domain D, where D is typically
+    bounded and may represent continuous/discrete value or a category name.
+
+  (2) Discover: Nodes may send probing messages to proactively discover and build
+  a local repository of useful RSs, particularly if the specifications are
+  unspecified. It can be used to speed up queries and/or to keep track of inter-
+  resource relationship such as trust, bandwidth and latency.
+
+  (3) Select: Select a group(s) of resources that satisfies the given application
+  requirements. Application requirements are typically specified using queries
+  that list one or more attributes and range of attribute values.
+                Q = (Resources = m, a_1:[l_1,u_1], a_2:[l_2,u_2], ...)
+    where m represents the number of requested resources, l_i is the lower bound
+    and u_i is the upper bound w.r.t. requested attribute a_i.
+
+  (4) Match: Not all combination of resoures satisfying a resource query may be
+  suitable or capable of working together. It is important to take into account
+  how two resources relate and interact with each other, to ensure that they can
+  satisfy the resource and application constraints. This can be expressed in the
+  query by adding requirements w.r.t. to intergroup relationships.
+
+  (5) Bind: Once a subset of resources that match the application requirements
+  are identified, it is necessary to ensure that the selected resources are
+  available for use. Due to churn or failures, the resources found may not be
+  available by the time the application is ready to utilize them. The same
+  resource may also be under consideration by other applications. Hence, a
+  binding between the resources and the applications needs to be established.
+
+  (6) Use: Utilize the best subset
+  
+  (7)

@@ -1,4 +1,4 @@
-§Task oriented computing is very similar to pervasive computing and
+Task oriented computing is very similar to pervasive computing and
 part of a type of computing that is call ubiquitous computing. Task
 oriented computing consist as representing an application in terms of
 the relations and dependencies of the different compositional blocks

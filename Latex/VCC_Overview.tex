@@ -9,6 +9,40 @@
 \usepackage{epstopdf}
 \usepackage{tikz-qtree}
 \usepackage{enumitem}
+\usepackage{natbib}
+
+%---------------------- For System Architecture -------------------------------------------%
+\usetikzlibrary{positioning,calc,fit}
+
+\definecolor{mybluei}{RGB}{124,156,205}
+\definecolor{myblueii}{RGB}{73,121,193}
+\definecolor{mygreen}{RGB}{202,217,126}
+\definecolor{mypink}{RGB}{233,198,235}
+
+% this length is used to control the width of the light blue frame
+% for the upper part of the diagram
+\newlength\myframesep
+\setlength\myframesep{8pt}
+
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+
+\pgfkeys{
+  /tikz/node distance/.append code={
+    \pgfkeyssetvalue{/tikz/node distance value}{#1}
+  }
+}
+
+\newcommand\widernode[5][blueb]{
+  \node[
+    #1,
+    inner sep=0pt,
+    shift=($(#2.south)-(#2.north)$),
+    yshift=-\pgfkeysvalueof{/tikz/node distance value},
+    fit={(#2) (#3)},
+    label=center:{\sffamily\bfseries\color{white}#4}] (#5) {};
+}
+%---------------------- End of System Architecture ----------------------------------------%
 
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 
@@ -35,7 +69,7 @@
 	\subsection{The Genesis of Cloud Computing}
 	The embodiment of Cloud Computing, namely the Internet of Things, can actually be traced 
 	back to the vision of J.C.R. Licklider of the \emph{"Intergalactic Computer Network"} 
-	\cite{likelider}:
+	\cite{licklider}:
 	\begin{quote}
 		At this extreme, the problem is essentially the one discussed by science fiction 
 		writers: \emph{"how do you get communications started among totally uncorrelated 
@@ -46,7 +80,17 @@
 	providing an infrastructure that supports long-distance information processing. One of the most 
 	interesting idea of this memorandum is best conveyed in this following quote:
 	\begin{quote}
-		When the computer operated the programs for me, I suppose		that the activity took place in the computer at SDC, which		is where we have been assuming I was. However, I would just		as soon leave that on the level of inference. With a		sophisticated network-control system, I would not decide		whether to send the data and have them worked on by		programs somewhere else, or bring in programs and have them		work on my data. I have no great objection to making that		decision, for a while at any rate, but, in principle, it		seems better for the computer, or the network, somehow, to		do that.
+		When the computer operated the programs for me, I suppose
+		that the activity took place in the computer at SDC, which
+		is where we have been assuming I was. However, I would just
+		as soon leave that on the level of inference. With a
+		sophisticated network-control system, I would not decide
+		whether to send the data and have them worked on by
+		programs somewhere else, or bring in programs and have them
+		work on my data. I have no great objection to making that
+		decision, for a while at any rate, but, in principle, it
+		seems better for the computer, or the network, somehow, to
+		do that.
 	\end{quote}
 	This very quote reflects the concept of offloading, not only of information or data, but 
 	of computation as a service. In other words that in some case it would be better, given the 
@@ -58,19 +102,34 @@
 	allowing them to run simultaneously. Throughout the years, the concept of virtualization 
 	broaden and now it is possible to run a complete Operating System on the application level.
 	There is a direct correlation with the coming of the virtualization of hardware and the 
-	birth of the Cloud. At its very core the Cloud is use to describe the outsourcing of 
-	content, resources (computing and storage), and then providing it on a "as-a-service" 
-	basis or a pay-per-use model.
+	birth of the Cloud. 
+	
+	Cloud Computing is heavily influenced by the maturity of the Service-Oriented Architecture, 
+	and as we said earlier the evolution of the "Internet" with respect to the Web 2.0. That 
+	evolution of the Web from 1.0 to 2.0 is marked by the following characteristics, as cited in 
+	\cite{web20}: \emph{[...] services, not packaged software, with cost-effective scalability; 
+	[...] data-centric w.r.t. Big Data; [...] users as co-developers; [...] harnessing collective 
+	intelligence; [...] leveraging long-tail effect through customer self-service.} We can observe 
+	a trend, the concept (web) services (rather then serving only static content) but also how 
+	the user becomes the central point of the network as a platform. This entails that components 
+	of the Web are becoming interactive services that can be contracted to responds to the users 
+	needs, via real-time aggregation of information using Big Data.
+
+	Thus the Cloud is the natural evolution of utilizing the network as a platform, through a 
+	Service-Oriented Architecture with respect to the natural evolution and maturity of the 
+	Web entailing the definition and wide-spread usage of mature Web-Services homogeneous 
+	interface (API). \emph{Ipso Facto}, the adoption of pay-per-use business model for the 
+	offerings of Cloud Infrastructure.
 	
 	% Need to talk about its similarities between the SOA, distributed, grid computing...
 	%
-
 	\subsection{The Cloud}
-	
-	% Need to address the proposed ontology of the cloud w.r.t. to Toward a Unified Ontology of Cloud 
-	% Computing... (ontology.pdf)
-	%
-	
+	There have been numerous attempts to try to give a concise or approximate picture of the 
+	Cloud Computing paradigm, with respect to its implementation and its different business 
+	models. One can review the following, \cite{soa_cloud}, \cite{vaquero}, \cite{ontology},\cite{panzieri}; 
+	to name a few. We feel that \cite{nist}, \cite{soa_cloud} and \cite{ontology}, provides a 
+	clear enough picture to represent the current Cloud ecosystem and we will use them to do so.
+		
 	Cloud Computing infrastructure offers many advantages compared to the traditional on-premise 
 	infrastructure and it is why numerous companies consider outsourcing their IT infrastructure to 
 	an off-premise solution. Among the most important characteristics that this type of 
@@ -96,24 +155,21 @@
 	
 	In this modern day and age, among the major service providers of \emph{The Cloud} we can 
 	find the likes of Google, Microsoft and Amazon, to name a few. They provide their services 
-	as a three different service models:\\
+	as a 5 different service models:\\
 	
 	\begin{center}
 		% Cloud Services graphic (may need to represent it better...)
-		\begin{tikzpicture}
-		[every tree node/.style={align=center,minimum width=\widthof{Cloud Services}}]
-			\Tree 
- 				[ .{Cloud Services} 
-     				[ .{Software-as-a-Service\\SaaS} ]
-     				[ .{Platform-as-a-Service\\PaaS} ]
-     				[ .{Infrastructure-as-a-Service\\IaaS} ] ]
-		\end{tikzpicture}
+		\begin{figure}[h]
+			\includegraphics[width=125mm]{c_ontology.png}
+			\caption{Ontological Representation of Cloud\label{c_ontology}}
+		\end{figure}
 	\end{center}
 	
-	We will briefly explain each of these services in order to have a clearer picture of where 
-	this proposition resides in the grand scheme of the Cloud. In order to do so we will explore 
-	the question with respect of the Separation of Responsibilities, via a very concise graphical 
-	depiction \cite{Blewis}:
+	Based on \cite{ontology}, we can appreciate the categorization that emerged from their study of 
+	the major Cloud Service providers. We will briefly explain 3 of these categories in order to 
+	have a clearer picture of where this proposition resides in the grand scheme of the Cloud. In 
+	order to do so we will explore the question with respect of the Separation of Responsibilities, 
+	via a very concise graphical depiction \cite{Blewis}:
 	
 	\begin{center}
 		\begin{figure}[h]
@@ -163,10 +219,23 @@
 		distinct cloud infrastructure (which remain distinct to one another), but are combined using 
 		standardized or proprietary technologies to enable data and application portability.}
 	\end{enumerate}
-
+	
 	In the following subsection we will present a fifth deployment model, namely Volunteer Cloud 
-	Computing.
-
+	Computing. But in order to provide the proper context for its emergence, lets take a brief look
+	at Grid Computing and Volunteer Computing.
+	
+	\subsection{Grid Computing}
+	A very extensive literature exist on this fairly recent paradigm (cite proper sources), and we 
+	can define it as being a form of Distributed Computing, where each node is ask to perform a 
+	different task, and the aggregation of those nodes workload constitutes the workload that needs 
+	to be perform in order to achieve the goal of (computationally) realizing its mandate. A
+	
+	\subsection{Volunteer Computing}
+	The @Home paradigm or philosophy beautifully proves how this is realized, and let's look at a 
+	simple example the SETI@Home project.
+	
+	%mention panzieri for its representation of different cloud topologies.
+	
 	\subsection{Volunteer Cloud Computing}
 	The concept of Volunteer Cloud Computing is a fairly new one, since as we can see there is no 
 	mention of it whatsoever in \cite{nist}\cite{taxonomy}. It revolves around user-provided 
@@ -192,41 +261,276 @@
 	computing resources, to provide a seamless Cloud experience to consumers. Although they provide a 
 	very detail analysis of the majority of the factors present in a Cloud architecture, little to no 
 	information was released after the publication of a series of more specific papers on the 
-	subject, %\cite{cathome2}.
+	subject,.
+	%\cite{cathome2}.
+	Last paper that was published, \cite{cathome11}, was indicating that they were actively working on 
+	an implementation of their proposed framework, but that was back in 2012. Thus, we will elaborate 
+	on what are the characteristics of this project, and try to understand why it seemed to have stop 
+	or at least why the driving factors seems less violent as they once were.
 	
-	\subsection{P2P Cloud Architecture}
-	There was other notable effort conducted with respect to this concept, albeit presented under a 
-	different category one of Peer-to-peer Cloud Architecture. (cite italian paper)
+	\subsubsection{Preliminaries}
+	The complete bibliography of the project span over 11 papers, which a couple of them are re-publications 
+	in different proceedings, journal, and/or conferences. The first paper \citet{cathome}, presents 
+	an overview of the scope and motivation, which we already discussed, but also presents a tentative 
+	architecture of what a it could become. What is very interesting here is the presentation of the 
+	\emph{Issues, Challenges and Open Problems}, for which they define 6 aspects that will act a 
+	mind-map of the problems to tackle along the way, as well as a reminders of the realizability of 
+	some more open problems. Let's list them, as presented: 
+	\begin{enumerate}
+		\item{\textbf{Resources and Service Management:}}\emph{ Need for a mechanism that provides it.}
+		\item{\textbf{Frontend:}}\emph{ Provide users with high-level service-oriented POV of the Cloud 
+		Infrastructure.}
+		\item{\textbf{Security:}}\emph{ Cite different security concerns, not important for now.}
+		\item{\textbf{Reliability:}}\emph{ Need for redundancy, and recovery mechanisms.}
+		\item{\textbf{Interoperability:}}\emph{ Need to operate with other Cloud Infrastructures.}
+		\item{\textbf{Business Models:}}\emph{ Need for QoS/SLA management for commercial Clouds, and 
+		also with the open volunteer Cloud framework.}
+	\end{enumerate}
 	
+	\subsubsection{Architecture}
+	Next they present an architecture that responds to these challenges (or requirements) partially 
+	or fully, but in a abstract fashion. A picture is worth a 1000 words, thus let's not babble on this 
+	much longer and present it: 
+	
+	% need to find the picture of the architecture and replace this dummy jpg!!!!
+	\begin{center}
+		\begin{figure}[h]
+			\includegraphics[width=125mm]{cathome_arch.jpg}
+			\caption{Cloud@Home Architecture\label{cathome_arch}}
+		\end{figure}
+	\end{center}
+	
+	We can observe the three-tier approach to organize the architecture: \emph{Frontend Layer}, \emph{Virtual Layer} 
+	and the \emph{Physical Layer}.
+	\\
+	The \textbf{Frontend Layer} is the realization of the answer to the \emph{Frontend} challenge 
+	that they proposed in their preliminary discussion of the project. In order to achieve it, 
+	they propose to split this layer into two parts, namely the \emph{Server-side} and \emph{Light 
+	Client-side}. We can see that they adopt a client-server approach from the user's perspective, 
+	and thus we can extrapolate that there is a hint for a centralized mean to deal with \emph{
+	Resource Management} (as a matter of fact in a later paper, namely \cite{cathome6} and \cite{cathome9} 
+	they explicitly express the need of a centralized entity w.r.t. Resource Management). 
+	%% First difference, we attempt to propose a fully de-centralized cloud infrastructure....
+	\\
+	The \textbf{Virtual Layer} consist of a consequence to the \emph{Frontend} challenge, or in 
+	other words \emph{How to provide homogeneous perspective of a set of heterogeneous resources?} 
+	Their answer: through \textbf{Virtualization}, which enables us to discard the disparities within 
+	the different hardware offered by the participants. This virtualization will take place into what 
+	they call the \emph{Execution Service}, and the persistency of the data will be ensured by the \emph{
+	Storage Service}. This service is analogous of the GoogleFS (file system) \cite{gfs}, which, in a nutshell 
+	split files into \emph{chunks} of equal size, which are then distributed of different nodes called 
+	\emph{Chunk Servers} (and replicated to ensure reliable storage). Finally there is a \emph{Master 
+	Node} that catalogs all the meta-data about the data stored and simply indicate to the user which 
+	Chunk Server(s) possess the parts consisting the file requested, thus the user retrieve the chunks 
+	directly from the Chunk Server(s). This is a very naive simplification, but it serves to give an 
+	overview how such distributed file system can be implemented (in the context of this Cloud 
+	Infrastructure), and how from a user's perspective it resembles, as cited in \cite{cathome}:
+	\emph{a locally mounted remote disk}.
+	\\
+	The \textbf{Physical Layer} act as the provider of physical resources to the layer above, but 
+	also it encompasses all that is required to manage those resources (locally). Also they note that 
+	it is here that the negotiation mechanisms, w.r.t. users contribution and request of resources,
+	should reside and by trickling down from the precedent layers it's policies should be enforced.
+	\\
+	Finally this is a brief overview of the architecture that they propose for the Cloud@Home project, 
+	but nonetheless sufficient for now. It provides the mainlines to start an analysis, and if required 
+	we will in subsequent section to more specific aspect of this architecture as a mean of comparison 
+	to the architecture that we propose for our proof of concept.
+	
+	\subsubsection{Brief Analysis}
+	We've presented the biggest and most important project w.r.t. a large-scale Volunteer Cloud Computing 
+	Infrastructure, now let's recapitulate the important points of this project. First they proposed to 
+	a marriage between volunteer and commercially available resources, and on this basis develop a 
+	business model that would give the ability to any user to monetize their volunteered resources. 
+	Secondly, they proposed a 3-tier architecture that would answer the major challenges that they 
+	identified, such as: offering a frontend that enables users to have a uniform homogeneous view 
+	of the cloud infrastructure; segregate the resources according to two services (Execution/Storage);
+	and how to manage resources and services within a distributed infrastructure. Finally, we can observe 
+	that there is an intention of providing all types of delivery models: IaaS, PaaS, and SaaS.
+	
+	
+	\subsection{P2P Cloud System}
+	There was other notable effort conducted with respect to this concept, \cite{P2PCS}, albeit presented 
+	under a different category one of Peer-to-peer Cloud Architecture. The authors propose and describes 
+	the design and prototype implementation of a fully decentralized, P2P Cloud. They present the idea of 
+	Peer-to-Peer Cloud Computing, which consist of building a cloud out of independent resources that are 
+	opportunistically assembled. It could be built by assembling individual peers without any central 
+	monitoring or coordination component. It would provide on-demand scalability, access to computing and 
+	storage space with no single point of failure nor central management. Resources are added to the pool 
+	of resources simply by installing a software daemon on them. Their proposed implementation is 
+	advertised as a fully distributed IaaS Cloud infrastructure.
+	\\
+	They differentiate themselves from Cloud@Home by putting emphasis on the fact that it relies on centralized 
+	components, while allowing users to contribute, (theoretically it isn?t required). Also, their architecture 
+	is fully de-centralized and it doesn't require any central bookkeeping service. Finally, they note that there 
+	is no known implementation to date of the Cloud@Home proposal.
+	\\
+	The System Model they propose consists of nodes, and these nodes join by installing a software daemon. 
+	This software daemon presents two interfaces: a user interface and a node-to-node interface. The API 
+	that is exposed by the user interface is similar to conventional IaaS Cloud APIs (such as Amazon EC2 or S3). 
+	Nodes are managed by their respective owners in which case it offers no QoS guarantee. It goes for 
+	applications failures/crashes; the responsibility is reverted to the users (as would be the case for 
+	conventional IaaS Clouds).
+	
+	\subsubsection{Architecture}
+	In this section we will briefly present the architecture of the P2PCS, and briefly analyze its 
+	key features.
+	 
+		% need to find the picture of the architecture and replace this dummy jpg!!!!
+	\begin{center}
+		\begin{figure}[h]
+			\includegraphics[width=125mm]{p2pcs_arch.jpg}
+			\caption{P2P Cloud System Architecture\label{p2pcs_arch}}
+		\end{figure}
+	\end{center}
+	
+	We will briefly present each of the implemented modules (in gray).
+	First the \textbf{Peer Sampling Service (PSS)} aims at providing each node with a list of peers to exchange 
+	messages with. They achieve this by maintaining an unstructured overlay over the set of peers. It can 
+	keep the overlay connected also in presence of churn, by using a simple gossip protocol. It uses a 
+	BootStrapping Service to gather an initial set of nodes, although it not implemented yet; the current 
+	implementation parses a text file with the IP addresses of the nodes.
+	\\
+	Second is the \textbf{Slicing Service (SS)}, which is used to rank the nodes according to one or more attributes, 
+	it is also used to request slice of the whole cloud according to a user-defined criteria.
+	\\
+	Third is the \textbf{Aggregation Service (AS)}, which is used to compute global measures using local message 
+	exchanges. It allows each peer to know system-wide parameters without the need to access a global registry.
+	\\
+	Fourth is the \textbf{Monitoring System}, which is implemented on top of the AS, and it collects global system 
+	parameters and then provides them to the user. The MS API provides means to start and stop the display 
+	of run-time instance informations. In the current implementation it is used to display the topology of 
+	the network and the set of nodes of the slice a node belongs to.
+	\\
+	Fifth is the \textbf{T-Man component}, which is used to create a overlay network with a given topology, and it 
+	is based on gossip protocols.
+	\\
+	Sixth is the \textbf{Dispatcher}, which is responsible for handling the requests submitted by the user through 
+	the high level user interface and translate them into the appropriate low level gossip protocol 
+	commands which are sent to the other nodes.
+	\\
+	Final is the \textbf{Instance Management API}, which contains all the functionalities to create and terminate 
+	instances, and also to provide means to list which resources are held by this user.
+	\\
+	The implementation was done in Java, using the server-client paradigm.
+	
+	\subsubsection{Brief Analysis}
+	It seems to be a dead project, since no updates were done or any changes were made since 2011. This 
+	is one of the driving factors of this inquiry. Did support for this project stop out of disinterest 
+	by the author, or did its tragic fate is the result of the coming to realization that it is not a 
+	appropriate architecture for the Volunteer Cloud Infrastructure?
+	
+	The cornerstone of this architecture is the use of several gossip-based protocols to achieve such an 
+	infrastructure. We need thus to analyze this design decision, in order to assess its effectiveness 
+	with respect to particular problem that they are employed to solve.
+	
+	\subsubsection{Tentative....}
+	P2PCS - Gossip-based protocols for large dynamic networks
+
+	The Underlying incentive to use gossip-based protocol, in the context of V-Man 
+	is to maximize the optimality of the VM's distribution in large scale networked 
+	infrastructure, such as Clound infrastructure. The best visualization of this 
+	specific problem is the following, from \cite{marzolla2011server}:
+	
+	\begin{center}
+		\begin{figure}[h]
+			\includegraphics[width=125mm]{p2pcs_vm_aggregation.png}
+			\caption{VM's aggregation problem\label{p2pcs_vm}}
+		\end{figure}
+	\end{center}
+	
+	We can formally 
 	\section{Motivation}
-	The motivation behind this proposal, is to analyze where past effort have not been has successful
-	has expected. From this analysis, we wish derive a design that take on past the shortcomings of 
+	The motivation behind this proposal, is to analyze where past effort have not been as successful
+	as expected. From this analysis, we wish to derive a design that take on past the shortcomings of 
 	the previous attempts and venture to propose a viable implementation for this paradigm, which to 
 	this day seems lacking.
+	
+	\subsection{Service Model}
+	We need to situate where, within the already defined ontology of Cloud Computing, our effort will 
+	focus. This effort focuses on the Platform-as-a-Service model, conversely to \cite{cathome}
+	which attempted to propose a solution for all of the service models, and conversely to \cite{P2PCS} 
+	that provides a solution w.r.t. the Infrastructure-as-a-Service model.
+	\\
+	The driving factor to focus on a PaaS model, is that we intend to propose a solution that does not 
+	require any Hypervisor, and thus this solution will operate using Light Virtualization (in the form 
+	of containers and more precisely groups \cite{cgroups}). Rather than providing an infrastructure on 
+	which different VM can be deployed, we want to abstract this infrastructure by simply providing an 
+	environment on which code can be executed, regardless of the underlying infrastructure.
+	\\
+	Although this implementation of the proof of concept targets the PaaS model, we will show at the end 
+	that the underlying infrastructure that has been developed can be used in the context of SaaS also.
+	
+	\subsection{Applications}
+	The C@H project presents 
 	
 	\section{Contributions}
 	In this section we will present our novel contributions with respect to previous related work.
 	
+	\section{Overview of the Architecture}
+	In this section we presents a high-level overview of the architecture that we developed to achieve 
+	a fully de-centralized Volunteer Cloud Computing Infrastructure.
+	\\
+	\begin{center}
+		\begin{tikzpicture}[node distance=3pt,outer sep=0pt,
+		blueb/.style={
+		  draw=white,
+		  fill=mybluei,
+		  rounded corners,
+		  text width=2.5cm,
+		  font={\sffamily\bfseries\color{white}},
+		  align=center,
+		  text height=12pt,
+		  text depth=9pt},
+		greenb/.style={blueb,fill=mygreen},
+		]
+		\node[blueb] (RCP) {RCP main};
+		\node[blueb,right=of RCP] (Aut) {Authoring};
+		\node[blueb,right=of Aut] (Bro) {Browsing};
+		\node[blueb,below=of RCP] (RTe) {Rich Text};
+		\widernode{Aut}{Bro}{Library Managemet}{LMa}
+		\node[blueb,below=of RTe] (Com) {Common};
+		\node[blueb,fill=mypink,below=of Com] (Jti) {Jtidy};
+		\begin{pgfonlayer}{background}
+		\draw[blueb,draw=black,fill=mybluei!40] 
+		  ([xshift=-\myframesep,yshift=3\myframesep]current bounding box.north west) 
+		    rectangle 
+		  ([xshift=\myframesep,yshift=-\myframesep]current bounding box.south east);
+		\end{pgfonlayer}
+		\end{tikzpicture}
+	\end{center}
+	
+	\subsection{Network Layer}
+	The network layer is responsible in aggregating the different geo-disparate resources 
+	and managing them under \emph{churn}. Due to its highly dynamic nature, peer-to-peer 
+	infrastructures are required to tolerate frequent churn, and this can compromise their 
+	QoS unless the underlying networking structure is adequate (use of redundancy, replication, 
+	and other means to operate under failures). Churn rate, is used to represent the frequency 
+	of departure of participants with respect to the networking structure. Several options and 
+	techniques are available to deal with the characteristics of peer-to-peer networks, lets 
+	take a brief look at which one were adopted in the case of Cloud@Home and P2PCS; to help 
+	us make an educated decision on which technique is more appropriate in our case.
+	
+	\subsubsection{Cloud@Home}
+	They admit the need of a centralized entity to deal with the problems that arises from 
+	utilizing distributed resources, thus they do not elaborate on how to overcome these 
+	specific problems. Rather they justify the need for some centralized authority to guarantee 
+	a decent level of QoS, in which they define \emph{decent} through their business model. 
+	Finally, although they do use distributed heterogeneous resources, they compensate for 
+	their high volatility by proposing premium means to securing resources. 
+	
+	\subsubsection{P2PCS}
+	In the context of P2PCS, they point out the fact that they propose a \emph{fully de-centralized 
+	peer-to-peer infrastructure} compared to their counterpart (C@H). They claim to achieve this via 
+	several gossip-based protocols, and thus we must analyze their claims and justification to see 
+	if we should use a comparable approach in our architecture.
+	
+	First let's introduce a very elementary definition of a gossip-based protocol
 	
 	
-	
-\clearpage
-\begin{thebibliography}{9}
-	
-		\bibitem{likelider} Licklider, J.C.R. {\emph Memorandum For: Members and Affiliates of 
-		the Intergalactic Computer Network.} April 23 1963.
-		
-		\bibitem{nist} Mell, P., \& Grance, T. (2011). \emph{The NIST definition of cloud computing.}
-		
-		\bibitem{Blewis} Lewis, Brian. {\emph Taken from http://mythoughtsonit.com/2011/04/infrastructure-as-a-service-platform-as-a-service-software-as-a-servicetake-a-look-at-the-management-stack/} Consulted, November 19th 2014.
-		
-		\bibitem{taxonomy} Rimal, B. P., Choi, E., \& Lumb, I. (2009, August). \emph{A taxonomy and 
-		survey of cloud computing systems.} In INC, IMS and IDC, 2009. NCM'09. Fifth International 
-		Joint Conference on (pp. 44-51). Ieee.
-		
-		\bibitem{cathome} Cunsolo, V. D., Distefano, S., Puliafito, A., \& Scarpa, M. (2009). 
-		\emph{Cloud@ home: Bridging the gap between volunteer and cloud computing.} In Emerging 
-		Intelligent Computing Technology and Applications (pp. 423-432). Springer Berlin Heidelberg.
-\end{thebibliography}
+	\clearpage
+
+\bibliographystyle{te}
+\bibliography{bibliography}
 
 \end{document}  
