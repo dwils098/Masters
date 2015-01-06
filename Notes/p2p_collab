@@ -30,7 +30,7 @@ Key Phases:
     where m represents the number of requested resources, l_i is the lower bound
     and u_i is the upper bound w.r.t. requested attribute a_i.
 
-  (4) Match: Not all combination of resoures satisfying a resource query may be
+  (4) Match: Not all combination of resources satisfying a resource query may be
   suitable or capable of working together. It is important to take into account
   how two resources relate and interact with each other, to ensure that they can
   satisfy the resource and application constraints. This can be expressed in the
@@ -43,6 +43,61 @@ Key Phases:
   resource may also be under consideration by other applications. Hence, a
   binding between the resources and the applications needs to be established.
 
-  (6) Use: Utilize the best subset
-  
-  (7)
+  (6) Use: Utilize the best subset of available resources that satisfy application
+  requirements and constraints to carry out the application tasks for which
+  resources were acquired. Usage and interaction patterns are application dependent.
+
+  (7) Release: Release resources when application demand decreases, the task is
+  completed, or binding expires, whichever occurs first. Resource release patterns
+  are also application dependent. Application may release a resource completely,
+  (terminating the connection), or reduce its resource usage to allow collaboration
+  with other apps.
+
+Candidate Solution Requirements:
+  - Should efficiently advertise all the resources together with their current
+  state;
+  - Discover potentially useful resources;
+  - Select resources that satisfy application requirements;
+  - Match according to application and resource constraints;
+  - Bind resources and applications to ensure QoS guarantees;
+  - Need to be adaptive, Fault-Tolerant, robust, and should satisfy multiple
+  aspects of scalability: - query resolution latency,
+                          - number of messages,
+                          - size of resource index,
+                          - size of routing tables,
+                          - number of attributes.
+  - Incentives, trust, privacy and security as to be part of the phases.
+  - Implementations of these phases is structure dependent.
+
+State of the Art: P2P Architectures can be categorized as structured and unstructured
+overlays.
+
+They draw the differences between those two categories according to a characterization
+of the requirements.
+
+==================================================================================
+Unstructured P2P:
+==================================================================================
+  - Overlay construction => High flexibility
+  - Resources => Indexed locally (typically)
+  - Query Messages => Broadcast or random walk
+  - Content Location => Best effort
+  - Performance => Unpredictable
+  - Object Types => Mutable, with many complex attributes
+  - Overhead of Overlay Maintenance => Relatively Low
+  - Peer Churn & Failure => Supports High Failure rates.
+  - Applicable Environments => Small-scale or highly dynamic environments with
+                               (im)mutable objects (e.g.: mobile P2P).
+==================================================================================
+Structured P2P:
+==================================================================================
+  - Overlay construction => Low flexibility
+  - Resources => Indexed remotely in a DHT.
+  - Query Messages => Unicast
+  - Content Location => Guaranteed
+  - Performance => Predictable bounds
+  - Object Types => Immutable, with few simple attributes
+  - Overhead of Overlay Maintenance => Moderate
+  - Peer Churn & Failure => Supports Moderate Failure rates.
+  - Applicable Environments => Large-scale and relatively stable environments with
+                               (im)mutable objects (e.g.: desktop file sharing).

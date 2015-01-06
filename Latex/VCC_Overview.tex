@@ -8,8 +8,18 @@
 \usepackage{amssymb}
 \usepackage{epstopdf}
 \usepackage{tikz-qtree}
+\usepackage{graphicx}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{tikz}
+
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+
+\usepackage{hyperref}% http://ctan.org/pkg/hyperref                                                                                                                                                         
+\usepackage{cleveref}% http://ctan.org/pkg/cleveref                                                                                                                                                     \biboptions{}    
+
+\usetikzlibrary{arrows,automata}
 \usepackage{enumitem}
-\usepackage{natbib}
 
 %---------------------- For System Architecture -------------------------------------------%
 \usetikzlibrary{positioning,calc,fit}
@@ -424,111 +434,625 @@
 	infrastructure. We need thus to analyze this design decision, in order to assess its effectiveness 
 	with respect to particular problem that they are employed to solve.
 	
-	\subsubsection{Tentative....}
-	P2PCS - Gossip-based protocols for large dynamic networks
-
-	The Underlying incentive to use gossip-based protocol, in the context of V-Man 
-	is to maximize the optimality of the VM's distribution in large scale networked 
-	infrastructure, such as Clound infrastructure. The best visualization of this 
-	specific problem is the following, from \cite{marzolla2011server}:
-	
-	\begin{center}
-		\begin{figure}[h]
-			\includegraphics[width=125mm]{p2pcs_vm_aggregation.png}
-			\caption{VM's aggregation problem\label{p2pcs_vm}}
-		\end{figure}
-	\end{center}
-	
-	We can formally 
 	\section{Motivation}
-	The motivation behind this proposal, is to analyze where past effort have not been as successful
-	as expected. From this analysis, we wish to derive a design that take on past the shortcomings of 
-	the previous attempts and venture to propose a viable implementation for this paradigm, which to 
-	this day seems lacking.
-	
+	The motivation behind this proposal, is to analyze wherein lies (if any)
+        the shortcomings of previous attempts with respect to the problem at
+        hand. Thus we need to formally define the problem, then based on the
+        analysis of these two proposal we will attempt to apply our conclusions
+        in a proof of concept that demonstrate the feasibility of our
+        solution. In this section we will present a formal definition of the
+        problem we are addressing, followed by the justification of the
+        assumptions and the major design decisions.
+
+        \subsection{Problem Statement}
+        The specific nature of the problem of creating a Volunteer-based Cloud
+        Computing infrastructure, lies in the ability with which it aggregates,
+        presents, utilizes, and deals with the intrinsic properties of
+        collaborative distributed system. But we strictly focus on providing an
+        analysis of a fully de-centralized type of architecture, in this case
+        one that operates in an \emph{ad-hoc} manner, or using a peer-to-peer
+        topology.  \\ Second portion of this problem statement is relative to
+        the service model for which we choose to address, the
+        Platform-as-a-Service. It is beyond the scope of this thesis to provide
+        a full and comprehensive infrastructure that addresses the complete
+        spectrum of service models. But it is important to note, the problems
+        identified w.r.t. the challenges of collaborative distributed system are
+        the same regardless of the service model, that this thesis could serve
+        as a starting point towards the definition of this generalized Cloud
+        Infrastructure. \\ By focusing on PaaS we need to provide a usable and
+        unified API, in the likes of Google App Engine. Thus we need to discuss
+        the requirements of such an API and try to address most of them using
+        state of the art techniques and mechanisms. It is imperative to always
+        keep the fully de-centralized perspective when analyzing the different
+        parts of this problem. In other words how does the peer-to-peer topology
+        affects the requirements, design and implementation of this API, compared to a
+        centralized PaaS as provided by Google and Amazon. \\ Third portion of
+        this problem is to answer, based on our conclusions, how well is the
+        peer-to-peer topology, in the context of collaborative systems and
+        Volunteer Cloud Computing, fares against commercially available
+        solutions and what are the incentives (if any) to such a system.
+
 	\subsection{Service Model}
-	We need to situate where, within the already defined ontology of Cloud Computing, our effort will 
-	focus. This effort focuses on the Platform-as-a-Service model, conversely to \cite{cathome}
-	which attempted to propose a solution for all of the service models, and conversely to \cite{P2PCS} 
-	that provides a solution w.r.t. the Infrastructure-as-a-Service model.
-	\\
-	The driving factor to focus on a PaaS model, is that we intend to propose a solution that does not 
-	require any Hypervisor, and thus this solution will operate using Light Virtualization (in the form 
-	of containers and more precisely groups \cite{cgroups}). Rather than providing an infrastructure on 
-	which different VM can be deployed, we want to abstract this infrastructure by simply providing an 
-	environment on which code can be executed, regardless of the underlying infrastructure.
-	\\
-	Although this implementation of the proof of concept targets the PaaS model, we will show at the end 
-	that the underlying infrastructure that has been developed can be used in the context of SaaS also.
+	We need to situate where, within the already defined ontology of Cloud
+        Computing, our effort will focus. This effort focuses on the
+        Platform-as-a-Service model, conversely to \cite{cathome} which
+        attempted to propose a solution for all of the service models, and
+        conversely to \cite{P2PCS} that provides a solution w.r.t. the
+        Infrastructure-as-a-Service model.  \\ The driving factor to focus on a
+        PaaS model, is that we intend to propose a solution that does not
+        require any Hypervisor, and thus this solution will operate using Light
+        Virtualization (in the form of containers and more precisely groups
+        \cite{cgroups}). Rather than providing an infrastructure on which
+        different VM can be deployed, we want to abstract this infrastructure by
+        simply providing an environment on which code can be executed,
+        regardless of the underlying infrastructure.  \\ Although this
+        implementation of the proof of concept targets the PaaS model, we will
+        show at the end that the underlying infrastructure that has been
+        developed can be used in the context of SaaS also.
 	
 	\subsection{Applications}
 	The C@H project presents 
 	
 	\section{Contributions}
 	In this section we will present our novel contributions with respect to previous related work.
+
+        %--- May need to find a way to transition between these two
+        %--- sections, what follows is the breakdown of the different
+        %--- layers by analyzing the past effort, to culminate to the
+        %--- presentation of our architecture.
+
+	\section{Network Layer}
+        Upon our literary review we have found a framework that
+        focuses on identifying the challenges and characteristics of
+        collaborative applications over peer-to-peer systems
+        \cite{p2p_collab}. It proposes the following definition of a
+        collaborative system:
+        \begin{quote}
+          [...] a P2P system that aggregates a group(s) of diverse resources to
+          accomplish a greater task.
+        \end{quote}
+        It is important to point out the motivation of this paper is to
+        characterize and formalize the P2P resource collaboration problem and to
+        evaluate the current state of the art with respect to this
+        characterization. They identified 7 key phases that characterizes this
+        problem and we will present them briefly, for a more extensive
+        definition please see \cite{p2p_collab}:
+
+        \begin{enumerate}
+          \item \textbf{Advertise}: Each node advertises its resources and their
+            capabilities using one or more formal specification (Resource
+            Specification) over a defined set of attributes.
+          \item \textbf{Discover}: Nodes may use a mechanism to discover and
+            keep track of the useful specification advertisements from the
+            other participating nodes. This enables to accelerate the querying
+            mechanisms but also to preserve inter-resource relationship
+            information.
+          \item \textbf{Select}: Provide mechanisms for an user to select a group(s)
+            of resources, that satisfies a formal specification of his
+            requirements, which contains attributes and ranges of acceptable
+            values for these attributes.
+          \item \textbf{Match}: Provide mechanisms to be able to formally
+            specify inter-resource relationship requirements, to ensure that
+            they satisfy the resource and application constraints, in the query.
+          \item \textbf{Bind}: Provide a binding mechanism between the resources
+            and the applications, to prevent that two application select the
+            same resources. But also to cope with the dynamic nature of p2p,
+            since a node may not be available at the time of use but was at the
+            time of selection.
+          \item \textbf{Use}: Utilize the best subset of available resources,
+            from the resources acquired, to execute the application (and all its
+            tasks) while respecting the constraints of both application and
+            resources.
+          \item \textbf{Release}: Provide a mechanism that allows to release
+            resources in relation to the application demand, and/or the
+            contractual binding (if time-sensitive). That mechanism can also
+            provide means to partially release a resource to enable it
+            collaborate with other applications.
+        \end{enumerate}
+        
+        %--- need a quick transitional point (at least a reflection on
+        %--- the qualitative properties of this framework). Need to express this caveat by
+        %--- no means are any of these phases mutually exclusive, and the authors
+        %--- acknowledge it. Some solution may group several of them into on component,
+        %--- but still they represent the minimal set of IDEAL requirements for efficient
+        %--- collaborative systems. We also need to point out the fact that they consider
+        %--- two types of constraints, user-provided resource constraints and
+        %--- application-centric constraints. 
+
+        A fundamental concept of peer-to-peer systems, is the
+        \textbf{Overlay Network}. It represents the superposition of
+        two networks, one of which could be a physical network with
+        physical connections, and the other a virtual
+        network. Therefore, the overlay network represents a logical
+        (or virtual) connection between nodes, and this enables to
+        represent the absolute path between two nodes, in terms of the
+        logical connection or virtual connection. As an example, if
+        \textbf{Node A} is indirectly connected to \textbf{Node B} in
+        the physical network architecture:
+
+        \begin{center}
+                \begin{tikzpicture}[point/.style={circle,inner sep=0pt,minimum
+                      size=2pt,fill=red}, skip loop/.style={to path={-- ++(0,#1)
+                        -| (\tikztotarget)}}] 
+                  
+                  \matrix[row sep=5mm,column sep=2mm] {
+                    
+                    % First row: 
+                    \node (A) [state] {A}; 
+                    & & \node (B) [state] {B};
+                    & & \node (C) [state] {C};
+                    & & \node (D) [state] {D};
+                    \\
+                    
+                    %Second row                                                                                                                                                                 
+                    & & &\node (A2) [state] {A};
+                    & &\node (D2) [state] {D};
+                    & & &\\ };
+
+                        \path  [->]  (A) edge node {} (B);
+                        \path  [->]  (B) edge node {} (C);
+                        \path  [->]  (C) edge node {} (D);
+                        \path  [->]  (A2) edge node {} (D2);
+                \end{tikzpicture}
+        \end{center}
+
+
+        A indirect connection between two nodes can be expressed in a overlay network as
+        the direct connection between the two nodes, in this case A and D.
+
+        Thus it simplifies and abstracts the specificities of the underlying network
+        structure. One the Overlay Network protocols, based on TCP/IP is Distributed Hash
+        Tables (DHTs), we will come back to this after the analysis.
+
+        In the following subsection we will present an analysis of the networking
+        capabilities of the two solutions in the scope of the proposed requirements.
 	
-	\section{Overview of the Architecture}
-	In this section we presents a high-level overview of the architecture that we developed to achieve 
-	a fully de-centralized Volunteer Cloud Computing Infrastructure.
-	\\
-	\begin{center}
-		\begin{tikzpicture}[node distance=3pt,outer sep=0pt,
-		blueb/.style={
-		  draw=white,
-		  fill=mybluei,
-		  rounded corners,
-		  text width=2.5cm,
-		  font={\sffamily\bfseries\color{white}},
-		  align=center,
-		  text height=12pt,
-		  text depth=9pt},
-		greenb/.style={blueb,fill=mygreen},
-		]
-		\node[blueb] (RCP) {RCP main};
-		\node[blueb,right=of RCP] (Aut) {Authoring};
-		\node[blueb,right=of Aut] (Bro) {Browsing};
-		\node[blueb,below=of RCP] (RTe) {Rich Text};
-		\widernode{Aut}{Bro}{Library Managemet}{LMa}
-		\node[blueb,below=of RTe] (Com) {Common};
-		\node[blueb,fill=mypink,below=of Com] (Jti) {Jtidy};
-		\begin{pgfonlayer}{background}
-		\draw[blueb,draw=black,fill=mybluei!40] 
-		  ([xshift=-\myframesep,yshift=3\myframesep]current bounding box.north west) 
-		    rectangle 
-		  ([xshift=\myframesep,yshift=-\myframesep]current bounding box.south east);
-		\end{pgfonlayer}
-		\end{tikzpicture}
-	\end{center}
-	
-	\subsection{Network Layer}
-	The network layer is responsible in aggregating the different geo-disparate resources 
-	and managing them under \emph{churn}. Due to its highly dynamic nature, peer-to-peer 
-	infrastructures are required to tolerate frequent churn, and this can compromise their 
-	QoS unless the underlying networking structure is adequate (use of redundancy, replication, 
-	and other means to operate under failures). Churn rate, is used to represent the frequency 
-	of departure of participants with respect to the networking structure. Several options and 
-	techniques are available to deal with the characteristics of peer-to-peer networks, lets 
-	take a brief look at which one were adopted in the case of Cloud@Home and P2PCS; to help 
-	us make an educated decision on which technique is more appropriate in our case.
-	
-	\subsubsection{Cloud@Home}
-	They admit the need of a centralized entity to deal with the problems that arises from 
-	utilizing distributed resources, thus they do not elaborate on how to overcome these 
-	specific problems. Rather they justify the need for some centralized authority to guarantee 
-	a decent level of QoS, in which they define \emph{decent} through their business model. 
-	Finally, although they do use distributed heterogeneous resources, they compensate for 
-	their high volatility by proposing premium means to securing resources. 
-	
-	\subsubsection{P2PCS}
-	In the context of P2PCS, they point out the fact that they propose a \emph{fully de-centralized 
-	peer-to-peer infrastructure} compared to their counterpart (C@H). They claim to achieve this via 
-	several gossip-based protocols, and thus we must analyze their claims and justification to see 
-	if we should use a comparable approach in our architecture.
-	
-	First let's introduce a very elementary definition of a gossip-based protocol
-	
-	
-	\clearpage
+        \subsection{P2PCS}
+        The authors of this solution propose a \emph{fully de-centralized peer-to-peer
+          infrastructure}, and we will try to identify the different key phases proposed
+        in the framework although we need to consider the author's caveat about mutual
+        exclusivity of the key phases.  
+        
+        \\ Phase (1) and (2) {Advertise and Discover} are coupled together in the Peer
+        Sampling Service. But are not exhaustively implemented, by this we underline the
+        fact that they provide no mechanism to advertise the resources that a node offers
+        to the network explicitly. Either using formal means, as proposed in
+        \cite{p2p_collab}, or any other means, rather the PSS simply makes a node presence
+        known to the other nodes via a simple gossip-protocol. This protocol grants a node
+        with list of \emph{k} neighboring nodes, it consist of a \emph{local view} that
+        represent the connections to this node \emph{\textbf{since}} the last message
+        exchange (they refer to this concept of performing an exchange of message as a
+        cycle) or cycle. Finally it provides a randomly structured graph, which is shown
+        to stabilize under considerable amount of churn within a very short amount of
+        cycles even with very pessimistic assumptions and no parameter
+        tuning \cite{pss}.
+
+        \\ Phase (3) {Select} is accomplished by the Slicing Service, although they admit
+        that no implementation is provided at the moment of the writing of this
+        paper. They based their design decision on the following paper
+        \cite{jelasity2006ordered}, which presents a very clever algorithm. The problem
+        that this algorithm attempts to solve, is referred as \emph{the ordered slicing
+          problem}, which can be define as follows: \emph{generate a partitioning of nodes
+        in a graph that centric to a given metric}. In this specific case, the graph
+        represents the overlay network and the metric represents a desired property
+        characterizing the application or resources constraints. The authors of
+        \cite{jelasity2006ordered} assert that this algorithm is easily generalizable, and
+        could be extend to deal with overlapping partitions (multi-attributes
+        query). Finally, for analytical purposes it would have been interesting to see how
+        the implementation of this algorithm w.r.t. multiple attributes would have behave
+        with the complexity of the QoS that are necessary to a collaborative volunteer
+        cloud infrastructure, rather than simply implementing it with a unique metric (the
+        number of desired nodes). 
+
+        %--- Need to review the 2014 multi-dimensional paper to disprove the ability of
+        %--- querying multi-attribute using this specific gossip-based protocol.
+        
+        Phase (4) {Match} is suspected to be realized, if ever, by the SS by a further
+        specification of the query, but this is not clear within the slicing algorithm
+        if it would be able to consider the inter-relations of the nodes in the slices,
+        additionally to the set of queried attributes... 
+
+        Phase (5) {Bind} responsibility is accounted by the T-Man gossip-based protocol to
+        build overlay networks with a given topology. It is accomplished by creating a
+        distinct ring overlay of all the peers contained in a specific slice, 1 ring per
+        slice. Thus slices are mutually exclusive. From this perspective, it seems to
+        enforce a good binding policy. Although the question of concurrency, in the context
+        of initially binding the resources to an application rather than another that
+        requests the same resources, is completely left-out. It is a crucial question,
+        since the slices are generated with respect to a metric (composite or unique)
+        which ensures the application's constraints w.r.t. to the QoS. We can quickly
+        observe the fact that the slices may become inadequate if one of (major
+        contributing) resource are lost in a concurrent binding attempt between two
+        \emph{"competing"} applications. Finally, we can conclude that by implementing the
+        slicing mechanism using a single attribute, namely the number of requested nodes,
+        there is no eminent concurrent binding problem because that it would only occur
+        in a very specific case. It would manifest in the form of two or more concurrent
+        requests for which the total requested number of node combined, would exceed the
+        total number of available nodes, but the number of requested node per request
+        would be inferior to the total available nodes. The problem ultimately becomes
+        which application is entitled to have their request fulfilled, with no a priori
+        any ranking mechanism (or reputation mechanism) to draw a fair conclusion?
+
+        Phase (6) {Use} can be interpreted as being manifested by the Dispatcher, which
+        translates the higher-lever API requests into the appropriate low-level gossip
+        protocol commands which are sent to the other nodes. (Not fully clear as to how it
+        manages to accomplish that???)
+
+        Phase (7) {Release} would be accomplished by the Instance Management API, that
+        grant the ability to the user to control the instances it harvests. BUT they
+        express no means of automating the scaling of the resources it possess to respond
+        to the increase of demand or the decrease of the demand. We could extrapolate that
+        the Monitoring System in conjunction with the Aggregation Service could provide
+        enough information to implement such functionality, but nonetheless they fail to
+        make the point.
+
+        \subsection{Cloud@Home}
+        A majority of phases are somehow accomplished by the Management Subsystem. In
+        \cite{cunsolo2010open}, there is two important passages that reflect their
+        ideology with respect to the design adopted:
+
+        \begin{quote}
+          In order to enroll and manage the distributed resources and services of a Cloud,
+          providing a unique point of access for them, it is necessary to adopt a
+          centralized approach that is implemented by the management subsystem.
+        \end{quote}
+
+        \begin{quote}
+          The management subsystem is implemented as a centralized subsystem managing the
+          whole infrastructure. Although this solution introduces a single point of
+          failure into the architecture, this is the only possible way to manage resource
+          QoS, SLA, dynamic provisioning, and monitoring because there has to be a
+          subsystem that aggregates information and has to know the condition of the whole
+          infrastructure, there needs to be a coordinator. Reliability, availability, and
+          fault-tolerance issues can be achieved by replicating the management subsystem
+          and its components, adequately managing the consistency of redundant replicas.
+        \end{quote}
+
+        \\ In the first quote they assert the need of a centralized entity to accomplish
+        the three key phases: Advertise, Discover, Select, and arguably Match/Bind. This
+        is where we want to verify this kind of assertion, since the previous attempt
+        P2PCS, seems to point in the opposite direction.  
+        
+        \\ The following quote is interesting because the admit the creation of a single
+        point of failure, by consequence of this design decision. Furthermore, they assert
+        that any other type of infrastructure (by design) is inherently inadequate to
+        manage resource QoS, Service-Level Agreements, dynamic provisioning, and
+        monitoring. Their validating argument is the need of an aggregating service that
+        possesses knowledge of the state of the infrastructure as a whole, which is
+        debatable and definitely needs justification for the introduction of a centralized
+        entity, in the context of peer-to-peer systems. Thus, one can deduce from this
+        line of thought that Cloud@Home argue the need for a centralized entity as a
+        solution to these key phases: Advertise, Discover, Select, Match (partially) and
+        Release.
+        
+        The Management Subsystem is given the task to collect the user's request to
+        assimilate and provide them in the proper format to the corresponding
+        subsystem. The Resource Subsystem is responsible for the resource management, thus
+        it receive a translated request from the Management Subsystem and it is
+        responsible to look through its collection of resources and find the most
+        appropriate selection of resources that satisfies this request. It operates in
+        hierarchical fashion using Schedulers and cluster-type groupings, with a very
+        elaborate load-balancing policy that is extensively described in
+        \cite{cathome9}. Finally, one can conclude that the Resource Subsystem is
+        responsible for the following phases: Match (partially), Bind, and Use.
+
+        \subsection{Musings}
+        From these analyses we can draw some conclusions, but more importantly lay out the
+        different point of views that we need to address within our own architecture. The
+        first point of view that seem to emanate from the P2PCS project,
+        \emph{gossip-based protocols are centric to this peer-to-peer collaborative
+          system}, which give rise to the following question:
+        
+        \\ \emph{Are gossip-based protocols the most adequate technology to fashion a
+          collaborative peer-to-peer infrastructure?}
+
+        \\ The second point of view that is of interest, originates from the Cloud@Home
+        project, and give root to this line of interrogation:
+        
+        \\ \emph{To which extent is the need for centralization, with respect to
+          management of QoS and SLA, dynamic provisioning and monitoring; is accurate in
+          the context of the collaborative peer-to-peer infrastructure? And if provably
+          accurate, is the design for P2PCS fundamentally flawed, do we need to divert our
+          attention to more sensible solution?}  
+
+        \\ These interrogations will be the driving inquiry factors to the elaboration of
+        our architecture, which we will attempt to resolve before presenting it. Thus, the
+        following subsections will deal with providing a rationalization of these line of
+        thoughts.
+
+        \subsection{Gossip-based protocols, what is the chat about?}
+        Peer-to-peer systems implements an overlay network, which can be categorized into
+        two broad categories, with respect to their structure and are defined as follows
+        \cite{lua2005survey}:
+        \begin{enumerate}
+          
+          \item \textbf{Unstructured Networks}:
+            \begin{itemize}
+              \item Peer organization results in a random graph, which is in a flat or
+                hierarchical topology.
+              \item Querying is generally done using flooding or random walks.
+              \item Locality is not preserved relatively to the topology and the data.
+              \item Supports complex queries.
+              \item Non-deterministic queries.
+            \end{itemize}
+          \item \textbf{Structured Networks}:
+            \begin{itemize}
+              \item Peer organization results in a structured graph, consisting of
+                dividing the responsibility of the key space among the peers.
+              \item Keys are mapped to a unique live peer, and are assigned to data
+                objects via different means, hashing being the most popular.
+              \item Locality is generally preserved.
+              \item Provides efficient mechanism to query data objects using keys, in the
+                order of $O(log n)$.
+              \item Does not support complex queries.
+              \item Queries are deterministic.
+            \end{itemize}
+        \end{enumerate}
+        Gossip-based protocols, or epidemic protocols, falls generally into the
+        Unstructured Networks category, with the exceptions of gossip-based protocols like
+        T-Man which focuses on generating a structured overlay network
+        \cite{jelasity2009t}. First practical representation of epidemic algorithms in the
+        context of computer science is attributable to \cite{demers1987epidemic}. Since
+        then, the gossip/epidemic protocols have had several praises and criticism, which
+        led to some skepticism w.r.t. it's relevance. Lately a revival of the idea of
+        gossiping protocols emerged, mainly because of the extensive body of work done by
+        Mark Jelasity from the University of Szeged, in Hungary; with respect to its
+        applicability in large-scale distributed networks. A gossiping framework was
+        defined, in \cite{riviere2011gossip}, to circumscribe and represent the various
+        gossiping protocols. Where each node in the system maintains a partial local view
+        of the system, where the partiality is intrinsic to the system size. Interactions
+        within the system consist of pair-wise periodic exchanges of information among
+        randomly selected peers, resulting is eventual correctness of each partial
+        view. The strength of this approach lies in property to achieve local
+        convergence, as driving factor for the nodes decisions, will result to global (or
+        system-wide) convergence. More specifically it provides, as emergent properties of
+        the quantity of interactions involved, a self-stabilization, self-healing and
+        self-configuration characteristics. All of these properties are dependent of
+        convergence criterion, be it local or global.
+
+        \\
+        Epidemic protocols, promises a lot of very interesting properties, lets refer back
+        to \cite{p2p_collab} to make sense of these properties in the collaborative
+        peer-to-peer system context. They make several interesting observations about
+        Unstructured Networks compared to Structured Networks, here's a list of those that
+        we did not already addressed:
+        \begin{enumerate}
+          \item \textbf{Overhead Maintenance}: is relatively low in the case of
+            Unstructured Networks, and moderate in the case of Structured Networks.
+          \item \textbf{Failure/Churn Resistance}: is high in the case of Unstructured
+            Networks, and moderate in the case of Structured Networks.
+        \end{enumerate}
+        Thus given the previous observations, and the present one, we could argue the
+        following: Unstructured Networks provides a mean achieve connectivity in highly
+        dynamic environment, thus are robust and resilient to failures. Also they provide
+        querying mechanism that support complex queries, but answer those queries in a
+        non-deterministic manner or as it is often referred as best-effort. Finally, it
+        has unpredictable boundaries on time complexity, thus it is requires to define a
+        maximum on the number of hops, which corresponds to the number of nodes traversed
+        during the walk through the graph and acts as a bound on time complexity. The
+        majority of Unstructured Networks are implemented via gossiping-protocols,
+        although it was proven a very fast and efficient mean to construct overlay
+        topologies that are structured \cite{jelasity2009t}. Structured Networks, provide
+        a structural organization of the nodes and the data (in the case of DHTs) which
+        generally preserves locality. It provides a efficient querying mechanism, which is
+        advertised to operate within a $O(log n)$ time complexity (although
+        \cite{bandara2012evaluation} showed that this complexity was theoretical, and that
+        in practice it is more in the order of $O(n)$).
+        
+        \subsection{To structure or not to, that is the question}
+        Two of the primary distinctive advantages to using Unstructured Network over
+        Structured Network, are summarized as follows: The ability to generate complex
+        multi-attribute queries and the resilience over very high presence of churn. Thus,
+        we need to understand to which extent these are required in the context of
+        Volunteer Cloud Computing. 
+        
+        \\ If we refer to the current Volunteer Computing efforts, such as the @HOME
+        paradigm, we quickly realize that they use a centralized infrastructure and it has
+        some advantages. One of those is to keep a centralized repository of the host,
+        which provide enough contextual information to quickly restart a failing
+        host. Also, and most importantly this does not require, from the host(s)
+        perspective to preserve any contextual knowledge or structural knowledge of the
+        other nodes from a graph's perspective. This reduce the problem, for the host, to
+        simply reconnect to the centralized node (thus it is only required to know one IP
+        address (of the server)).And we can then notice that Cloud@Home does emulate this
+        notion of a central managing entity, thus it remains true to the @Home
+        paradigm. In our context, since we are aiming at a fully de-centralized
+        architecture, we need to take into account the structure of the network since we
+        do not wish to introduce a centralized entity. This entails the consideration of
+        the dynamism of the underlying infrastructure in the context of collaborative
+        applications, as was the case with P2PCS. 
+
+        \\ Given the analysis of the P2PCS, which leads us to believe that the dynamism of
+        the network with respect to peer to peer systems, unstructured networks appears
+        the most adequate. Adequacy, in this case, can really be defined given the two
+        advantages presented with unstructured networks. First, it is more resilient in
+        presence of very high churn rate. But can we sacrifice resilience and achieve an
+        acceptable network layer architecture, that satisfies complex multi-attribute
+        queries? Therefore we need to draw the line, and identify typical queries that are
+        necessary in the context of volunteer cloud computing. Because, it is important to
+        distinguish between general collaborative system requirements, and our specific
+        requirements for our application. It can reformulated as the following: \emph{What
+          are the requirements for slicing w.r.t. Volunteer Cloud Computing?} or
+        \emph{What are the minimal requirements for the specification of the resources,
+          that will provide a adequate domain for queries in the context of VCC?}
+
+        \\ Slicing is a concept that applies to distributed systems and is concern with
+        the partition of a large set of node in a given graph with respect to attributes
+        (metrics) that are local to the nodes. Thus, complex multi-attribute queries can
+        be represented as a slicing problem for which given a set of attributes (or
+        metrics), with fixed values or ranges of values, what is the optimal partition of
+        nodes that correspond to this query (with respect to the set of requirements that
+        are formally defined by this set of attributes). As stated above, gossip-based
+        protocols provide means to execute complex multi-attribute queries, as shown in
+        \cite{pasquet2014autonomous}. This favor the use of Unstructured Networks, but
+        simple multi-attributes queries can be performed on Structured Networks given that
+        they use a proper structure, as identified in \cite{p2p_collab}. They show three
+        very simplistic version of a ring-structured overlay:
+        \begin{enumarate}
+          \item Separate overlays for each attribute, then depending on the query: choose
+            the appropriate overlay and resolve it. Although, in this case the query are
+            single-attribute, it provides means to query different attributes
+            independently.
+          \item Partition the overlay in such a way that it distributes the nodes relative
+            to the pre-defined attributes. Thus, nodes that possess similar attribute
+            values will be closer on the ring. It provides a mean to resolve a
+            multi-attribute query as multiple sub-queries.
+          \item Overlay with overlapped attribute space, such that the position of a node
+            is dictated by the juxtaposition of its attribute values in the
+            key-space. This does not allow to resolve multi-attribute queries directly,
+            rather it allows to resolve single-attribute queries that are the product of
+            multi-attributes juxtaposition.
+        \end{enumerate}
+        The comparison that they have done shows that current Structured Network solutions
+        are analogous to a tablecloth that is too short. No matter which way you pull on
+        it, which perspective you take to provide a solution, it will uncover another part
+        of the table, thus providing a solution to a specific problem will in turn shed
+        light onto other problems with respect to peer-to-peer systems. One concrete
+        example that they provide is one of MURK \cite{ganesan2004one}, which propose to
+        model the attribute space as a d-dimensional torus, where each dimension is
+        representative of specific type of attribute. To deal with the sparsity of the 
+        attributes composing real-world queries, since in the initial proposition this
+        results in multiple dimensions that are ignored (or irrelevant), they showed that
+        it could be mapped to a Chord ring and thus reducing the
+        dimensionality. Nonetheless, it results in a lost of locality, given a large
+        dimensionality, and the query resolution cost is now bounded by $O(n)$ with the
+        newly introduced overhead.
+        
+        \\ We obviously see that it is impractical to use a Structured Network, especially
+        a ring-based one, to solve the Slicing Problem that is present in distributed
+        systems. Also, that an Unstructured Network lacks the ability to resolve queries
+        in a deterministic manner but provides a decent solution to the Slicing Problem
+        and is more resilient to churn. This is an open problem in distributed systems
+        even though it seems to point towards Gossip-Based Protocol as being the solution.
+        % point out some limitations of Gossip Based protocols... from this paper: The
+        % promise, and limitations, of gossip protocols For this thesis, and due to its
+        scope, we intend only to underline it and present some of the current
+        trends. Thus, to produce a workable proof of concept, we require determinism and
+        single-attribute query will suffice, we will use a DHT named Kademlia. In the
+        following subsection we will quickly present Kademlia, simply to provide a more
+        technical understanding of our Network Layer.
+
+        \subsection{Kademlia}
+        Proposed in 2002 \cite{maymounkov2002kademlia}, Kademlia is a Distributed Hash
+        Table that was designed for peer-to-peer networks. In this DHT, the nodes are
+        assigned 160-bit identifiers, producing a key space of $2^160$, and its lookup
+        algorithm uses a XOR metric topology to locate the nodes in a logarithmic time
+        complexity. More specifically, since the keys and the node ID's are of the same
+        length and type, using a simple exclusive-OR between the two results in an integer
+        representing the distance of the key (for which we are searching) and the current
+        node. Also, as a consequence of using such a metric for distance, three properties
+        emerges:
+        \begin{enumerate}
+          \item \textbf{Triangular Inequality:} given node: A,B,C,  $dist(A,B) \leq dist(A,C) + dist(C,B)$
+          \item \textbf{Symmetric:} $dist(A,B)=dist(B,A)$
+          \item \textbf{Distance from/between itself:} $dist(A,A)=0$
+        \end{enumerate}
+        It was shown by the creators, that each lookup iteration reduces the distance from
+        the key (for which we are searching) by one bit, and thus a search for a key among
+        $2^n$ nodes ranges from 1 to $n$ lookup iterations (best case to worst
+        case). Thus, given it simplicity, its determinism and its popularity (\emph{being
+          used by eMule community as a successor to their previous network infrastructure,
+          also by BitTorrent, Osiris SPS, and Gnutella to name a few)}; we decided that it
+        would make an ideal candidate for our proof of concept.
+
+        \section{Virtual Layer}
+        In this section we will describe the next layer in our infrastructure, the Virtual
+        Layer. Its responsibility is to provide means to make resources homogeneous to the
+        end user. By this we mean that it is responsible to provide a level of abstraction
+        from the specificities of each physical machine (resources). If we quickly review
+        how this is accomplish in Cloud@Home, we notice that they propose using Virtual
+        Machines and Hypervisors to manage them. We can rationalize this idea since they
+        intend to offer a full-fledged Cloud Infrastructure covering the three major
+        services models, and to make it efficient it is necessary to be able to treat each
+        machine (or contributor) as one that can "spin" a VM (whatever it may be). On the
+        other hand, P2PCS took the same perspective, but they are only offering IaaS,
+        rather than the three service models. And there are some advantages in doing so,
+        first it removes the difficulty of deploying on different architectures, since by
+        using this type of virtualization it resides on the application-level. Also it
+        provides the ability to be OS or platform agnostic, because on a Windows machine,
+        it is possible to run a VM with Linux as an OS, and vice-versa. We propose to use
+        a different type of virtualization, namely Light-Virtualization.
+        
+        \subsection{Light Virtualization}
+        Light Virtualization, also referred to as \emph{Containers}, comes in different
+        flavors, such as LXC, Solaris Containers, OpenVZ, and FreeBSD Jails, the
+        differentiation from full virtualization, is best described with the following
+        picture \cite{dell}:
+        \begin{center}
+                \begin{figure}[h]
+                        \includegraphics[width=125mm]{lxc-vm.jpg}
+                        \caption{VM vs. Containers\label{vm_containers}}
+                \end{figure}
+        \end{center}
+        We can notice that footprint of traditional virtualization is greater, since it
+        requires a Hypervisor to monitor and manage each instances (or VMs) that are
+        executed on this single machine (be it server or personal computer). Whereas the
+        footprint of Containers is less, since it requires no intermediary entity control
+        the instances running on this single machine, but even more important, each
+        instance does not requires to run its own OS. Rather it shares the same Kernel,
+        and simply segregates the resources into logical units (or instances). This
+        results in a boot time that approaches mere seconds, rather than just shy of a
+        minute to fully boot a complete operating systems. And this leads to the final
+        important differentiation, how the physical resources are used? In the case of
+        traditional virtualization, the resources are divided and allocated to each VM
+        exclusively; whereas using light virtualization the resources are shared by every
+        containers (although they can be restrained to a certain usage
+        boundary). Although, given this hypothetical situation where one is required to
+        run several instances of the same OS (cluster creation), using traditional
+        virtualization it would still require a Hypervisor and a complete version of the
+        (same) OS running on top of the host OS. But using Containers cluster creation is
+        easily achievable and only requires one single Kernel to be executed on the
+        physical machine.
+
+        \\ All of this is possible due to a conceptual construct called \emph{c-groups},
+        in Linux, or control groups. It was defined as a Kernel patch in
+        \cite{cgroups}, and consists of an aggregation and partition mechanism for
+        groups of task (or sets), that contains (within those partitions/aggregations) all
+        their future children. It generates a hierarchy of groups, for which different
+        specialized behaviors can be explicitly defined. The authors admits that in its
+        own, cgroups provides only tracking capabilities for simple jobs. But used with
+        other subsystems (such as cpuset) it can provide additional properties for the
+        groups of processes (i.e.: restraining the execution of a group to a specific
+        CPU-core).
+        
+        \\ As an example of these emergent properties, LxC (Linux Containers)
+        leverages cgroups to achieve resource isolation and namespace isolation without
+        ever needing any virtual machines. Namespace isolation, grants the ability to
+        isolate running applications completely from the operating system environment such
+        that two applications running into two distinct namespace, albeit not an exclusive
+        feature of LxC. A general example of namespace isolation is the \emph{PID
+          namespace} \cite{emelyanov2007pid}, which grants the ability to create sets of
+          tasks such that each set is completely independent from one another. Thus, two
+          processes belonging to different sets of tasks, can have the exact same ID,
+          without any ambiguity since they do not belong to the same set. 
+
+          \\ Another interesting contender in the container's scene, is the ever popular
+          Docker. Released on March 2013, this software is only around a year and half old,
+          and it already has its own convention, DockerCon \cite{dockercon}, and is endorsed
+          by major technological companies such as IBM, and RedHat (to name a few). Docker
+          is open-source and provides means to automate deployment of applications within
+          containers. Thus, it provides a higher-level interface to containers, by
+          abstracting the intricacies and specificities into an intuitive and easy to use
+          high-level API. This is the reason that we will use Docker for our virtualization
+          needs in our proof of concept, since it provides a simpler interface, but it
+          should be noted that using LxC would be recommended for a more complete
+          implementation. Because it is not needed to provided this level of abstraction for
+          our Cloud Computing Infrastructure, and it would be beneficial for less powerful
+          machines not having to provide this which would result in a diminution of the
+          overhead.
+
+          \\ From a Platform-as-a-Service model point of view, this kind of technology
+          solves a lot of important issues that rises from using a heterogeneous set of
+          resources. As far as we are concerned, from our literary review, we are the first
+          to propose the use of containers (or Light Virtualization), in the context of
+          Cloud Computing, as a mean to provide physical virtualization of the
+          resources. In the following subsection we will present Docker and its
+          characteristics.
+
+          \subsection{Docker}
+          
+
+\clearpage
 
 \bibliographystyle{te}
 \bibliography{bibliography}

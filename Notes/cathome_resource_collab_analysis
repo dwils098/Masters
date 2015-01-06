@@ -1,0 +1,12 @@
+C@H - Evaluating Resource Collaboration w.r.t. the phases identified in p2p_collab
+=====================================================================================
+Phase (1), (2) and (3) are somehow accomplished by the Mgmt. Subsystem, thus no
+explicit indication pertaining to which strategy they used to achieve this. The
+FrontEnd is given the task to collect the user request's and to assimilate them
+in a proper fashion the corresponding subsystems. The resource engine is
+responsible for the resource management, thus it receive a translated request
+from the frontend and it is responsible to look through its centralized index and
+find the most appropriate selection of resources.
+
+Phase (4) and (5) seems to be accomplished by the Resource Subsystem, more
+precisely th VM Scheduler is reponsible

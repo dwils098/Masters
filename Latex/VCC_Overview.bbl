@@ -1,4 +1,4 @@
-\begin{thebibliography}{16}
+\begin{thebibliography}{31}
 \newcommand{\enquote}[1]{``#1''}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
@@ -16,6 +16,19 @@ Babaoglu, Ozalp, Moreno Marzolla, and Michele Tamburini (2012), \enquote{Design
   Annual ACM Symposium on Applied Computing}, 412--417, ACM.
 \bibAnnoteFile{P2PCS}
 
+\bibitem[{Bandara and Jayasumana(2012)}]{bandara2012evaluation}
+Bandara, HMN~Dilum and Anura~P Jayasumana (2012), \enquote{Evaluation of p2p
+  resource discovery architectures using real-life multi-attribute resource and
+  query characteristics.} In \emph{Consumer Communications and Networking
+  Conference (CCNC), 2012 IEEE}, 634--639, IEEE.
+\bibAnnoteFile{bandara2012evaluation}
+
+\bibitem[{Bandara and Jayasumana(2013)}]{p2p_collab}
+Bandara, HMN~Dilum and Anura~P Jayasumana (2013), \enquote{Collaborative
+  applications over peer-to-peer systems--challenges and solutions.}
+  \emph{Peer-to-Peer Networking and Applications}, 6, 257--276.
+\bibAnnoteFile{p2p_collab}
+
 \bibitem[{Cunsolo et~al.(2009)Cunsolo, Distefano, Puliafito, and
   Scarpa}]{cathome}
 Cunsolo, Vincenzo~D, Salvatore Distefano, Antonio Puliafito, and Marco Scarpa
@@ -24,12 +37,35 @@ Cunsolo, Vincenzo~D, Salvatore Distefano, Antonio Puliafito, and Marco Scarpa
   Applications}, 423--432, Springer.
 \bibAnnoteFile{cathome}
 
-\bibitem[{Cunsolo et~al.(2010)Cunsolo, Distefano, Puliafito, and
+\bibitem[{Cunsolo et~al.(2010{\natexlab{a}})Cunsolo, Distefano, Puliafito, and
   Scarpa}]{cathome6}
 Cunsolo, Vincenzo~D, Salvatore Distefano, Antonio Puliafito, and Marco Scarpa
-  (2010), \enquote{Open and interoperable clouds: The cloud@ home way.} In
-  \emph{Cloud Computing}, 93--111, Springer.
+  (2010{\natexlab{a}}), \enquote{Open and interoperable clouds: The cloud@ home
+  way.} In \emph{Cloud Computing}, 93--111, Springer.
 \bibAnnoteFile{cathome6}
+
+\bibitem[{Cunsolo et~al.(2010{\natexlab{b}})Cunsolo, Distefano, Puliafito, and
+  Scarpa}]{cunsolo2010open}
+Cunsolo, Vincenzo~D, Salvatore Distefano, Antonio Puliafito, and Marco Scarpa
+  (2010{\natexlab{b}}), \enquote{Open and interoperable clouds: The cloud@ home
+  way.} In \emph{Cloud Computing}, 93--111, Springer.
+\bibAnnoteFile{cunsolo2010open}
+
+\bibitem[{De~la Rosa and Baxley(June 2014)}]{dell}
+De~la Rosa, Jose and Kent Baxley (June 2014), \enquote{Lxc containers in ubuntu
+  server 14.04 lts.}
+  \url{http://en.community.dell.com/techcenter/os-applications/w/wiki/6950.lxc-containers-in-ubuntu-server-14-04-lts}.
+  Accessed: 30-12-2014.
+\bibAnnoteFile{dell}
+
+\bibitem[{Demers et~al.(1987)Demers, Greene, Hauser, Irish, Larson, Shenker,
+  Sturgis, Swinehart, and Terry}]{demers1987epidemic}
+Demers, Alan, Dan Greene, Carl Hauser, Wes Irish, John Larson, Scott Shenker,
+  Howard Sturgis, Dan Swinehart, and Doug Terry (1987), \enquote{Epidemic
+  algorithms for replicated database maintenance.} In \emph{Proceedings of the
+  sixth annual ACM Symposium on Principles of distributed computing}, 1--12,
+  ACM.
+\bibAnnoteFile{demers1987epidemic}
 
 \bibitem[{Distefano et~al.(2011)Distefano, Fazio, and Puliafito}]{cathome9}
 Distefano, Salvatore, Maria Fazio, and Antonio Puliafito (2011), \enquote{The
@@ -42,11 +78,49 @@ Distefano, Salvatore and Antonio Puliafito (2012), \enquote{Cloud@ home: Toward
   a volunteer cloud.} \emph{IT Professional}, 14, 27--31.
 \bibAnnoteFile{cathome11}
 
+\bibitem[{Emelyanov and Kolyshkin(2007)}]{emelyanov2007pid}
+Emelyanov, Pavel and Kir Kolyshkin (2007), \enquote{Pid namespaces in the 2.6.
+  24 kernel.} \emph{LWN. net, November}.
+\bibAnnoteFile{emelyanov2007pid}
+
+\bibitem[{Ganesan et~al.(2004)Ganesan, Yang, and
+  Garcia-Molina}]{ganesan2004one}
+Ganesan, Prasanna, Beverly Yang, and Hector Garcia-Molina (2004), \enquote{One
+  torus to rule them all: multi-dimensional queries in p2p systems.} In
+  \emph{Proceedings of the 7th International Workshop on the Web and Databases:
+  colocated with ACM SIGMOD/PODS 2004}, 19--24, ACM.
+\bibAnnoteFile{ganesan2004one}
+
 \bibitem[{Ghemawat et~al.(2003)Ghemawat, Gobioff, and Leung}]{gfs}
 Ghemawat, Sanjay, Howard Gobioff, and Shun-Tak Leung (2003), \enquote{The
   google file system.} In \emph{ACM SIGOPS Operating Systems Review},
   volume~37, 29--43, ACM.
 \bibAnnoteFile{gfs}
+
+\bibitem[{Hykes(2014)}]{dockercon}
+Hykes, Solomon (2014), \enquote{Dockercon.} \url{http://www.dockercon.com/}.
+  Accessed: 2014-12-30.
+\bibAnnoteFile{dockercon}
+
+\bibitem[{Jelasity and Kermarrec(2006)}]{jelasity2006ordered}
+Jelasity, Mark and A-M Kermarrec (2006), \enquote{Ordered slicing of very
+  large-scale overlay networks.} In \emph{Peer-to-Peer Computing, 2006. P2P
+  2006. Sixth IEEE International Conference on}, 117--124, IEEE.
+\bibAnnoteFile{jelasity2006ordered}
+
+\bibitem[{Jelasity et~al.(2009)Jelasity, Montresor, and
+  Babaoglu}]{jelasity2009t}
+Jelasity, M{\'a}rk, Alberto Montresor, and Ozalp Babaoglu (2009),
+  \enquote{T-man: Gossip-based fast overlay topology construction.}
+  \emph{Computer networks}, 53, 2321--2339.
+\bibAnnoteFile{jelasity2009t}
+
+\bibitem[{Jelasity et~al.(2007)Jelasity, Voulgaris, Guerraoui, Kermarrec, and
+  Van~Steen}]{pss}
+Jelasity, M{\'a}rk, Spyros Voulgaris, Rachid Guerraoui, Anne-Marie Kermarrec,
+  and Maarten Van~Steen (2007), \enquote{Gossip-based peer sampling.} \emph{ACM
+  Transactions on Computer Systems (TOCS)}, 25, 8.
+\bibAnnoteFile{pss}
 
 \bibitem[{Lewis(2011)}]{Blewis}
 Lewis, Brian (2011), \enquote{Separation of responsibilities.} Taken from
@@ -59,18 +133,27 @@ Licklider, Joseph~CR (1963), \enquote{Memorandum for members and affiliates of
   the intergalactic computer network.} \emph{Apr}, 23, 350--1.
 \bibAnnoteFile{licklider}
 
-\bibitem[{Marzolla et~al.(2011)Marzolla, Babaoglu, and
-  Panzieri}]{marzolla2011server}
-Marzolla, Moreno, Ozalp Babaoglu, and Fabio Panzieri (2011), \enquote{Server
-  consolidation in clouds through gossiping.} In \emph{World of Wireless,
-  Mobile and Multimedia Networks (WoWMoM), 2011 IEEE International Symposium on
-  a}, 1--6, IEEE.
-\bibAnnoteFile{marzolla2011server}
+\bibitem[{Lua et~al.(2005)Lua, Crowcroft, Pias, Sharma, Lim
+  et~al.}]{lua2005survey}
+Lua, Eng~Keong, Jon Crowcroft, Marcelo Pias, Ravi Sharma, Steven Lim, et~al.
+  (2005), \enquote{A survey and comparison of peer-to-peer overlay network
+  schemes.} \emph{IEEE Communications Surveys and Tutorials}, 7, 72--93.
+\bibAnnoteFile{lua2005survey}
+
+\bibitem[{Maymounkov and Mazieres(2002)}]{maymounkov2002kademlia}
+Maymounkov, Petar and David Mazieres (2002), \enquote{Kademlia: A peer-to-peer
+  information system based on the xor metric.} In \emph{Peer-to-Peer Systems},
+  53--65, Springer.
+\bibAnnoteFile{maymounkov2002kademlia}
 
 \bibitem[{Mell and Grance(2011)}]{nist}
 Mell, Peter and Tim Grance (2011), \enquote{The nist definition of cloud
   computing.} x.
 \bibAnnoteFile{nist}
+
+\bibitem[{Menage(2011)}]{cgroups}
+Menage, Paul (2011), \enquote{Linux kernel documentation/cgroups/cgroups. txt.}
+\bibAnnoteFile{cgroups}
 
 \bibitem[{O'reilly(2007)}]{web20}
 O'reilly, Tim (2007), \enquote{What is web 2.0: Design patterns and business
@@ -85,11 +168,25 @@ Panzieri, Fabio, Ozalp Babaoglu, Stefano Ferretti, Vittorio Ghini, and Moreno
   aspects of cloud computing}. Springer.
 \bibAnnoteFile{panzieri}
 
+\bibitem[{Pasquet et~al.(2014)Pasquet, Maia, Rivi{\`e}re, and
+  Schiavoni}]{pasquet2014autonomous}
+Pasquet, Mathieu, Francisco Maia, Etienne Rivi{\`e}re, and Valerio Schiavoni
+  (2014), \enquote{Autonomous multi-dimensional slicing for large-scale
+  distributed systems.} In \emph{Distributed Applications and Interoperable
+  Systems}, 141--155, Springer.
+\bibAnnoteFile{pasquet2014autonomous}
+
 \bibitem[{Rimal et~al.(2009)Rimal, Choi, and Lumb}]{taxonomy}
 Rimal, Bhaskar~Prasad, Eunmi Choi, and Ian Lumb (2009), \enquote{A taxonomy and
   survey of cloud computing systems.} In \emph{INC, IMS and IDC, 2009. NCM'09.
   Fifth International Joint Conference on}, 44--51, Ieee.
 \bibAnnoteFile{taxonomy}
+
+\bibitem[{Riviere and Voulgaris(2011)}]{riviere2011gossip}
+Riviere, Etienne and Spyros Voulgaris (2011), \enquote{Gossip-based networking
+  for internet-scale distributed systems.} In \emph{E-Technologies:
+  Transformation in a Connected World}, 253--284, Springer.
+\bibAnnoteFile{riviere2011gossip}
 
 \bibitem[{Vaquero et~al.(2008)Vaquero, Rodero-Merino, Caceres, and
   Lindner}]{vaquero}

@@ -1,0 +1,45 @@
+P2PCS - Evaluating Resource Collaboration w.r.t. the phases identified in p2p_collab
+=====================================================================================
+
+Phase (1) and (2) {Advertise and Discover} are coupled together in the Peer
+Sampling Service. But are not exhaustively implemented, by this we underline the
+fact that they provide no mechanism to advertise the resources that a node offers
+to the network explicitly. Either using formal means, as proposed in p2p_collab,
+or any other means, rather the PSS simply makes a node presence known to the other
+nodes via a simple gossip-protocol (k-nearest).
+
+Phase (3) {Select} is accomplished by the Slicing Service, although they admit that no
+implementation is provided at the moment of the writing of this paper. They based
+their design choice on the following paper (2006) "Ordered Slicing of
+Very Large-Scale Overlay Networks", which present a very clever algorithm to
+achieve this, (but we suspect that since this paper's publication multi-attribute
+slicing using similar algorithms must have been developped... NEED TO VERIFY). We
+clearly see that the purpose of SS is to ONLY request a group of nodes that satisfies
+a query, which in their implementation was limited to simply the number of nodes
+requested, WHY?
+
+Phase (4) {Match} is suspected to be realized, if ever, by the SS by a further
+specification of the query, but this is not clear within the slicing algorithm
+would it be aware of the inter-relations of the nodes in the slices.
+
+Phase (5) {Bind} responsibility is accounted by the T-Man gossip-based protocol
+to build overlay networks with a given topology. It is accomplished by creating
+a distinct ring overlay of all the peers contained in a specific slice, 1 ring
+per slice. (Thus slices are mutually exclusive.)
+
+
+----> HERE!!!
+Phase (6) {Use} can be interpreted as being manifested by the Dispatcher, which
+translates the higher-lever API requests into the appropriate low-level gossip
+protocol commands which are sent to the other nodes. (Not fully clear as to how
+it manages to accomplish that???)
+
+Phase (7) {Release} would be accomplished by the Instance Management API, that
+grant the ability to the user to control the instances it harvests. BUT they
+express no means of automating the scaling of the resources it possess to respond
+to the increase of demand or the decrease of the demand. We could extrapolate that
+the Monitoring System in conjunction with the Aggregation Service could provide
+enough information to implement such functionality, but nonetheless they fail to
+make the point.
+
+*** NEED TO FURTHER ANALYSIS WITH CRITIC OF PROF SOME ***
