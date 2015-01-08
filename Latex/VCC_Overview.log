@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  30 DEC 2014 18:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  8 JAN 2015 15:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -767,9 +767,32 @@ File: tikzlibrarycalc.code.tex 2013/07/15 v3.0.0 (rcs-revision 1.9)
 s/tikzlibraryfit.code.tex
 File: tikzlibraryfit.code.tex 2013/07/12 v3.0.0 (rcs-revision 1.5)
 )
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarymindmap.code.tex
+File: tikzlibrarymindmap.code.tex 2013/07/16 v3.0.0 (rcs-revision 1.10)
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarytrees.code.tex
+File: tikzlibrarytrees.code.tex 2008/02/24 v3.0.0 (rcs-revision 1.2)
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.code.tex
+(/usr/local/texlive/2014/texmf-dist/tex/generic/pgf/modules/pgfmoduledecoration
+s.code.tex
+\pgfdecoratedcompleteddistance=\dimen197
+\pgfdecoratedremainingdistance=\dimen198
+\pgfdecoratedinputsegmentcompleteddistance=\dimen199
+\pgfdecoratedinputsegmentremainingdistance=\dimen200
+\pgf@decorate@distancetomove=\dimen201
+\pgf@decorate@repeatstate=\count145
+\pgfdecorationsegmentamplitude=\dimen202
+\pgfdecorationsegmentlength=\dimen203
+)
+\tikz@lib@dec@box=\box64
+))
 \myframesep=\skip56
-\pgf@layerbox@background=\box64
-\pgf@layerboxsaved@background=\box65
+\pgf@layerbox@background=\box65
+\pgf@layerboxsaved@background=\box66
  (./VCC_Overview.aux)
 \openout1 = `VCC_Overview.aux'.
 
@@ -833,19 +856,19 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 (/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count145
-\scratchdimen=\dimen197
-\scratchbox=\box66
-\nofMPsegments=\count146
-\nofMParguments=\count147
+\scratchcounter=\count146
+\scratchdimen=\dimen204
+\scratchbox=\box67
+\nofMPsegments=\count147
+\nofMParguments=\count148
 \everyMPshowfont=\toks46
-\MPscratchCnt=\count148
-\MPscratchDim=\dimen198
-\MPnumerator=\count149
-\makeMPintoPDFobject=\count150
+\MPscratchCnt=\count149
+\MPscratchDim=\dimen205
+\MPnumerator=\count150
+\makeMPintoPDFobject=\count151
 \everyMPtoPDFconversion=\toks47
 ) ABD: EveryShipout initializing macros
-\AtBeginShipoutBox=\box67
+\AtBeginShipoutBox=\box68
 Package hyperref Info: Link coloring OFF on input line 63.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/hyperref/nameref.sty
@@ -854,7 +877,7 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count151
+\c@section@level=\count152
 )
 LaTeX Info: Redefining \ref on input line 63.
 LaTeX Info: Redefining \pageref on input line 63.
@@ -911,12 +934,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 166--169
 
  []
 
-<c_ontology.png, id=141, 690.58pt x 487.8225pt>
+<c_ontology.png, id=153, 690.58pt x 487.8225pt>
 File: c_ontology.png Graphic file (type png)
  <use c_ontology.png>
 Package pdftex.def Info: c_ontology.png used on input line 173.
 (pdftex.def)             Requested size: 355.65944pt x 251.2351pt.
- [3 <./c_ontology.png>] <cloud_sep_of_resp.jpg, id=154, 642.4pt x 381.425pt>
+ [3 <./c_ontology.png>] <cloud_sep_of_resp.jpg, id=166, 642.4pt x 381.425pt>
 File: cloud_sep_of_resp.jpg Graphic file (type jpg)
 
 <use cloud_sep_of_resp.jpg>
@@ -953,7 +976,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<cathome_arch.jpg, id=181, 891.33pt x 415.5525pt>
+<cathome_arch.jpg, id=193, 891.33pt x 415.5525pt>
 File: cathome_arch.jpg Graphic file (type jpg)
  <use cathome_arch.jpg>
 Package pdftex.def Info: cathome_arch.jpg used on input line 308.
@@ -974,7 +997,7 @@ e GoogleFS (file sys-tem) [[]],
  []
 
 [6] [7 <./cathome_arch.jpg>] [8]
-<p2pcs_arch.jpg, id=216, 612.2875pt x 412.54124pt>
+<p2pcs_arch.jpg, id=228, 612.2875pt x 412.54124pt>
 File: p2pcs_arch.jpg Graphic file (type jpg)
  <use p2pcs_arch.jpg>
 Package pdftex.def Info: p2pcs_arch.jpg used on input line 392.
@@ -1467,17 +1490,13 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-
-LaTeX Warning: Citation `maymounkov2002kademlia' on page 18 undefined on input 
-line 936.
-
 [18]
 Overfull \hbox (94.07526pt too wide) in paragraph at lines 977--981
 \OT1/cmr/m/n/10.95 ti-a-tion from full vir-tu-al-iza-tion, is best de-scribed w
 ith the fol-low-ing pic-ture [[]]: 
  []
 
-<lxc-vm.jpg, id=310, 271.15366pt x 199.58942pt>
+<lxc-vm.jpg, id=324, 271.15366pt x 199.58942pt>
 File: lxc-vm.jpg Graphic file (type jpg)
  <use lxc-vm.jpg>
 Package pdftex.def Info: lxc-vm.jpg used on input line 983.
@@ -1544,7 +1563,340 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[21] (./VCC_Overview.bbl
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1075           \\ I
+                     t uses a client-server model, for which the server is r...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[21]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1086           \\ W
+                     e need to introduce three fundamental constructs of Doc...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1113           \\ I
+                     n the next section we will discuss our API layer design...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[22]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1135           \\ F
+                     irst we look at Google App Engine, \cite{gae_web},
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+LaTeX Warning: Citation `gae_web' on page 23 undefined on input line 1135.
+
+
+LaTeX Warning: Citation `zahariev2009google' on page 23 undefined on input line
+ 1136.
+
+
+LaTeX Warning: Citation `gae_web' on page 23 undefined on input line 1137.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1169           \\ I
+                     n the case of AWS \cite{AWS}, they use a similar functi...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+LaTeX Warning: Citation `AWS' on page 23 undefined on input line 1169.
+
+[23]
+
+! Package pgf Error: No shape named  is known.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1220 
+       
+This error message was generated by an \errmessage
+command, so I can't give any explicit help.
+Pretend that you're Hercule Poirot: Examine all clues,
+and deduce the truth by order and method.
+
+
+! Package pgf Error: No shape named  is known.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1220 
+       
+(That was another \errmessage.)
+
+
+! Package tikz Error: You are attempting to connect two things by a circle conn
+ection bar where one is not a node.
+
+See the tikz package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1220 
+       
+(That was another \errmessage.)
+
+
+! Package pgf Error: No shape named  is known.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1220 
+       
+(That was another \errmessage.)
+
+
+! Package pgf Error: No shape named  is known.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1220 
+       
+(That was another \errmessage.)
+
+
+! Package pgf Error: No shape named  is known.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1220 
+       
+(That was another \errmessage.)
+
+
+! Package pgf Error: No shape named  is known.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1220 
+       
+(That was another \errmessage.)
+
+
+! Package pgf Error: No shape named  is known.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1220 
+       
+(That was another \errmessage.)
+
+
+Overfull \hbox (15.34467pt too wide) in paragraph at lines 1233--1233
+ \OT1/cmr/m/n/10 tion/Networking 
+ []
+
+
+Overfull \hbox (374.94368pt too wide) in paragraph at lines 1254--1255
+ [] 
+ []
+
+[24]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1289           \\ W
+                     hen it comes to this particular requirements it can be ...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (5.995pt too wide) in paragraph at lines 1294--1297
+[]\OT1/cmr/bx/n/10.95 Non-Relational Databases: \OT1/cmr/m/n/10.95 un-tra-di-ti
+onal, but ever grow-ing in pop-u-lar-ity, NoSQL
+ []
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1314           \\ O
+                     ne of the primary concern with DB and Storage Solutions...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[25]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1335           \\ M
+                     any different possible implementations are available wh...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+LaTeX Warning: Citation `codd1970relational' on page 26 undefined on input line
+ 1339.
+
+
+LaTeX Warning: Citation `linders1976distributed' on page 26 undefined on input 
+line 1340.
+
+
+LaTeX Warning: Citation `draffan1980distributed' on page 26 undefined on input 
+line 1340.
+
+
+LaTeX Warning: Citation `ozsu2011principles' on page 26 undefined on input line
+ 1343.
+
+
+LaTeX Warning: Citation `ozsu2011principles' on page 26 undefined on input line
+ 1348.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1354           \\ S
+                     till using \cite{ozsu2011principles} as a reference, we...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+LaTeX Warning: Citation `ozsu2011principles' on page 26 undefined on input line
+ 1354.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1370           \\ W
+                     hich leads to a subsequent characteristic, we've just s...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [26]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1390           \\ F
+                     or our purposes, we only require an homogeneous archite...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1396           \\ C
+                     aching
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1398           \\ Q
+                     ueuing
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[27] (./VCC_Overview.bbl
 Underfull \hbox (badness 4531) in paragraph at lines 14--18
 []\OT1/cmr/m/n/9 Babaoglu, Ozalp, Moreno Mar-zolla, and
  []
@@ -1574,55 +1926,53 @@ atform-as-a-service-software-as-
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [22
+ [28
 
 ]
 Underfull \hbox (badness 3158) in paragraph at lines 193--197
 []\OT1/cmr/m/n/9 Vaquero, Luis M, Luis Rodero-
  []
 
-) [23]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1060.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1060.
+) [29]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1410.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1410.
  (./VCC_Overview.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1060.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1060.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1410.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1410.
 
 Package rerunfilecheck Info: File `VCC_Overview.out' has not changed.
-(rerunfilecheck)             Checksum: 6DE3CF18C62BC511D9C9353E6EDC9285;1647.
+(rerunfilecheck)             Checksum: F3CD4AD057205F9F2F0E7799B59368A4;1893.
 
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1060.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1410.
  ) 
 Here is how much of TeX's memory you used:
- 20672 strings out of 493117
- 399074 string characters out of 6135433
- 488006 words of memory out of 5000000
- 23457 multiletter control sequences out of 15000+600000
- 12304 words of font info for 47 fonts, out of 8000000 for 9000
+ 21353 strings out of 493117
+ 420084 string characters out of 6135433
+ 504745 words of memory out of 5000000
+ 24115 multiletter control sequences out of 15000+600000
+ 12602 words of font info for 48 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 62i,14n,68p,458b,826s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,14n,76p,458b,1042s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pf
 b></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pf
 b></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 ></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><
 /usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></u
-sr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/
-local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/loc
-al/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loca
-l/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local
-/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/t
-exlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on VCC_Overview.pdf (23 pages, 719951 bytes).
+sr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
+/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/lo
+cal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local
+/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/
+texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/t
+exlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/tex
+live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on VCC_Overview.pdf (29 pages, 751540 bytes).
 PDF statistics:
- 417 PDF objects out of 1000 (max. 8388607)
- 370 compressed objects within 4 object streams
- 122 named destinations out of 1000 (max. 500000)
- 238 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 473 PDF objects out of 1000 (max. 8388607)
+ 413 compressed objects within 5 object streams
+ 132 named destinations out of 1000 (max. 500000)
+ 292 words of extra memory for PDF output out of 10000 (max. 10000000)
 

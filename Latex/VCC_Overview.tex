@@ -22,7 +22,7 @@
 \usepackage{enumitem}
 
 %---------------------- For System Architecture -------------------------------------------%
-\usetikzlibrary{positioning,calc,fit}
+\usetikzlibrary{positioning,calc,fit,mindmap,trees}
 
 \definecolor{mybluei}{RGB}{124,156,205}
 \definecolor{myblueii}{RGB}{73,121,193}
@@ -1050,8 +1050,358 @@
           characteristics.
 
           \subsection{Docker}
+          As presented above, Docker provides a high-level abstraction API to manage,
+          configure, and monitor software containers. As a consequence, it augments
+          flexibility and portability of the applications contained, since it is fully
+          self-contained (it provide means to package the application and all of its
+          dependencies). This is why we opted to use it as our virtualization software,
+          because we could deploy totally self-contained applications in a very intuitive
+          fashion. Thus we will provide a more complete overview and showcase why, as a
+          prototyping tool, Docker is a excellent candidate.
+          
+          \subsubsection{Overview}
+          It makes use of several different technologies, such as \emph{Namespaces} and
+          \emph{Control Groups} to provide isolation from the host operating system
+          environment and resulting in a self-containing property. Also, it uses Union
+          File Systems, which are used to provide fundamental building components to the
+          containers. UnionFS is a Unix filesystem service that provides means for virtual
+          file systems to be created from separate file systems, using different branches
+          (layers) per file system to represent the files and directories. Thus overlaying
+          all the branches provides a single view of the multiple file systems, hence the
+          name Unification File System. Docker utilize this for its images technology to
+          provide lightweight versions (or simply the difference between the base image)
+          of a Linux OS image. 
+         
+          \\ It uses a client-server model, for which the server is referred to as
+          \emph{The Docker Daemon}. The client and server can be on the same host, but is
+          not required to (which enables us to have a very light client on the nodes and
+          we could have a central node acting as a server). All the most intensive task
+          such as building the container, running it and/or distributing it is performed
+          by the server, which is really neat since we can offload it to more powerful
+          machines and keep the clients to a minimal performance
+          requirement. Communication between the client and server can be done through
+          sockets, or using a RESTful API (which again is a very nice feature for
+          distributed application or environment).
+
+          \\ We need to introduce three fundamental constructs of Docker to understand how
+          it works. First is the construct that pertains to building containers, namely
+          \emph{The Docker Images}, which are read-only templates from which containers
+          are built. Subsequently is the distribution construct, or \emph{The Docker
+            Registry}, which are private or public repositories that indexes and stores
+          images. Finally, the construct that pertains to running applications, \emph{The
+            Docker Containers}, which are analogous to directories in a file system. It
+          contains everything that is required to execute the application it contains,
+          thus there is no external dependencies. Created from Docker Images, a series of
+          different commands can be executed on the containers, such as: run, start/stop,
+          move and delete. In other words a Docker containers are created from Docker
+          Images, which can be retrieved from public or private repositories referred to
+          as Docker Registry or simply created from scratch. The resulting containers are
+          completely self-contained and it is possible to interact with them using the API
+          provided. Since it uses the UnionFS technology, when updating a container
+          (really we are updating the image that represents this container) it is only
+          necessary to provide the differences between the current image and the updated
+          image, and this is done automatically. As a result the updates are small and
+          fast. For our purposes, we use Docker to provide resource isolation, automated
+          deployment, fast prototyping, means to automate container management and
+          more. Finally, we still believe that since the we use containers as a
+          virtualization device that enables us to utilize heterogeneous resources in an
+          homogeneous fashion and once defined the images of the containers would remain
+          the same, other than providing fast prototyping we would rather use a
+          lower-level container technology such as LxC, which also provides means to
+          distribute and manage application containers.
+          
+          \\ In the next section we will discuss our API layer design, and its
+          features. Consequently we will proceed to present the challenges and open
+          problems that are central to the API-level in the context of Cloud Computing. 
+         
+          \section{Application Program Interface Layer}
+          APIs are generally used to express the contained components of a software
+          (library) in terms of their functionalities, while expressing the expected
+          inputs and expected outputs respectively. Usually the functionalities expressed
+          are defined independently of their implementation, guaranteeing coherence and
+          consistence from the user's perspective. Therefore this layer, in the context of
+          Cloud Computing, will provide a set of building blocks to the application
+          developer to utilize this Volunteer (or collaborative) infrastructure. In order
+          to design an API that is well rounded, we've proceed to gather the requirements of
+          an hypothetical PaaS API (platform) by observing how the different major service providers are
+          implementing their own API and what functionalities are they providing. 
+          
+          \subsection{Requirements Analysis PaaS APIs}
+          We are going to analyze two popular PaaS Service Provider's API, namely
+          Google App Engine and Amazon Web Services. In order to do so we will attempt to
+          reconstruct the requirements from the implementation and finally generate a
+          specification of a hypothetical PaaS API platform. 
+
+          \\ First we look at Google App Engine, \cite{gae_web},
+          \cite{zahariev2009google}, and we should use the functional classification of
+          the features offered (as presented in \cite{gae_web}) since there provide a
+          total of 40 features. 
+          \begin{itemize}
+            \item \textbf{Languages and Runtimes:} it offers support for up to 4 different
+              languages and recently added the ability to utilize Managed VMs (which
+              allows to host on proprietary VM and grants more flexibility).
+            \item \textbf{Data Storage, Retrieval, and Search:} it offers a plethora of
+              DBMS (NoSQL, SQL, Blobstore) and storage mechanisms (Memcached, Logs), as
+              well as access to Google proprietary searching mechanism via various APIs.
+            \item \textbf{Communication:} it offers various mechanisms to ensure
+              communication between user and host (Sockets, ChannelAPI, Twillio) and
+              various protocols (Google Cloud Endpoints, XMPP).
+            \item \textbf{Process Management:} it offers different task related queuing,
+              monitoring and management related mechanisms.
+            \item \textbf{Computations:} it offers a mean to manipulate images via its own
+              Images API; also it offers full MapReduce integration and support.
+            \item \textbf{Application Configuration and Management:} it offers a wide
+              selection of analytics tools relative to the app (within the Google App's
+              ecosystem), also offers various components to perform authentication,
+              permit multitenancy, and testing related tasks.
+          \end{itemize}
+          It is important to note that GAE is a mature PaaS provider, and thus it explains
+          the breadth of the components/features landscape. Starting from scratch we need
+          to be able to differentiate which features or components are a fundamental
+          construct of the platform, and only proceed to implement those. Although, if
+          this project would be implemented not as a proof of concept, but a product aimed
+          at a public release, we would eventually end up implementing many of those
+          non-essential features. Rather than proceeding with an analysis of these
+          features and cherry-pick a few essential ones, we will present the second PaaS
+          API, namely Amazon Web Services, and this would provide (at least theoretically a
+          less biased point of view with respect to proprietary technologies/infrastructures).
+          
+          \\ In the case of AWS \cite{AWS}, they use a similar functional classification but still it
+          is somewhat different than GAE. Thus lets proceed to present the list:
+          \begin{itemize}
+          \item \textbf{Compute:} it offers automatic scaling, load balancing, and various
+            other hardware/software inter-relational capabilities.
+          \item \textbf{Storage, Content Delivery, and Databases:} it offers DBMS (NoSQL,
+            Relational), different type of storage capabilities and content delivery mechanisms.
+          \item \textbf{Networking:} it offers varying capabilities concerning networking
+            related configurations (Virtual Private Cloud, DNS, dedicated connections).
+          \item \textbf{Administration and Security:} it offers authentication mechanisms,
+            access control, resource monitoring, logging mechanisms and cryptographic key
+            management capabilities.
+          \item \textbf{Analytics:} it offers real-time data processing, data warehousing,
+            data pipelines as well as full Hadoop support. 
+          \item \textbf{Application Services:} it offers queuing mechanisms, transcoding
+            mechanisms, e-mail services, as well as search services.
+          \item \textbf{Deployment and Management:} it offers various tools and services
+            pertaining to application deployment, dev/ops resources management,
+            integration tools and workflow related services.
+          \item \textbf{Mobile and Devices:} it offers a series of tools and services that
+            are aimed at facilitating compliance with various heterogeneous devices.
+          \end{itemize}
+
+          Although, some of these classes of services/features overlaps with the taxonomy
+          of the GAE classification, some are completely unique (such as Mobile and
+          Devices). From this array of different features and services we have devised the
+          following taxonomy, represented by this graphic:          
+          \begin{center}
+            \begin{tikzpicture}
+              \path[
+                mindmap,
+                every node/.style={
+                  concept,
+                  execute at begin node=\hskip0pt},
+                root concept/.append style={
+                  concept color=black, fill=white, line width=1ex, text=black
+                },
+                grow cyclic
+              ]
+
+              node[root concept] {PaaS Features}
+              %[clockwise from=0]
+             
+              child[
+                concept color=green,
+                fill=white,
+                line width=1ex,
+                text=black
+              ] {
+                node[concept] {Database/Storage}
+              }  
+
+              child[
+                concept color=blue,
+                fill=white,
+                line width=1ex,
+                text=black
+              ] {
+                node[concept] {Communication/Networking}
+                % --  this is how you add sub nodes... --
+                %[clockwise from=-30]
+                %child { node[concept] {databases} }
+                %child { node[concept] {WWW} }
+              }
+              
+              child[
+                concept color=red,
+                fill=white,
+                line width=1ex,
+                text=black
+              ] { node[concept] {Process Mgmt.} }
+              
+              child[
+                concept color=orange,
+                fill=white,
+                line width=1ex,
+                text=black
+              ] { node[concept] {Security} }
+              
+              child[
+                concept color=purple,
+                fill=white,
+                line width=1ex,
+                text=black
+              ] { node[concept] {App Deployment/Mgmt.}};
+              \end{tikzpicture}
+          \end{center}
+          For each of these components we will provide a brief defining characterization,
+          and proceed to define our "barebone" API platform.
+          \begin{itemize}
+            \item \textbf{Databases/Storage:} it ensures the persistence of the
+              information, and manages all data requirements within the application.
+            \item \textbf{Communication and Networking:} it encompasses everything
+              relating to web availability and connectivity, from web hosting (DNS related
+              concerns: multiple IP addresses) to presentation (HTML/CSS and other
+              presentation technologies) and also everything related to the end user via
+              the frontend (REST/SOAP/Sockets).
+            \item \textbf{Process Management:} includes the
+              components to provide scalability (parallel software design, multitenancy) and
+              load balancing (ensure even distribution of the workload).
+            \item \textbf{Security:} it ensures secure communications (via encryption and
+              decryption), access control of data and/or resources, proper authentication
+              and as an emergent characteristic enables coherent and consistent
+              multitenancy. 
+            \item \textbf{App Deployment and Management:} provides capabilities to the
+              deployer to manage and monitor resources (usage and performance), and
+              provides various analytic oriented tools 
+          \end{itemize}
+          Based on this we will present an overview of the possible way to achieve these
+          different functional requirements by means of literature review. Thus we will
+          present an accurate picture of where the state of the art lies concerning the
+          specific problems that are inherent to each of these requirements.
+         
+          \subsection{Databases and Storage Solutions}
+          As we have observed in GAE and AWS, they provide a multitude of different
+          solutions in order to satisfy a wide range of requirements that different
+          consumer might have. Thus in our case we will try to focus on a handful of these
+          solutions, due to the scope of this thesis, and underline the major line of
+          inquiries pertaining this specific functional requirement.
+
+          \\ When it comes to this particular requirements it can be divided into 4 major
+          different types of services: 
+          \begin{itemize}
+            \item \textbf{Relational Databases:} traditional relational databases, nothing
+              inherently special.
+            \item \textbf{Non-Relational Databases:} untraditional, but ever growing in
+              popularity, NoSQL type of databases which adopt most often than not a
+              key-value schemaless approach.
+            \item \textbf{Storage:} provides all storage needs for that requires larger
+              space requirements per entry (up to 1TB) and for heterogeneous objects that
+              usually will be represented as a binary string (format and content is
+              usually not relevant and all objects are seen as the same type). A common
+              way of using such storage components is by pairing it with a RDBMS, in which
+              we the meta-data pertaining to the object stored in the data store are
+              indexed and associated with a key that represent the location of the actual
+              data in the data store.  
+            \item \textbf{Caching:} provides caching capabilities for fast access to small
+              chunks of data, and is usually used in RAM to provide even faster access (Memcached).
+            \item \textbf{Queues:} this last one is a bit on the edge, when it comes to
+              storage and database solutions and process management, since it is really
+              used in both context. They are temporary storage mechanisms, typically in
+              the form of message queues, that stores (usually) inter-process messages (or
+              simple messages) until the recipient is disposed to consume them.
+          \end{itemize}
+          
+          \\ One of the primary concern with DB and Storage Solutions is the distributed
+          nature of the underlying compositional resources, thus there is a need for
+          proper replication in order to avoid data inconsistencies due to the high
+          volatility of the structure of the network. In the context of IaaS, the concern
+          is not only expressed towards databases, but also towards file systems. Thus
+          they are a multiple different available solution, but one stands out (by its
+          simplicity and it efficiency) in terms of distributed file system, namely Google
+          File System \cite{gfs}. In our case we have similar concerns, namely
+          reliability, consistency and availability; but we do not require a file system
+          per se, and thus the Distributed Database technologies aims at resolving
+          these. One advantages of using distributed database systems over traditional
+          monolithic database systems, is the augmentation in availability not permanently
+          but the ability to scale accordingly to the demand. This is achieved through
+          duplication of the information and data stored, done in an intelligent manner
+          can achieve high efficiency without too much redundant data; but there is a
+          caveat this is expensive. Especially when it comes to preserve integrity and
+          consistency across all duplicate, and this is achieved by means of replicating
+          the changes on all instances. One could see this as the major trade-off,
+          availability versus cost of preserving consistency plus the cost of having
+          duplicates (in terms of memory). 
+
+          \\ Many different possible implementations are available when it comes to
+          distributed databases, and all have their advantages and disadvantages. We will
+          present conceptually what a distributed database is and how it operates. It is
+          not a new concept, actually there was discussions and different conceptual
+          characterization of it in the 70s: \cite{codd1970relational},
+          \cite{linders1976distributed}, \cite{draffan1980distributed}, to name a
+          few. Thereby, one could conclude that it is a fairly mature field and as a
+          matter of fact it is a well understood (well documented) problem
+          domain. Conceptually, as stated in \cite{ozsu2011principles}, database systems
+          and computer networks are diametrically opposed, on one hand one is pursuing a
+          goal to integrate and centralized data (access and organization) and on the
+          other it has for objective to distribute (geographically)
+          data/information/services. Thus it is not so obvious as how it is possible, and
+          how to efficiently do so. Also paraphrasing \cite{ozsu2011principles}, there is
+          a need to shift the focus of database systems to intergration only, and then we
+          have a more compatible marriage of these two opposing fields. Now if we move
+          forward and try to see what is the current state of the art, with respect to
+          distributed DB and present the general conceptual specificities.
+          
+          \\ Still using \cite{ozsu2011principles} as a reference, we can identify some of
+          the most important characteristics, such as global or local access through a
+          unified common interface. In other words, the underlying distribution of the
+          data and responsibilities needs to be transparent, thus the system must behave
+          and present itself as a single logical system. Another important consideration,
+          is he nature of the architecture, is it homogeneous or heterogeneous. A
+          homogeneous architecture requires each compositional entity running instances of
+          the database (node) to have identical software, hardware, OS, and schema. While
+          an heterogeneous architecture poses no such restrictions, the problems that they
+          encounters are much more complex. One such problem could be how to perform
+          queries on disparate schemas, through a unified querying interface, which will
+          necessitate additional information as to how these schemas are equivalent and in
+          what semantic sense? Whereas homogeneous architectures, assume uniformity in the
+          composing entities platforms and schemas, thus the problems varies, but are not
+          exclusive to it.
+
+          \\ Which leads to a subsequent characteristic, we've just stated the
+          requirements to ensure reading (or read-only access) of the data stored, now we
+          need to look at what are the requirements to ensure writing (or writing access)
+          to the data stored. One primordial requirement is that transaction must be
+          transparent and thus preserve integrity of the complete database system. There
+          exists two ways to achieve transparency w.r.t. transactions, or to write to a
+          database system a relation and conserve integrity and consistency. The first of
+          which, is known as \emph{Replication} and consists, as it name implies, to
+          replicate said relation on multiple database instances. Thus, when applying a
+          replication scheme, we obtain data redundancy and consequently augment its
+          availability (augment the capacity of the distributed database system to respond
+          to queries pertaining to this data). As a consequence, overhead augments on
+          updates operations by a factor of $x$ where $x$ is the number of copies across
+          the system, as a naive approximation. Another way to achieve that transactional
+          transparency is commonly known as \emph{Fragmentation}, which again is pretty
+          self-explanatory. It consists of take a relation and fragmenting it into
+          sub-relations in such a way, that given all the fragments (sub-relations) it is
+          possible to re-construct the original relation without any loss of detail or
+          information. 
+
+          \\ For our purposes, we only require an homogeneous architecture and thus in our
+          implementation section we will validate our design decisions. This description
+          above of the characteristics and requirements of distributed database systems
+          applies to all but two of the major type of services, namely Caching and
+          Queuing.
+          
+          \\ Caching 
+
+          \\ Queuing 
           
 
+          With this taxonomy, we are ready to define our own platform and will do so in
+          the future subsections, but now we will showcase the technologies we used in our
+          implementation and thus start the definition of our own implementation.
+         
 \clearpage
 
 \bibliographystyle{te}
