@@ -2,9 +2,13 @@
 \usepackage[latin1]{inputenc}
 \usetheme{Warsaw}
 \title[Volunteer Cloud Computing]{Volunteer Cloud Computing}
-\author{Dany Wilson -- Stephane Some}
+\author{Dany Wilson -- Dr. Stéphane Somé}
 \institute{University of Ottawa}
 \date{January 24, 2014}
+
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
 \begin{document}
 
 \begin{frame}
@@ -13,7 +17,7 @@
 
 \begin{frame}
   \frametitle{Agenda}
-  \tableofcontents
+  \tableofcontents [hideallsubsections]
 \end{frame}
 
 \section{Introduction}
@@ -45,6 +49,19 @@
   \begin{figure}[Cloud]
     \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{Cloud_computing.png}
   \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Definition}
+  \emph{NIST} provided a  description of the characteristics of a Cloud
+  Computing infrastructure:
+  \begin{itemize}
+    \item On-demand Self-Service
+    \item Broad Network Access
+    \item Resource Pooling
+    \item Rapid Elasticity
+    \item Measured Services 
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -109,48 +126,130 @@
 \end{frame}
 
 \section{Infrastructure}
-\begin{frame}
-INFRASTRUCTURE 
-\end{frame}  
-
 \subsection{Overview}
 \begin{frame}
-  INFRASTRUCTURE
-\end{frame}
+  \frametitle{Infrastructure}
+  An Architecture for a fully de-centralized peer-to-peer volunteer
+  cloud computing platform-as-a-service infrastructure.
+  \tikzstyle{every node}=[draw=black,thick,anchor=west]
+  \tikzstyle{selected}=[draw=red,fill=red!30]
+  \tikzstyle{optional}=[dashed,fill=gray!50]
+  \begin{tikzpicture}[%
+      grow via three points={one child at (0.5,-0.7) and
+        two children at (0.5,-0.7) and (0.5,-1.4)},
+      edge from parent path={(\tikzparentnode.south) |-
+    (\tikzchildnode.west)}]
+    \node {Volunteer Cloud Computing Infrastructure}
+    child { node {Physical Layer}}
+    child { node {Virtual Layer}}
+    child { node {API Layer}};
+  \end{tikzpicture}
+\end{frame}  
 
 \subsection{Physical Layer}
 \begin{frame}
-  INFRASTRUCTURE
+  \frametitle{Physical Layer}
+  
+  \tikzstyle{every node}=[draw=black,thick,anchor=west]
+  \tikzstyle{selected}=[draw=red,fill=red!30]
+  \tikzstyle{optional}=[dashed,fill=gray!50]
+  \begin{tikzpicture}[%     
+      grow via three points={one child at (0.5,-0.7) and
+      two children at (0.5,-0.7) and (0.5,-1.4)},
+    edge from parent path={(\tikzparentnode.south) |-
+    (\tikzchildnode.west)}]
+    \node {Physical Layer}
+    child { node {Network Connectivity}
+      child { node {Overlay Network}
+        child { node [optional] {Structured Network}}
+        child { node [optional] {Unstructured Network}}
+    }};
+  \end{tikzpicture}
 \end{frame}
 
 \subsection{Virtual Layer}
 \begin{frame}
-  INFRASTRUCTURE
+  \frametitle{Virtual Layer}
+  \tikzstyle{every node}=[draw=black,thick,anchor=west]
+  \tikzstyle{selected}=[draw=red,fill=red!30]
+  \tikzstyle{optional}=[dashed,fill=gray!50]
+    \begin{tikzpicture}[%                                                                                                                                                                                 
+      grow via three points={one child at (0.5,-0.7) and
+        two children at (0.5,-0.7) and (0.5,-1.4)},
+      edge from parent path={(\tikzparentnode.south) |-
+    (\tikzchildnode.west)}]
+    \node {Virtual Layer}
+    child { node {Virtualization}
+      child {node [optional]{Light Virtualization}}
+      child {node [optional]{Traditional Virtualization}}
+    };
+  \end{tikzpicture}
+\end{frame}
+\begin{frame}
+  \begin{figure}                                                                                                                                                                                        
+    \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{lxc-vm.jpg}                                                                                        
+  \end{figure}
 \end{frame}
 
 \subsection{API Layer}
 \begin{frame}
-  INFRASTRUCTURE
+  \frametitle{API Layer}
+  \tikzstyle{every node}=[draw=black,thick,anchor=west]
+  \tikzstyle{selected}=[draw=red,fill=red!30]
+  \tikzstyle{optional}=[dashed,fill=gray!50]    
+  \begin{tikzpicture}[%                                                                                                                                                                                 
+      grow via three points={one child at (0.5,-0.7) and
+        two children at (0.5,-0.7) and (0.5,-1.4)},
+      edge from parent path={(\tikzparentnode.south) |-
+    (\tikzchildnode.west)}]
+    \node {API Layer}
+    child { node {Databases/Storages}}
+    child { node {Comm. and Networking}}
+    child { node {Process Management}}
+    child { node {Security}}
+    child { node {App. Deployment and Management}};
+  \end{tikzpicture}
 \end{frame}
 
 \section{Open Problems}
 \begin{frame}
-  INFRASTRUCTURE
+  \begin{itemize}
+    \item \textbf{Structured vs. Unstructured Networks} w.r.t. VCC
+      (trade-off: Single-Attribute-Dominated Queries
+      vs. Multi-Attribute-Dominated Queries).
+    \item \textbf{Co-operative Web Hosting} how to host a web
+      application using a peer-to-peer architecture.
+  \end{itemize}
+\end{frame}
+
+\section{Contributions}
+\begin{frame}
+  \begin{itemize}
+    \item \textbf{Using Light Virtualization rather than Traditional
+      (VMs) Virtualization}
+    \item \textbf{API Barebone specification}
+    \item \textbf{Proof of concept, (work in progress...)}
+    \item \textbf{Fully de-centralized approach to VCC}
+  \end{itemize}
 \end{frame}
 
 \section{Future Work}
 \begin{frame}
-  INFRASTRUCTURE
-\end{frame}
-
-\section{Conclusion}
-\begin{frame}
-  INFRASTRUCTURE
+  \begin{itemize}
+    \item Make the proof of concept closer to a production-ready
+      prototype.
+    \item Provide formal analysis of the F.T. and reliability of the
+      system.
+    \item Choose the most adequate solution (Physical Layer), rather
+      than the most convenient. 
+    \item Work towards a more concrete ontological representation of
+      VCC.
+  \end{itemize}
 \end{frame}
 
 \section{References}
 \begin{frame}
-  INFRASTRUCTURE
+  References here....
 \end{frame}
 
 \end{document}

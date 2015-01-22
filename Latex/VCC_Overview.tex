@@ -1393,11 +1393,106 @@
           applies to all but two of the major type of services, namely Caching and
           Queuing.
           
-          \\ Caching 
+          \\ Caching consist of a service that puts information or data into a cache for
+          faster future accesses. In the context of web application a very specific type
+          of distributed caching is widely used, namely Memcached
+          \cite{fitzpatrick2011memcached}. It consists of exploiting unused memory and
+          storing data and objects, usually RAM in a server, to diminish the number of
+          accesses to the external data source, be it disk I/O or API calls to a
+          DBMS. Since it is open-source, both service providers under study offers it (or
+          a slight variant of it), and thus we could also use it in our
+          implementation but due to the scope of this thesis, this feature is deemed
+          non-essential and left as future work, as trivial as it would be to implement. 
 
           \\ Queuing 
           
+          \subsection{Communication and Networking}
+          This component of the API is concerned with everything that is related to online
+          accessibility, presentation of the information via markup language, and the
+          interface between the user and the application. While researching this aspect,
+          we've stumbled upon very interesting problems that are fundamental to the
+          practical implementation of peer-to-peer systems, such as distributed web
+          hosting, and which protocol to use when communicating between peers or
+          end-users. Therefore, we will explore the technologies available to solve these
+          problems and identify which problems will remain open.  
+          
+          \\ In a peer-to-peer system that is fully de-centralized, and provides a unified
+          web interface to the end-user (be it visual or programmable) a problem occurs
+          that can be stated as the following: \emph{How to provide access to this
+            peer-to-peer hosted web content?}
+          
+          \\ This is a concept that is referred to as collaborative web hosting or
+          serverless web hosting, and has been thoroughly analyzed in this book,
+          \cite{ahmed2014collaborative}. They present a possible solution and identify the
+          challenges and research directions that need to be undertaken to completely
+          solve this problem. It is a very interesting topic, mainly because the two
+          architecture (P2P and Client-Server) are seemingly opposed in design. Where as
+          in a normal, using the currently available infrastructure, web hosting context,
+          the static nature of the content location and its hosts (servers) enables a
+          persistent naming and location scheme. On the other hand in a P2P scenario peers
+          come online as fast as they go offline, and this unpredictability of the
+          state of a specific peer makes it hard to ensure persistent location and
+          naming schemes. They deemed that URL naming and hierarchical DNS lookup are
+          inadequate to fulfill the P2P Web hosting mandate. 
+          
+          \\ Thus, naming and availability are two of the major challenges when it comes
+          to P2P Web hosting, but how do we search this P2P Web hosting architecture? The
+          last major challenge that they address is the ability to search the Web content
+          that is hosted, which presents itself under three different angles: efficient
+          keyword matching (partial or full), parallel keyword lookups and full text
+          indexing capabilities.
+          
+          \\ They proposed nice solution to achieve this, called pWeb and it provides
+          solution to all the challenges named above. We applaud this effort, and for what
+          it stands, as a stand against regularization and censorship of the Internet, but
+          also to reduce the cost of creating the new data centers to host user-generated
+          data (content or meta-data). Nonetheless this technology is still at it's
+          infancy and within the context of this thesis we will propose a different
+          perspective, that can be modified to fit within the pWeb vision, but as it stand
+          will be compatible with the traditional client-server infrastructure of the Web.
 
+          \\ We propose 2 scenarios:
+          \begin{itemize}
+            \item The application deployer is responsible for the web hosting aspect of
+              the deployment and may rely on commercial solutions. The intent of using the
+              Volunteer Cloud Computing infrastructure, relies on its ability to offload
+              some data/computational workload to the Cloud as needed and achieve
+              scalability, whereas the Web hosting aspect (traffic load, and HTTP request
+              bottleneck) reside outside the infrastructure. One could adjust the hosting
+              plan to fit the demand, in terms of request per unit of time, but wouldn't
+              need to do any request processing, rather only do request dispatching to the
+              appropriate nodes.
+            \item The application deployer will act as the Web host and use its IP address
+              as the main access point. Thus in order to enable URL based naming and
+              hierarchical DNS lookup, it will need to register a domain name to his IP
+              address or ask its users to use its IP address directly with the appropriate
+              port.
+          \end{itemize}
+          In the former, the scalability is achieved by offloading the workload, as needed
+          to peers. While in the latter, the scalability is limited by a hard-boundary,
+          the physical limit of the application deployer networking equipment and its ISP
+          package that he purchased. We fill that there is a distinct advantages for the
+          first scenario, and only provide the second scenario for completion sakes. 
+
+          \\ Next portion of this component deals with which protocol we wish to use for
+          inter-node communication. Traditionally, when designing a service-oriented web
+          application technology such as SOAP or WSDL were used, but now in the Web 2.0
+          the latest contender and most widely accepted framework to design Web services
+          is REST. Representational State Transfer, is designed to be design pattern that
+          enables any entity connected to a network to communicate using HTTP (Hypertext
+          Transfer Protocol) as communication protocol. 
+          
+          \subsection{Process Management}
+          In this section we will explore the literature and identify the different ways
+          to manage processes within a distributed environment. But first we need to
+          clarify some assumptions to narrow our scope of research a bit. The first
+          assumption that we make is relative to the representation of a process within a
+          PaaS environment, since the scope of PaaS environment is Application and 
+          \subsection{Security}
+          \subsection{Application Deployment and Management}
+
+          \section{Implementation}
+          
           With this taxonomy, we are ready to define our own platform and will do so in
           the future subsections, but now we will showcase the technologies we used in our
           implementation and thus start the definition of our own implementation.
