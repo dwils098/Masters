@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99d (TeX Live 2014)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: presentation.aux
+The style file: te.bst
+Database file #1: bibliography.bib
+Repeated entry---line 292 of file bibliography.bib
+ : @inproceedings{gfs
+ :                   ,
+I'm skipping whatever remains of this entry
+Warning--empty journal in nist
+You've used 40 entries,
+            2904 wiz_defined-function locations,
+            814 strings with 11231 characters,
+and the built_in function-call counts, 24788 in all, are:
+= -- 2047
+> -- 1093
+< -- 23
++ -- 373
+- -- 318
+* -- 1902
+:= -- 3633
+add.period$ -- 119
+call.type$ -- 40
+change.case$ -- 338
+chr.to.int$ -- 39
+cite$ -- 81
+duplicate$ -- 1887
+empty$ -- 1889
+format.name$ -- 442
+if$ -- 5080
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 366
+newline$ -- 173
+num.names$ -- 160
+pop$ -- 726
+preamble$ -- 1
+purify$ -- 265
+quote$ -- 0
+skip$ -- 744
+stack$ -- 0
+substring$ -- 1112
+swap$ -- 896
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 348
+warning$ -- 1
+while$ -- 189
+width$ -- 0
+write$ -- 499
+(There was 1 error message)

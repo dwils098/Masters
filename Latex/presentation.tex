@@ -4,7 +4,7 @@
 \title[Volunteer Cloud Computing]{Volunteer Cloud Computing}
 \author{Dany Wilson -- Dr. Stéphane Somé}
 \institute{University of Ottawa}
-\date{January 24, 2014}
+\date{January 23, 2015}
 
 \usepackage{tikz}
 \usetikzlibrary{trees}
@@ -204,10 +204,10 @@
     (\tikzchildnode.west)}]
     \node {API Layer}
     child { node {Databases/Storages}}
-    child { node {Comm. and Networking}}
-    child { node {Process Management}}
+    child { node {Front-End}}
+    child { node [optional]{Load Balancing \& Scaling}}
     child { node {Security}}
-    child { node {App. Deployment and Management}};
+    child { node [optional]{App. Deployment and Management}};
   \end{tikzpicture}
 \end{frame}
 
@@ -248,8 +248,11 @@
 \end{frame}
 
 \section{References}
-\begin{frame}
-  References here....
+\begin{frame}[allowframebreaks]
+        \frametitle{References}
+        \bibliographystyle{te}
+        \tiny
+        \bibliography{bibliography}
 \end{frame}
 
 \end{document}

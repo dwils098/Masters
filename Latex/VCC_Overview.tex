@@ -1480,16 +1480,201 @@
           the latest contender and most widely accepted framework to design Web services
           is REST. Representational State Transfer, is designed to be design pattern that
           enables any entity connected to a network to communicate using HTTP (Hypertext
-          Transfer Protocol) as communication protocol. 
+          Transfer Protocol) as communication protocol. % ...  To complete ... %
           
           \subsection{Process Management}
           In this section we will explore the literature and identify the different ways
-          to manage processes within a distributed environment. But first we need to
-          clarify some assumptions to narrow our scope of research a bit. The first
-          assumption that we make is relative to the representation of a process within a
-          PaaS environment, since the scope of PaaS environment is Application and 
+          to manage processes within a distributed environment. If we talk a look at what
+          GAE offers in terms of facilities to manage processes, we can differentiate
+          between 3 different components. First, they offer what they call the Module API,
+          which provides mechanisms to factor larger applications into logical
+          components. These components have the ability to securely share stateful
+          services and to communicate between one another. This is intended for developers
+          that have an application with a large functional diversity and requires
+          long-standing processes to execute in parallel. The second feature that they
+          offer is the TaskQueues API, which provides the ability to an application to
+          perform work outside of a user request. It achieves this by providing means to
+          package small, independent units of work, into a construct called Task that can
+          be queued and retrieved whenever it is convenient. Finally, they offer a data
+          processing framework, named MapReduce, that is an implementation of the original
+          MapReduce, and provides similar capabilities that are present in cluster or grid
+          computing.
+          
+          \\ For the scope of this thesis, we will focus on providing only task queues and
+          it will prove sufficient for the proof of concept. Thus, we need to explore what
+          is the state of the art in terms of distributed task queues, and investigate
+          which implementation would suits our requirements. \emph{Nota Bene}, providing
+          capabilities similar to the Modules API is an important aspect for a PaaS API
+          and we feel the need to underline the fact that it is not part of the mandate of
+          this research effort but is required as part of the PaaS API to offer a decent
+          platform, that provides means to create more realistic web applications.
+
+          \\ Task queues are meant to manage the work that happens outside of the normal
+          request-response cycle that is central to web applications. Asynchronous is the
+          key word here, since tasks are handled whenever the resources are available, and
+          the request-response cycle doesn't not get interrupted or slowed down. It can
+          also be used to execute jobs that are more time-consuming without altering the
+          response capabilities of the application w.r.t. to the incoming throughput of
+          requests. In our context, we require the task queue to be distributed, since we
+          cannot foresee the time interval for which a given node will be online, and
+          preferably with some kind of replication mechanism in order to reduce the number
+          of "dropped" tasks. A workflow that is common when using task queues, is the
+          following: 
+          \begin{itemize}
+          \item Define the maximum request-response interval your application will tolerate. 
+          \item Evaluate if a job will surpass that interval.
+          \item Given that it surpass this interval, schedule a task in the Task queue.
+          \item Upon completion of the task, store the result in a cache mechanism.
+          \item Respond, when possible, by reading the value from the cache.
+          \end{itemize}
+          Combining such a workflow with the concept of worker nodes, in a distributed
+          system, that monitors the queues for any new tasks to perform, is sufficient to
+          distribute the workload across the different nodes and achieve decent load
+          balancing. Although, we acknowledge that we can get into more details
+          w.r.t. load balancing and implement some very specific algorithm to handle
+          different cases, it is beyond the scope of this thesis since it is a complete
+          domain of research on its own.
+
           \subsection{Security}
+          As stated above, the Security component of the API is concerned with providing
+          means to establish/entertain secure communication channels between the different
+          nodes, but also between the end-user of the application and the node responsible
+          of handling the requests. It is also concern with providing some sort of access
+          control between the nodes, in order to prevent unauthorized nodes to access the
+          resources of the application. Authentication of the end-user is also a concern
+          addressed by this component, be it a single-sign on service or other means of
+          authenticating a user. Finally, we put the responsibility of providing
+          multitenancy. 
+          
+          \\ Secure communication between the nodes can be ensured over TCP/IP using SSL
+          (Secure Sockets Layers), and the communication between the end-user and the
+          frontend node through HTTPS which consist of using SSL in concert with
+          HTTP. Obvious as it may seem, we would use the same technologies (SSL, HTTPS,
+          etc.) that any other application would, when required to communicate over
+          unsecured networks as is the case with the Internet. In this particular
+          situation, SSL certificates are negotiated by a web server and a client
+          typically, the web server would be the application deployer and the client would
+          be a candidate node. Thus, upon successful negotiations the node and the
+          application deployer would be able to communicate in secure manner relying on
+          the SSL protocol.
+          
+          Subsequently, Access Control can be divided into two types of accesses that
+          requires some control over it: access from a end-user to the web application;
+          and access from node to node. Let's circumscribe what is intended by access
+          control. Adopting a more expansive definition, we could refer to
+          \cite{shirey2009rfc} definitions:
+          \begin{quote}
+            1. Protection of system resources against unauthorized access.
+            \\
+            2. A process by which use of system resources is regulated
+            according to a security policy and is permitted only by authorized
+            entities (users, programs, processes, or other systems) according
+            to that policy. (See: access, access control service, computer
+            security, discretionary access control, mandatory access control,
+            role-based access control.)
+            \\
+            3. /formal model/ Limitations on interactions between subjects
+            and objects in an information system.
+          \end{quote}
+          We can credit the first definition to the first type of access control, that of
+          restricting the access of the application to a selected domain of users. The
+          second definition which is a bit more concise, introduce the notion of process,
+          security policies, and enforcing the policies. Although it ultimately
+          encompasses the two types of access that we have defined above, it is much more
+          pertinent with respect to the second type of access, that of inter-node access
+          (or inter-resource access). Having established secure communications how do we,
+          now, determine what is permitted for a certain node and what is not? A classic
+          example, if we introduce a Byzantine node (that is a node for which the requests
+          are incorrect or the response to a request incorrect, either by error in
+          computation or by malicious intent) and it request to drop all the tables in the
+          database, how do we differentiate between this request being erroneous or
+          malicious in intent, and a legitimate request to drop all the tables? Although,
+          one could argue that this does not prevent such hazardous situation to occurs,
+          but would limit the most flagrant ones. To cover all the edge cases of possible
+          threat model is out of the scope of this thesis, and this is an illustrative
+          example only. Access control schemes would enable the enforcement of security
+          policies that would restrict the ability to perform such administrative (and
+          potentially dangerous) tasks to a select few. There exists multiple schemes from
+          which to choose from, and let's just give a flavour of the different major ones.
+          We will start by making sense of the third definition, which is concerned with
+          the ability to limit the interactions between subjects and objects within an
+          information system. In this case subjects refers to the entities that can
+          perform actions on the system, and objects are constructs that encompasses the
+          resources in the system. In other words, to limit the possible actions on the
+          resources of the system in a per entity basis. The major types of controls are
+          Mandatory Access Control (MAC), Discretionary Access Control (DAC), Role-Based
+          Access Control (RBAC), and finally Rule-Based Access Control. MAC is one of the
+          stricter forms of access control, relying on the security classification of the
+          data and the clearance granted to the user to determine its ability to access
+          the content. DAC is a bit more relaxed, in the sense that the control of access
+          of a file is reverted to the owner of the file in which (s)he can determine the
+          users that are granted access. RBAC is centered around the notion of roles, for
+          which describes the access capabilities of the user based on which role is
+          attributed to them. Rule-Based Access Control, is evidently based around the
+          notion of rules, which are universal and defines access behaviours that are
+          generally quantifiable (such as time-sensitive access
+          restriction/capabilities). Depending on the intricate details of the
+          implementation one could argue for or against any of those access control
+          scheme, but it is important to understand that MAC or DAC may be to archaic, and
+          RBAC or Role-Based Access Control are more adequate for web applications, in
+          which multiple services maybe contracted to achieve its functionality. Finally,
+          role engineering is a difficult task to perform in general, given that there
+          even exist a segregation between the different possible roles, where as rule
+          based enables the enforcement of dynamic policies. Authentication would be
+          accomplished by providing API hooks to use the Google SSO API, and thus we would
+          revert the responsibility of authenticating a user to a third party. We are
+          doing so, because from a user experience perspective it shows that their
+          credentials are handled by a trusted party, but also the fact that they do not
+          need to create another set of username and password for yet another web
+          app. Therefore, we will briefly investigate how the Google+ Sign-in could work
+          within our VCC infrastructure. An over-simplification of the sign-in flow, can
+          be the following: on your web application home page, you include a Google+
+          Sign-In button, with which user can log-in using their Google account. This
+          means that you (the web application developer) are reverting the responsibility
+          of authenticating the user to Google via a request. Once the request completed, the
+          response of is an OAuth token, which is a \emph{bearer token} and is defined in
+          the OAuth implementation, \cite{jones2012oauth}, as:
+          \begin{quote}
+             A security token with the property that any party in possession of the token
+             (a "bearer") can use the token in any way that any other party in
+             possession of it can.  Using a bearer token does not require a bearer to
+             prove possession of cryptographic key material (proof-of-possession).
+          \end{quote}
+          Which means once authenticated, the simple fact of possessing the token is
+          sufficient to use it for its defined level of access (whatever that may
+          entail). Thus, afterwards you can keep track of the users in a database using
+          the information from this authentication solely, or require additional
+          information. Finally, you can initiate a user session upon authentication, by
+          Google, and ensure that the user is evidently the user it claims to be as long
+          as it bears the OAuth token. 
+          
+          \\ If we would want to provide such facilities in our implementation of VCC, we
+          need to provide means to have persistent databases that would accumulate the
+          data corresponding to each users and the contextual data per user vis-a-vis the
+          application services. Thus, the only sensible way to achieve this in a
+          distributed collaborative system that relies on a node-agnostic scheme, which
+          means that it is assume that every contributing nodes have no a priori knowledge
+          or data about the application their resources will be leveraged to host, we need
+          to force this responsibility on the application deployer to ensure that this
+          sensitive information will survive different deployments. It can be achieved by
+          making the database reside on the application deployer node, which will enable
+          him to use the same database in subsequent deployments.
+
+          Multitenancy is an issue that pertains to software architecture, thus we need
+          to know if our platform offers it vanilla or do we need to extend it to offer
+          the basics. First, what do we really mean by multitenancy compared to allowing
+          multiple user's sessions to run in parallel, or is it explicitly different from
+          session-oriented services? It is concerned with the ability t
+          
           \subsection{Application Deployment and Management}
+          This section is related to the features that are required to enable the
+          deployment of an application and to manage it, in terms of resources used. First
+          and foremost, concerning the application deployment, we need to identify the
+          means of transforming a randomly selected node into an active working node (by
+          working we intend that is taking part in processing the workload). One could
+          imagine that there is a necessary transfer of application logic, or the code, to
+          enable that specific node to take part in the work force.
+
 
           \section{Implementation}
           

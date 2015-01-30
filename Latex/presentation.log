@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  20 JAN 2015 15:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  23 JAN 2015 09:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1008,7 +1008,7 @@ Overfull \vbox (20.52429pt too high) detected at line 21
 
 [2
 
-] <GIMPS_logo.png, id=190, 120.45pt x 76.03406pt>
+] <GIMPS_logo.png, id=191, 120.45pt x 76.03406pt>
 File: GIMPS_logo.png Graphic file (type png)
  <use GIMPS_logo.png>
 Package pdftex.def Info: GIMPS_logo.png used on input line 38.
@@ -1016,7 +1016,7 @@ Package pdftex.def Info: GIMPS_logo.png used on input line 38.
 
 [3
 
- <./GIMPS_logo.png>] <Cloud_computing.png, id=232, 1003.75pt x 909.3975pt>
+ <./GIMPS_logo.png>] <Cloud_computing.png, id=233, 1003.75pt x 909.3975pt>
 File: Cloud_computing.png Graphic file (type png)
 
 <use Cloud_computing.png>
@@ -1031,7 +1031,7 @@ Overfull \vbox (29.00238pt too high) detected at line 52
  <./Cloud_computing.png>] [5
 
 ]
-<cloud_sep_of_resp.jpg, id=308, 642.4pt x 381.425pt>
+<cloud_sep_of_resp.jpg, id=309, 642.4pt x 381.425pt>
 File: cloud_sep_of_resp.jpg Graphic file (type jpg)
 
 <use cloud_sep_of_resp.jpg>
@@ -1044,7 +1044,7 @@ Package pdftex.def Info: cloud_sep_of_resp.jpg used on input line 71.
 ] [8
 
 ]
-<cathome_arch.jpg, id=422, 891.33pt x 415.5525pt>
+<cathome_arch.jpg, id=423, 891.33pt x 415.5525pt>
 File: cathome_arch.jpg Graphic file (type jpg)
  <use cathome_arch.jpg>
 Package pdftex.def Info: cathome_arch.jpg used on input line 98.
@@ -1052,7 +1052,7 @@ Package pdftex.def Info: cathome_arch.jpg used on input line 98.
 
 [9
 
- <./cathome_arch.jpg>] <p2pcs_arch.jpg, id=459, 612.2875pt x 412.54124pt>
+ <./cathome_arch.jpg>] <p2pcs_arch.jpg, id=460, 612.2875pt x 412.54124pt>
 File: p2pcs_arch.jpg Graphic file (type jpg)
 
 <use p2pcs_arch.jpg>
@@ -1063,7 +1063,7 @@ Package pdftex.def Info: p2pcs_arch.jpg used on input line 107.
  <./p2pcs_arch.jpg>] [11
 
 ]
-<p2p-collab.jpg, id=533, 655.44875pt x 578.16pt>
+<p2p-collab.jpg, id=534, 655.44875pt x 578.16pt>
 File: p2p-collab.jpg Graphic file (type jpg)
  <use p2p-collab.jpg>
 Package pdftex.def Info: p2p-collab.jpg used on input line 126.
@@ -1076,7 +1076,7 @@ Package pdftex.def Info: p2p-collab.jpg used on input line 126.
 
 ] [15
 
-] <lxc-vm.jpg, id=684, 271.15366pt x 199.58942pt>
+] <lxc-vm.jpg, id=685, 271.15366pt x 199.58942pt>
 File: lxc-vm.jpg Graphic file (type jpg)
 
 <use lxc-vm.jpg>
@@ -1092,7 +1092,40 @@ Package pdftex.def Info: lxc-vm.jpg used on input line 192.
 
 ] [20
 
-] [21
+] (./presentation.bbl
+LaTeX Font Info:    Try loading font information for U+msa on input line 67.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 67.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
+line 67.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
+File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
+thkerncmss.
+)) [21
+
+ </usr/local/texlive/2014/texmf-dist/tex/latex/beamer/art/beamericonarticle.pdf
+>] [22
+
+
+] [23
+
+
+] [24
+
+
+] [25
+
+
+] [26
+
 
 ]
 \tf@nav=\write6
@@ -1104,12 +1137,11 @@ Package pdftex.def Info: lxc-vm.jpg used on input line 192.
 \tf@snm=\write8
 \openout8 = `presentation.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 255.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 255.
-
-(./presentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 255.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 255.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 258.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 258.
+ (./presentation.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 258.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 258.
 Package rerunfilecheck Info: File `presentation.out' has not changed.
 (rerunfilecheck)             Checksum: C0A78AEE037DD0308FC8912A8C2903CE;1034.
 
@@ -1117,25 +1149,27 @@ Package rerunfilecheck Info: File `presentation.out' has not changed.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 255.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 258.
  ) 
 Here is how much of TeX's memory you used:
- 19857 strings out of 493117
- 395986 string characters out of 6135433
- 458896 words of memory out of 5000000
- 22807 multiletter control sequences out of 15000+600000
- 6102 words of font info for 22 fonts, out of 8000000 for 9000
+ 20142 strings out of 493117
+ 401887 string characters out of 6135433
+ 480475 words of memory out of 5000000
+ 22980 multiletter control sequences out of 15000+600000
+ 9312 words of font info for 34 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,19n,65p,440b,1320s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb
 ></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb>
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></
 usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><
-/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb>
-Output written on presentation.pdf (21 pages, 697230 bytes).
+/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb><
+/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></
+usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
+Output written on presentation.pdf (26 pages, 741936 bytes).
 PDF statistics:
- 923 PDF objects out of 1000 (max. 8388607)
- 856 compressed objects within 9 object streams
- 61 named destinations out of 1000 (max. 500000)
+ 1161 PDF objects out of 1200 (max. 8388607)
+ 1082 compressed objects within 11 object streams
+ 111 named destinations out of 1000 (max. 500000)
  264 words of extra memory for PDF output out of 10000 (max. 10000000)
 
