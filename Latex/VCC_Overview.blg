@@ -3,46 +3,47 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: VCC_Overview.aux
 The style file: te.bst
 Database file #1: bibliography.bib
+Warning--I didn't find a database entry for "zahariev2009google"
 Warning--empty journal in nist
-You've used 31 entries,
+You've used 42 entries,
             2904 wiz_defined-function locations,
-            775 strings with 10225 characters,
-and the built_in function-call counts, 20460 in all, are:
-= -- 1681
-> -- 941
-< -- 15
-+ -- 320
-- -- 276
-* -- 1595
-:= -- 2957
-add.period$ -- 93
-call.type$ -- 31
-change.case$ -- 278
-chr.to.int$ -- 30
-cite$ -- 63
-duplicate$ -- 1553
-empty$ -- 1539
-format.name$ -- 377
-if$ -- 4204
+            825 strings with 11327 characters,
+and the built_in function-call counts, 25354 in all, are:
+= -- 2096
+> -- 1106
+< -- 26
++ -- 380
+- -- 321
+* -- 1931
+:= -- 3741
+add.period$ -- 124
+call.type$ -- 42
+change.case$ -- 348
+chr.to.int$ -- 41
+cite$ -- 85
+duplicate$ -- 1934
+empty$ -- 1925
+format.name$ -- 449
+if$ -- 5178
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 298
-newline$ -- 137
-num.names$ -- 124
-pop$ -- 598
+missing$ -- 377
+newline$ -- 181
+num.names$ -- 168
+pop$ -- 747
 preamble$ -- 1
-purify$ -- 215
+purify$ -- 274
 quote$ -- 0
-skip$ -- 607
+skip$ -- 764
 stack$ -- 0
-substring$ -- 941
-swap$ -- 756
+substring$ -- 1120
+swap$ -- 912
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 276
+type$ -- 366
 warning$ -- 1
-while$ -- 155
+while$ -- 192
 width$ -- 0
-write$ -- 394
-(There was 1 warning)
+write$ -- 520
+(There were 2 warnings)

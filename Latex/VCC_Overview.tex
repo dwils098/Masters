@@ -1194,63 +1194,19 @@
           Devices). From this array of different features and services we have devised the
           following taxonomy, represented by this graphic:          
           \begin{center}
-            \begin{tikzpicture}
-              \path[
-                mindmap,
-                every node/.style={
-                  concept,
-                  execute at begin node=\hskip0pt},
-                root concept/.append style={
-                  concept color=black, fill=white, line width=1ex, text=black
-                },
-                grow cyclic
-              ]
-
-              node[root concept] {PaaS Features}
-              %[clockwise from=0]
-             
-              child[
-                concept color=green,
-                fill=white,
-                line width=1ex,
-                text=black
-              ] {
-                node[concept] {Database/Storage}
-              }  
-
-              child[
-                concept color=blue,
-                fill=white,
-                line width=1ex,
-                text=black
-              ] {
-                node[concept] {Communication/Networking}
-                % --  this is how you add sub nodes... --
-                %[clockwise from=-30]
-                %child { node[concept] {databases} }
-                %child { node[concept] {WWW} }
-              }
-              
-              child[
-                concept color=red,
-                fill=white,
-                line width=1ex,
-                text=black
-              ] { node[concept] {Process Mgmt.} }
-              
-              child[
-                concept color=orange,
-                fill=white,
-                line width=1ex,
-                text=black
-              ] { node[concept] {Security} }
-              
-              child[
-                concept color=purple,
-                fill=white,
-                line width=1ex,
-                text=black
-              ] { node[concept] {App Deployment/Mgmt.}};
+              \tikzstyle{every node}=[draw=black,thick,anchor=west]
+              \tikzstyle{selected}=[draw=red,fill=red!30]
+              \tikzstyle{optional}=[dashed,fill=gray!50]
+              \begin{tikzpicture}[%
+                  grow via three points={one child at (0.5,-0.7) and two children at (0.5,-0.7) and
+                    (0.5,-1.4)}, edge from parent path={(\tikzparentnode.south) |-
+                    (\tikzchildnode.west)}] 
+                \node {API Layer} 
+                child { node {Databases/Storages}} 
+                child { node {Front-End}} 
+                child { node [optional]{Load Balancing \& Scaling}} 
+                child { node {Security}} 
+                child { node [optional]{App. Deployment and Management}};
               \end{tikzpicture}
           \end{center}
           For each of these components we will provide a brief defining characterization,
@@ -1673,14 +1629,78 @@
           means of transforming a randomly selected node into an active working node (by
           working we intend that is taking part in processing the workload). One could
           imagine that there is a necessary transfer of application logic, or the code, to
-          enable that specific node to take part in the work force.
-
+          enable that specific node to take part in the work force. But that should ring a
+          security alarm, since to allow another "unknown" node to send and execute code
+          on your machine is a scary ideology, if the code isn't accessible to you. Thus
+          we need a white box model to the application logic that is being distributed to
+          the different nodes, to allow the contributing node to ensure, at his will, what
+          is actually being executed on it's machine. Another possibility would be to
+          enforce a more strict containment policy with respect to the
+          containers and let them run whatever they wish to inside that container. For
+          ethical reasons, we deem that it is more suitable to adopt a white box approach
+          and let the contributing host be the judge of what is being executed on their
+          machines. Ultimately, there is a concern with data privacy, which pertains to
+          the data that is provided to the working node to process, and we need to use
+          cryptography to ensure that the contributing node cannot access the data in
+          clear form.
+          
+          \\ As far as management is concern, we can list the following requirements:
+          \begin{itemize}
+          \item Need a way to monitor the workload on each nodes, in order to identify any
+            possible bottlenecks, mitigate the effects.
+          \item Need a way to monitor the application as a whole, to identify if we need
+            to scale (either up or down) it.
+          \item Need a way to automate these processes of monitoring and adjusting to
+            respond to the fluctuation of the demand.
+          \item Provide means to do A/B testing by enabling the deployment of two versions
+            of the application simultaneously.
+          \end{itemize}
+          Of these four, only three are really necessary in a Volunteer Cloud Computing
+          infrastructure, namely the first three. There are multiple ways to achieve this,
+          one technique that would be easily implemented is a heartbeat mechanism that
+          sends the dynamic attributes to the application node, from which it could derive
+          the aggregate values and enforce a scaling policy depending on the requirements
+          of the application.
 
           \section{Implementation}
-          
           With this taxonomy, we are ready to define our own platform and will do so in
           the future subsections, but now we will showcase the technologies we used in our
           implementation and thus start the definition of our own implementation.
+          
+          \\ The programming language that we decided to use for the proof of concept is
+          Python. We chose Python for its fast prototyping capabilities, and its strong
+          community: specifically for the ridiculously large amount of packages (or
+          libraries). 
+
+          \\ We used an iterative and incremental approach to the software
+          development. It can be represented by the definition of both terms in this
+          context, as provided in \cite{Cockburn2008}:
+          \begin{quote}
+            Incremental development is a staging and scheduling strategy in which various
+            parts of the system are developed at different times or rates and integrated
+            as they are completed.  [...]  Iterative development is a rework scheduling
+            strategy in which time is set aside to revise and improve parts of the system.
+          \end{quote}
+          More specifically, the incremental nature of this methodology enabled us to
+          approach the problem from a lower-level perspective first (Network-Layer of
+          \emph{How do we connect a collection of heterogeneous machines and form network
+            infrastructure?} and progress gradually towards a high-level perspective of
+          the problem (API-Layer). Finally, the iterative nature enables us to revisit
+          early assumptions that we made previously and assess their validity with the
+          current assumptions, modify them and re-design the architecture as needed.
+          
+          \\ The networking framework that we used to design this proof of concept, is the
+          Twisted Event-Driven Networking framework for Python. Consequently we have found
+          an implementation of the Kademlia DHT, written in Python using the Twisted
+          framework, named Entangled and written by Francois Aucamp from the Meraka
+          Institute, CSIR. For the Virtual Layer we have used Docker as the container (or
+          light virtualization) technology, and we have used different technologies for
+          the API-Layer, all of which we will describe in the later portion of this
+          section.
+
+          \\ In the following subsections we will go through each of the three layers and
+          present their implementation, and we will wrap-up with a presentation of a
+          toy-example that demonstrate the capabilities of this infrastructure. 
          
 \clearpage
 

@@ -1,4 +1,4 @@
-\begin{thebibliography}{31}
+\begin{thebibliography}{42}
 \newcommand{\enquote}[1]{``#1''}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
@@ -9,6 +9,11 @@
 \providecommand{\bibAnnote}[2]{%
   \begin{quotation}\noindent\textsc{Key:} #1\\
   \textsc{Annotation:}\ #2\end{quotation}}
+
+\bibitem[{Ahmed and Boutaba(2014)}]{ahmed2014collaborative}
+Ahmed, Reaz and Raouf Boutaba (2014), \emph{Collaborative Web Hosting:
+  Challenges and Research Directions}. Springer.
+\bibAnnoteFile{ahmed2014collaborative}
 
 \bibitem[{Babaoglu et~al.(2012)Babaoglu, Marzolla, and Tamburini}]{P2PCS}
 Babaoglu, Ozalp, Moreno Marzolla, and Michele Tamburini (2012), \enquote{Design
@@ -28,6 +33,16 @@ Bandara, HMN~Dilum and Anura~P Jayasumana (2013), \enquote{Collaborative
   applications over peer-to-peer systems--challenges and solutions.}
   \emph{Peer-to-Peer Networking and Applications}, 6, 257--276.
 \bibAnnoteFile{p2p_collab}
+
+\bibitem[{Cockburn(2008)}]{Cockburn2008}
+Cockburn, Alistair (2008), \enquote{{Using both incremental and iterative
+  development}.} \emph{STSC CrossTalk}, 21.
+\bibAnnoteFile{Cockburn2008}
+
+\bibitem[{Codd(1970)}]{codd1970relational}
+Codd, Edgar~F (1970), \enquote{A relational model of data for large shared data
+  banks.} \emph{Communications of the ACM}, 13, 377--387.
+\bibAnnoteFile{codd1970relational}
 
 \bibitem[{Cunsolo et~al.(2009)Cunsolo, Distefano, Puliafito, and
   Scarpa}]{cathome}
@@ -78,10 +93,19 @@ Distefano, Salvatore and Antonio Puliafito (2012), \enquote{Cloud@ home: Toward
   a volunteer cloud.} \emph{IT Professional}, 14, 27--31.
 \bibAnnoteFile{cathome11}
 
+\bibitem[{Draffan and Poole(1980)}]{draffan1980distributed}
+Draffan, IW and F~Poole (1980), \emph{Distributed data bases}. CUP Archive.
+\bibAnnoteFile{draffan1980distributed}
+
 \bibitem[{Emelyanov and Kolyshkin(2007)}]{emelyanov2007pid}
 Emelyanov, Pavel and Kir Kolyshkin (2007), \enquote{Pid namespaces in the 2.6.
   24 kernel.} \emph{LWN. net, November}.
 \bibAnnoteFile{emelyanov2007pid}
+
+\bibitem[{Fitzpatrick(2011)}]{fitzpatrick2011memcached}
+Fitzpatrick, Brad (2011), \enquote{Memcached: a distributed memory object
+  caching system.} \emph{Memcached-a Distributed Memory Object Caching System}.
+\bibAnnoteFile{fitzpatrick2011memcached}
 
 \bibitem[{Ganesan et~al.(2004)Ganesan, Yang, and
   Garcia-Molina}]{ganesan2004one}
@@ -99,8 +123,18 @@ Ghemawat, Sanjay, Howard Gobioff, and Shun-Tak Leung (2003), \enquote{The
 
 \bibitem[{Hykes(2014)}]{dockercon}
 Hykes, Solomon (2014), \enquote{Dockercon.} \url{http://www.dockercon.com/}.
-  Accessed: 2014-12-30.
+  Accessed: 30-12-2014.
 \bibAnnoteFile{dockercon}
+
+\bibitem[{Inc.(2015)}]{AWS}
+Inc., Amazon Web~Services (2015), \enquote{Amazon web services.}
+  \url{http://aws.amazon.com/}. Accessed: 08-01-2015.
+\bibAnnoteFile{AWS}
+
+\bibitem[{Inc.(2014)}]{gae_web}
+Inc., Google (2014), \enquote{Google app engine documentation.}
+  \url{https://cloud.google.com/appengine/docs}. Accessed: 08-01-2015.
+\bibAnnoteFile{gae_web}
 
 \bibitem[{Jelasity and Kermarrec(2006)}]{jelasity2006ordered}
 Jelasity, Mark and A-M Kermarrec (2006), \enquote{Ordered slicing of very
@@ -122,6 +156,11 @@ Jelasity, M{\'a}rk, Spyros Voulgaris, Rachid Guerraoui, Anne-Marie Kermarrec,
   Transactions on Computer Systems (TOCS)}, 25, 8.
 \bibAnnoteFile{pss}
 
+\bibitem[{Jones and Hardt(2012)}]{jones2012oauth}
+Jones, M and Dick Hardt (2012), \enquote{The oauth 2.0 authorization framework:
+  Bearer token usage.} Technical report, RFC 6750, October.
+\bibAnnoteFile{jones2012oauth}
+
 \bibitem[{Lewis(2011)}]{Blewis}
 Lewis, Brian (2011), \enquote{Separation of responsibilities.} Taken from
   http://mythoughtsonit.com/2011/04/infrastructure-as-a-service-platform-as-a-service-software-as-a-servicetake-a-look-at-the-management-stack,
@@ -132,6 +171,11 @@ Lewis, Brian (2011), \enquote{Separation of responsibilities.} Taken from
 Licklider, Joseph~CR (1963), \enquote{Memorandum for members and affiliates of
   the intergalactic computer network.} \emph{Apr}, 23, 350--1.
 \bibAnnoteFile{licklider}
+
+\bibitem[{Linders(1976)}]{linders1976distributed}
+Linders, James~G (1976), \enquote{Distributed data bases.} \emph{Computers \&
+  Geosciences}, 2, 293--297.
+\bibAnnoteFile{linders1976distributed}
 
 \bibitem[{Lua et~al.(2005)Lua, Crowcroft, Pias, Sharma, Lim
   et~al.}]{lua2005survey}
@@ -161,6 +205,11 @@ O'reilly, Tim (2007), \enquote{What is web 2.0: Design patterns and business
   Strategies}, 65, 17--37.
 \bibAnnoteFile{web20}
 
+\bibitem[{{\"O}zsu and Valduriez(2011)}]{ozsu2011principles}
+{\"O}zsu, M~Tamer and Patrick Valduriez (2011), \emph{Principles of distributed
+  database systems}. Springer.
+\bibAnnoteFile{ozsu2011principles}
+
 \bibitem[{Panzieri et~al.(2011)Panzieri, Babaoglu, Ferretti, Ghini, and
   Marzolla}]{panzieri}
 Panzieri, Fabio, Ozalp Babaoglu, Stefano Ferretti, Vittorio Ghini, and Moreno
@@ -187,6 +236,11 @@ Riviere, Etienne and Spyros Voulgaris (2011), \enquote{Gossip-based networking
   for internet-scale distributed systems.} In \emph{E-Technologies:
   Transformation in a Connected World}, 253--284, Springer.
 \bibAnnoteFile{riviere2011gossip}
+
+\bibitem[{SHIREY(2009)}]{shirey2009rfc}
+SHIREY, R (2009), \enquote{Rfc 4949: Internet security glossary, version 2;
+  2007.}
+\bibAnnoteFile{shirey2009rfc}
 
 \bibitem[{Vaquero et~al.(2008)Vaquero, Rodero-Merino, Caceres, and
   Lindner}]{vaquero}

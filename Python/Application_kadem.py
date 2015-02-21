@@ -99,6 +99,11 @@ class Application (object):
     cherry_py_instance: is the Instanciated object that contains the logic for the web_server
 
     """
+    def bootStrapDone(self, server):
+        print self
+        print server
+        contacts = self.inetVisibleIP()
+        print contacts
 
     def __init__(self, name="app_default",port=4020):
         self._name = name
@@ -116,17 +121,30 @@ class Application (object):
 
         self._ip_address = "127.0.0.1"
 
-        self._node = node.Node(4020)
-        self._node.joinNetwork(knownNodes)
+        #self._node = node.Node(4020)
+        #self._node.joinNetwork(knownNodes)
+        
+        from kademlia.network import Server
+        self._serverNode = Server()
+        
+        # listen on port 5556
+        self._serverNode.listen(5556)
+        
+        # bootstrap with known nodes
+        self._serverNode.bootstrap([("127.0.0.1",5557)]).addCallback(self.bootStrapDone)
+
 
     def __str__(self):
         return "Application: [name] = " + self._name + " [number_of_nodes] = " + str(self.number_of_nodes)
         #" [list_of_nodes] = " + str(self.list_of_nodes)
 
+        
+    
+  
     def print_contacts(self):
-          print "app_node --> printcontacts"
-          self._node.printContacts()
-
+        print "app_node --> printcontacts"
+        self._node.printContacts()
+          
 
     def addNode (self, node):
         self.list_of_nodes.append(node)

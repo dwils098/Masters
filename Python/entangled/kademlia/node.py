@@ -184,6 +184,16 @@ class Node(object):
                 print contact
         print '=================================='
         #twisted.internet.reactor.callLater(10, self.printContacts)
+    """
+    D.W.--> Method that returns a list of all the contacts or known nodes.
+    """
+    def knownNodes(self):
+        k_nodes = []
+        for i in range(len(self._routingTable._buckets)):
+            for contact in self._routingTable._buckets[i]._contacts:
+                k_nodes.append(contact.address)
+        print "results: ", k_nodes
+        return k_nodes
 
     def iterativeFindNode(self, key):
         """ The basic Kademlia node lookup operation

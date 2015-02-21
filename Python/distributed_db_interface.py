@@ -1,4 +1,4 @@
-import Application as app
+import Application_kadem as app
 
 if __name__ == '__main__':
 
@@ -27,12 +27,12 @@ if __name__ == '__main__':
 
     try:
 
-        app_ex.run()
+        d = app_ex.run()
 
         from twisted.internet import reactor
 
         # this Deferred will be the main executing thread (conceptually) of this applicaiton
-
+        
         reactor.run()
 
     except KeyboardInterrupt:

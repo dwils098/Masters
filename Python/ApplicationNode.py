@@ -26,6 +26,9 @@ class UserInputBot(basic.LineReceiver):
           # join the application with the name provided
           result = self.app.joinApplication(app_name)
 
+        elif line == 'advertizeResources':
+          result = self.app.advertizeResources()
+
         elif line == 'printContacts':
           self.app._node.printContacts()
           result = ""
@@ -114,6 +117,24 @@ def print_result(self, result):
     print "The result is... "
 
     print self[result]
+
+"""
+Function that initiate the resource advertizement protocol.
+Which emits at a regular interval the current status of it's resources usage.
+"""
+def advertizeResources():
+    from twisted.internet.protocol import Protocol, Factory
+    from twisted.internet import reactor
+    from twisted.internet.defer import Deferred
+
+    import cloudProtocol
+
+    d = Deferred()
+
+    reactor.connectTCP("127.0.0.1",64000, cloudProtocol.CloudClientFactory(d))
+
+    return d
+
 
 def comms(arg):
     from twisted.internet.protocol import Protocol, Factory
