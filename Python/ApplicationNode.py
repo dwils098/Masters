@@ -6,40 +6,44 @@ class UserInputBot(basic.LineReceiver):
 
     def __init__ (self, app_obj):
         self.app = app_obj
-
+        #print "init --> SelfHANDLE: ",self.app._netHandle
 
     def connectionMade(self):
         self.transport.write('>>> Use this program by calling any of the following: \n')
-        self.transport.write('a) joinApp app_name\n')
-        self.transport.write('b) printContacts \n')
+        self.transport.write('a) connect _ownPort _knownPort \n')
+        self.transport.write('b) get _val \n')
         self.transport.write('>>> ')
+        from twisted.python import log
+        import sys
+        log.startLogging(sys.stdout)
 
 
     def lineReceived(self, line):
-        if 'joinApp' in line:
-          self.sendLine('Attempting to join app!')
+        #self.sendLine("dasD")
+        #print " line recv.: ", line
+        if 'connect' in line:
+            #print "IN CONNECTTT!!"  
+            #self.sendLine('Connecting...!')
 
-          line = line.split()
+            line = line.split()
 
-          app_name = line[1]
-
-          # join the application with the name provided
-          result = self.app.joinApplication(app_name)
-
-        elif line == 'advertizeResources':
-          result = self.app.advertizeResources()
-
-        elif line == 'printContacts':
-          self.app._node.printContacts()
-          result = ""
-
-        elif line == "runApp":
-          self.app.run()
-
-          result = ""
-
+            ownPort = line[1]
+            knownPort = line[2]
+          
+            # join the application with the name provided
+            self.app._netHandle.connect(ownPort,knownPort)
+            result = "connection attempt....."
+        elif 'get' in line:
+            line = line.split()
+            print self
+            result = self.app._netHandle.get(line[1])
+            
+        else: 
+            #print "caught"
+            result = ""
+            
         self.transport.write('>>> ')
-
+        print "after write"
         return result
 
 class ApplicationNode (object):
@@ -60,12 +64,11 @@ class ApplicationNode (object):
       self._port = 4021
 
       # here is the logic to join the DHT, currently using an implementation of Kademlia
-      from entangled.kademlia import node
+      from networkInterface import NetworkInterface
 
-      knownNodes = [("127.0.0.1", 4020)]
+      #knownNodes = [("127.0.0.1", 4020)]
 
-      self._node = node.Node(self._port)
-      self._node.joinNetwork(knownNodes)
+      self._netHandle = NetworkInterface()
 
 
   def __str__(self):
@@ -149,19 +152,23 @@ def comms(arg):
 
     return d
 
-def transmit_message(self):
-    print self
-
+def interactive_mode(self):
+    return stdio.StandardIO(UserInputBot(app_node))
+    
 if __name__ == '__main__':
 
 
   # create a node object
   app_node = ApplicationNode()
   #app_node.run()
-
+  d = app_node._netHandle.connect(5555,5559)
+  d.addCallback(app_node._netHandle.get, "key1")
   from twisted.internet import reactor
-
-  # launch the interactive mode
-  stdio.StandardIO(UserInputBot(app_node))
-
+  #try: 
+      # launch the interactive mode
+      #res = stdio.StandardIO(UserInputBot(app_node))
+   #   print res
+  #except:
+     # print "Unexpected error:", sys.exc_info()[0]
+     # raise
   reactor.run()

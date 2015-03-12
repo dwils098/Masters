@@ -19,14 +19,15 @@ def ex_function(task_obj, param_2):
   result = param_2[0] * param_2[1]
 
   print task_obj.creator
-
-  task_obj.d.addCallback(print_result)
+  
+  # optional
+  #task_obj.d.addCallback(print_result)
 
   return result
 
 def print_result(result):
   print "Result is :", result
-
+  return result
 
 ################################################################################
 #                          Web USER RELATED CODE                               #
@@ -95,7 +96,6 @@ class Application (object):
     layer from the overlay network.
 
     Consisting of process pool (Web/Worker/Data), and corresponding queues.
-
     cherry_py_instance: is the Instanciated object that contains the logic for the web_server
 
     """
@@ -110,15 +110,10 @@ class Application (object):
         self._web = ""
 
         # here is the logic to join the DHT, currently using an implementation of Kademlia
-        from entangled.kademlia import node
-
-        knownNodes = [("127.0.0.1", 4021)]
-
-        self._ip_address = "127.0.0.1"
-
-        self._node = node.Node(4020)
-        self._node.joinNetwork(knownNodes)
-
+        from networkInterface import NetworkInterface
+        self._netHandle = NetworkInterface()
+        
+        
     def __str__(self):
         return "Application: [name] = " + self._name + " [number_of_nodes] = " + str(self.number_of_nodes)
         #" [list_of_nodes] = " + str(self.list_of_nodes)
@@ -126,7 +121,11 @@ class Application (object):
     def print_contacts(self):
           print "app_node --> printcontacts"
           self._node.printContacts()
-
+    
+    def connect(self, ownPort, knownPort):
+        # connect and return deferred...
+        return self.netHandle.connect(ownPort, knownPort)
+        
 
     def addNode (self, node):
         self.list_of_nodes.append(node)
@@ -172,17 +171,22 @@ class Application (object):
         defer.returnValue(results)
         #return candidates
     @inlineCallbacks
-    def run(self):
+    def run(self,oP,kP):
         # attempt to read from the web queue
         print "using the run method"
 
-        task_type = 0
+        
+        d = self.connect(oP,kP)
+        d.addCallback(x.set,"key1","secretVALUE")
+        
+        return d
+        #task_type = 0
 
         # temp variable to hold a snapshot of the number of nodes in the app.
-        temp_nodes = self.number_of_nodes
+        #temp_nodes = self.number_of_nodes
 
         # ctr
-        ctr = 0
+        #ctr = 0
 
         #thread = task.deferLater(reactor,6, self.launchApplication)
         
@@ -197,16 +201,16 @@ class Application (object):
 
         #candidates = seek_resources(known_nodes)
 
-        from twisted.internet.protocol import Protocol, Factory
-        from twisted.internet import reactor
-        from twisted.internet.defer import Deferred
+        #from twisted.internet.protocol import Protocol, Factory
+        #from twisted.internet import reactor
+        #from twisted.internet.defer import Deferred
         #import cloudProtocol
 
-        from twisted.internet import reactor, task
-        result = []
+        #from twisted.internet import reactor, task
+        #result = []
         #thread = task.deferLater(reactor,1, self.analyzeResources, result)
         
-        results = yield self.analyzeResources()
+        #results = yield self.analyzeResources()
         
        # d = Deferred()
 

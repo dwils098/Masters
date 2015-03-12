@@ -1,0 +1,175 @@
+from twisted.internet import stdio
+from twisted.protocols import basic
+
+class UserInputBot(basic.LineReceiver):
+    from os import linesep as delimiter
+
+    def __init__ (self, app_obj):
+        self.app = app_obj
+        #print "init --> SelfHANDLE: ",self.app._netHandle
+
+    def connectionMade(self):
+        self.transport.write('>>> Use this program by calling any of the following: \n')
+        self.transport.write('a) connect _ownPort _knownPort \n')
+        self.transport.write('b) get _val \n')
+        self.transport.write('>>> ')
+        from twisted.python import log
+        import sys
+        log.startLogging(sys.stdout)
+
+
+    def lineReceived(self, line):
+        #self.sendLine("dasD")
+        #print " line recv.: ", line
+        if 'connect' in line:
+            #print "IN CONNECTTT!!"  
+            #self.sendLine('Connecting...!')
+
+            line = line.split()
+
+            ownPort = line[1]
+            knownPort = line[2]
+          
+            # join the application with the name provided
+            self.app._netHandle.connect(ownPort,knownPort)
+            result = "connection attempt....."
+        elif 'get' in line:
+            line = line.split()
+            print self
+            result = self.app._netHandle.get(line[1])
+            
+        else: 
+            #print "caught"
+            result = ""
+            
+        self.transport.write('>>> ')
+        print "after write"
+        return result
+
+class ApplicationNode (object):
+
+  """
+  This class represents an ApplicationNode which can be any type of process, except
+  Web because only the Application deployer can be the WebProcess as of now.
+  """
+
+  global id_count
+  id_count = 0
+
+  def __init__(self):
+
+      self._id = id_count + 1
+      self._process = ""
+      self._ip_address = "127.0.0.1"
+      self._port = 4021
+
+      # here is the logic to join the DHT, currently using an implementation of Kademlia
+      from networkInterface import NetworkInterface
+
+      #knownNodes = [("127.0.0.1", 4020)]
+
+      self._netHandle = NetworkInterface()
+
+
+  def __str__(self):
+      return "ApplicationNode: [id] = " + str(self._id) + " [ip_address] = " + str(self._ip_address) + " [port] = " + str(self._port)
+
+
+  """
+  Contains the logic to join an active Application in the cloud.
+  """
+  def joinApplication(self, app_name):
+      """
+      Joining an application in this context, consists
+      of finding the "value": IP_Address in the DHT corresponding to the "key":
+      app_name. Once found, start the communications between the application host
+      and this client (ApplicationNode).
+      """
+      result = self._node.iterativeFindValue(app_name)
+
+      result.addCallback(comms).addCallback(transmit_message)
+
+
+
+      return result
+
+  def joinFailure(self, app_name):
+      print "ooops --> could not join application: ", app_name
+
+      from twisted.internet import reactor
+      reactor.stop()
+
+  def print_contacts(self, arg):
+        print "app_node --> printcontacts"
+        self._node.printContacts()
+
+        print "app_node --> printcontacts"
+
+  def run(self):
+      print "-run()-"
+      # sleep for 1 second to enables the DHT to be up to date
+      import time
+      time.sleep(1)
+
+
+      # [DEBUG] print contacts to show whether or not we are part of the DHT
+      self._node.printContacts()
+      print "-end of run()-"
+
+def print_result(self, result):
+    print "The result is... "
+
+    print self[result]
+
+"""
+Function that initiate the resource advertizement protocol.
+Which emits at a regular interval the current status of it's resources usage.
+"""
+def advertizeResources():
+    from twisted.internet.protocol import Protocol, Factory
+    from twisted.internet import reactor
+    from twisted.internet.defer import Deferred
+
+    import cloudProtocol
+
+    d = Deferred()
+
+    reactor.connectTCP("127.0.0.1",64000, cloudProtocol.CloudClientFactory(d))
+
+    return d
+
+
+def comms(arg):
+    from twisted.internet.protocol import Protocol, Factory
+    from twisted.internet import reactor
+    from twisted.internet.defer import Deferred
+
+    import cloudProtocol
+
+    d = Deferred()
+
+    reactor.connectTCP("127.0.0.1",64000, cloudProtocol.CloudClientFactory(d))
+
+    return d
+
+def interactive_mode(self):
+    return stdio.StandardIO(UserInputBot(app_node))
+    
+if __name__ == '__main__':
+
+
+  # create a node object
+  app_node = ApplicationNode()
+  #app_node.run()
+  d = app_node._netHandle.connect(5555,5559)
+  d.addCallback(app_node._netHandle.get, "key1")
+
+  from twisted.internet import reactor
+  #try: 
+      # launch the interactive mode
+      #res = stdio.StandardIO(UserInputBot(app_node))
+   #   print res
+  #except:
+     # print "Unexpected error:", sys.exc_info()[0]
+     # raise
+  reactor.run()

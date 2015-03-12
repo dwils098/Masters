@@ -1,0 +1,21 @@
+from networkInterface import NetworkInterface 
+import sys
+
+from twisted.python import log
+log.startLogging(sys.stdout)
+
+if sys.argv[1] == "False":
+    x = NetworkInterface(False)
+
+fromPort = int(sys.argv[1])
+toPort = int(sys.argv[2])
+
+x.connect(fromPort,toPort)
+    :
+    x.get("key")
+else:
+    x.set("key", "val:007")
+
+from twisted.internet import reactor
+
+reactor.run()

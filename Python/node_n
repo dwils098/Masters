@@ -1,0 +1,54 @@
+from twisted.internet.defer import Deferred
+
+class ApplicationNode (object): 
+    """
+    This class represents an ApplicationNode which is a node that is contributing to the
+    application, AND NOT A APPLICATION DEPLOYER. It is updated from the deprecated ApplicationNode.py
+    to use the network implementation interface.
+    """
+
+    def __init__(self):
+        
+        # any attributes ...
+
+        # Logic to instantiate using the network implementation interface
+        from networkInterface import NetworkInterface
+        self._netHandle = NetworkInterface()
+        
+    """
+    This represent an idle event, that reschedules itself, to add a callback to.
+    """
+    def _idle(self):
+        # deferred to make it reschedule itself
+        d = Deferred()
+        
+        # verify if there are other nodes in the network
+        # if not simply reschedule... because until there is at least two nodes in the
+        # network, well dabbing in the domain of obviousness, it is not a network.
+        contact_list =  self._netHandle.retrieveConctacts()
+        if contact_list == []:
+            return d.addCallback(_idle)
+            
+        # if so return a deferred to which we can attach a callback (to be called)
+        print contact_list
+        return d
+            
+    def run(self):
+        
+        # connect to the network
+        deferred = self._netHandle.connect(5555,5556)
+        
+        # addCallbacks to this deferred to execute functions upon completion of connection
+        deferred.addCallback(_idle)
+
+        from twisted.internet import reactor
+        
+        reactor.run()
+
+if __name__ == '__main__':
+    import sys
+
+    print sys.argv
+    node =  ApplicationNode()
+    
+    node.run(sys.argv[1])
