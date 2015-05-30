@@ -1,0 +1,77 @@
+<HTML>
+<HEAD>
+<TITLE>CSI 2120, Winter 2015, Lab 8</TITLE>
+</HEAD>
+<BODY >
+<h1> CSI 2120</h1>
+<h2> Lab 8: Scheme</h2>
+
+
+<h3>Exercise 1: Tail-Recursion</h3>
+
+<li>
+Given the following two recursive functions to calculate Fibonacci numbers, compare their efficiency by printing for each recursive call the arguments on a separate line. Hint: Use display and newline for the named let fib.
+</li>
+ 
+<pre><code>
+; 	Fibonacci Option 1
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(define fibonacci
+  (lambda (n)
+    (if (= n 0)
+        0
+        (let fib ((i n) (a1 1) (a2 0))
+          (if (= i 1)
+              a1
+              (fib (- i 1) (+ a1 a2) a1))))))
+</code></pre>
+
+
+<pre><code>
+; 	Fibonacci Option 2
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(define fibonacci
+  (lambda (n)
+    (let fib ((i n))
+      (cond
+        ((= i 0) 0)
+        ((= i 1) 1)
+        (else (+ (fib (- i 1)) (fib (- i 2)))))))) 
+</code></pre>
+
+
+<h3>Exercise 2: Insertion Sort on a Vector</h3>
+
+Implement insertion sort for a vector. (See 
+<a href="http://en.wikipedia.org/wiki/Insertion_sort"> Wikipedia</a> if you need a reminder how insertion sort works.) Implement the function with the comparator as an additional argument.
+
+
+<pre><code>
+;       The function takes the vector and the comparator function as 
+;       inputs and produces a sorted vector.
+;
+; 	Example:
+; 	(insertion-sort '#(9 6 4 5 8 7) <)
+; 	=> (4 5 6 7 8 9)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+</code></pre>
+
+
+<h3>Exercise 3 and Quiz: Lambda and Local Define</h3>
+
+The function winner should display <em>Winner</em> if the ticket number x is equal to the number of calls to the function. The global binding with local scope y is used for this purpose. 
+
+The following top-level definition does not work as expected:
+
+<pre><code>
+(define winner (lambda (x) 
+                 (let ((y 0))
+                   (if (= x y) (display "Winner") (display y)) 
+                   (set! y (+ y 1))))) 
+</code></pre>
+
+Fix the code such that y maintains local scope but is only initialized to 0 the first time the function winner is called.
+
+
+</BODY>
+</HTML>

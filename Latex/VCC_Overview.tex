@@ -62,7 +62,7 @@
 
 \begin{document}
 \maketitle
-	\section{Introduction}
+        \section{Introduction}
 	In this current era we can see a shift in how software and hardware are conceived, the end-
 	goals are not the same as they used to be 2 decades ago. This can be attributed to the 
 	following, the fact that the Internet speed got a lot faster, by a factor of 1000 (based on
@@ -611,7 +611,7 @@
         The authors of this solution propose a \emph{fully de-centralized peer-to-peer
           infrastructure}, and we will try to identify the different key phases proposed
         in the framework although we need to consider the author's caveat about mutual
-        exclusivity of the key phases.  
+        exclusivity of the key phases.
         
         \\ Phase (1) and (2) {Advertise and Discover} are coupled together in the Peer
         Sampling Service. But are not exhaustively implemented, by this we underline the
@@ -624,8 +624,7 @@
         exchange (they refer to this concept of performing an exchange of message as a
         cycle) or cycle. Finally it provides a randomly structured graph, which is shown
         to stabilize under considerable amount of churn within a very short amount of
-        cycles even with very pessimistic assumptions and no parameter
-        tuning \cite{pss}.
+        cycles even with very pessimistic assumptions and no parameter tuning \cite{pss}.
 
         \\ Phase (3) {Select} is accomplished by the Slicing Service, although they admit
         that no implementation is provided at the moment of the writing of this
@@ -633,7 +632,7 @@
         \cite{jelasity2006ordered}, which presents a very clever algorithm. The problem
         that this algorithm attempts to solve, is referred as \emph{the ordered slicing
           problem}, which can be define as follows: \emph{generate a partitioning of nodes
-        in a graph that centric to a given metric}. In this specific case, the graph
+          in a graph that centric to a given metric}. In this specific case, the graph
         represents the overlay network and the metric represents a desired property
         characterizing the application or resources constraints. The authors of
         \cite{jelasity2006ordered} assert that this algorithm is easily generalizable, and
@@ -642,31 +641,31 @@
         the implementation of this algorithm w.r.t. multiple attributes would have behave
         with the complexity of the QoS that are necessary to a collaborative volunteer
         cloud infrastructure, rather than simply implementing it with a unique metric (the
-        number of desired nodes). 
+        number of desired nodes).
 
         %--- Need to review the 2014 multi-dimensional paper to disprove the ability of
         %--- querying multi-attribute using this specific gossip-based protocol.
         
         Phase (4) {Match} is suspected to be realized, if ever, by the SS by a further
-        specification of the query, but this is not clear within the slicing algorithm
-        if it would be able to consider the inter-relations of the nodes in the slices,
-        additionally to the set of queried attributes... 
+        specification of the query, but this is not clear within the slicing algorithm if
+        it would be able to consider the inter-relations of the nodes in the slices,
+        additionally to the set of queried attributes...
 
         Phase (5) {Bind} responsibility is accounted by the T-Man gossip-based protocol to
         build overlay networks with a given topology. It is accomplished by creating a
         distinct ring overlay of all the peers contained in a specific slice, 1 ring per
         slice. Thus slices are mutually exclusive. From this perspective, it seems to
-        enforce a good binding policy. Although the question of concurrency, in the context
-        of initially binding the resources to an application rather than another that
-        requests the same resources, is completely left-out. It is a crucial question,
-        since the slices are generated with respect to a metric (composite or unique)
-        which ensures the application's constraints w.r.t. to the QoS. We can quickly
-        observe the fact that the slices may become inadequate if one of (major
+        enforce a good binding policy. Although the question of concurrency, in the
+        context of initially binding the resources to an application rather than another
+        that requests the same resources, is completely left-out. It is a crucial
+        question, since the slices are generated with respect to a metric (composite or
+        unique) which ensures the application's constraints w.r.t. to the QoS. We can
+        quickly observe the fact that the slices may become inadequate if one of (major
         contributing) resource are lost in a concurrent binding attempt between two
         \emph{"competing"} applications. Finally, we can conclude that by implementing the
         slicing mechanism using a single attribute, namely the number of requested nodes,
-        there is no eminent concurrent binding problem because that it would only occur
-        in a very specific case. It would manifest in the form of two or more concurrent
+        there is no eminent concurrent binding problem because that it would only occur in
+        a very specific case. It would manifest in the form of two or more concurrent
         requests for which the total requested number of node combined, would exceed the
         total number of available nodes, but the number of requested node per request
         would be inferior to the total available nodes. The problem ultimately becomes

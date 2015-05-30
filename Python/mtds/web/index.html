@@ -1,0 +1,64 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>Multi-Document Text Summarization using Genetic Algorithm!</h1>
+   
+    <p> Use this page to upload a collection of (similar) documents to generate a text summary.</p>
+
+    <form action="upload" method="post" enctype="multipart/form-data">
+      Filename: <input type="file" id="myFiles"  name="myFiles" multiple /><br/>
+      </br>
+      <h2>Genetic Algorithm: Fitness Function Parameters</h2>
+      <table>
+	<tr>
+	  <td> Cohesion Factor Proportion: </td> 
+	  <td> <input/>  <td>
+	</tr>
+	  
+	<tr>
+	  <td> Topic Relation Factor Proportion: </td>
+	  <td> <input/>  <td>
+	</tr>
+	<tr> 
+	  <td> Readability Factor Proportion: </td>
+	  <td> <input/> <td>
+	</tr>
+      </table>
+      </br>
+
+      <h2>Genetic Algorithm Parameters</h2>
+      <table>
+	<tr>
+	  <td> Population Size: </td> 
+	  <td> <input/>  <td>
+	</tr>
+	  
+	<tr>
+	  <td> Maximum Number of Generations: </td>
+	  <td> <input/>  <td>
+	</tr>
+      </table>
+      </br>
+
+      </br>
+      <h2>Summarization Parameters</h2>
+      <table>
+	<tr>
+	  <td> Desired Summary Length: </td> 
+	  <td> <input/>  <td>
+	</tr>
+      </table>
+
+      </br>
+
+
+      
+    </form>
+
+      <input type="submit"/>
+    </form>
+
+  </body>
+
+</html>

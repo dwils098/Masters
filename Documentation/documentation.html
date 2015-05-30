@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Python Distributed Computing Platform Documentation</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="title" content="Python Distributed Computing Platform Documentation"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2015-04-27T13:54-0400"/>
+<meta name="author" content="Dany Wilson"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">Python Distributed Computing Platform Documentation</h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 Core Classes and Files</a>
+<ul>
+<li><a href="#sec-1-1">1.1 ApplicationNode class functionalities</a></li>
+<li><a href="#sec-1-2">1.2 cloudProtocol protocol description</a></li>
+<li><a href="#sec-1-3">1.3 Application Specific files</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">2 Calculator</a></li>
+<li><a href="#sec-3">3 Multi-Document Text Summarization</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Core Classes and Files</h2>
+<div class="outline-text-2" id="text-1">
+
+<p>This Distributed Computing Platform is implemented using <b>Twisted Event-Driven Networking Framework</b>, and makes heavy use of deferreds to chain sequences of actions to be taken
+upon an event occurs. 
+</p>
+<p>
+There 3 core files to this distributed computing platform:
+</p><dl>
+<dt>node_netHandle.py</dt><dd>this file contains two classes: <b>ApplicationNode</b>
+     and <b>Task</b>.
+<dl>
+<dt>Task</dt><dd>this class contains the logic to create Task objects, and to initialize their
+            functionalities by using the <b>create(</b> package_name, function_name,
+            args <b>)</b>. Tasks uses <b>deferred</b> to chain callbacks and to return the
+            results once the task completed. There are two types of task: <b>Data</b> task
+            which corresponds to database-related work; and <b>Worker</b> task which
+            corresponds to any processing task (which is not database-related).
+
+</dd>
+<dt>ApplicationNode</dt><dd>this class contains the logic to create ApplicationNode objects,
+       which are either <b>Application Deployers</b> or <b>Contributing Nodes</b>. Application
+       Deploying nodes are responsible for the task queues, there are queues for each
+       type of tasks, and are hosting the web server. A typical workflow for Application
+       Deploying node involves receiving request(s) from the web server, and translating
+       them into the appropriate tasks, then queues them and dispatch them to nodes upon
+       request. It contains also the logic to connect to the cloud, seek/advertise
+       resources, and starting the protocols. 
+
+</dd>
+</dl>
+
+</dd>
+<dt>cloudProtocol</dt><dd>this file defines the protocol for the interactions between nodes
+                   within the Cloud Infrastructure. It contains logic to assign roles,
+                   send task, receive task, receive results and following up with any
+                   post-processing task scheduling. 
+
+</dd>
+<dt>networkInterface</dt><dd>this class defines an interface that serves as an implementation
+     independent layer to separate the implementation independent logic from the Cloud
+     Infrastructure logic. It wraps the functionalities and provides a unified way to
+     access them. It exposes the following hooks:
+<dl>
+<dt>bootstrap()</dt><dd>implement any specific bootstrapping logic for a specific
+                   networking layer.
+</dd>
+<dt>connect()</dt><dd>implement logic to connect to the network (by calling <b>bootstrap()</b>)
+</dd>
+<dt>bootstrap_done()</dt><dd>implement any post-bootstrapping logic.
+</dd>
+<dt>set()</dt><dd>implement means to store value on the network. (DHT)
+</dd>
+<dt>set_done()</dt><dd>implement logic to be executed upon returning from set(). (DHT)
+</dd>
+<dt>get()</dt><dd>implement means to retrieve a value on the network. (DHT)
+</dd>
+<dt>get_done()</dt><dd>implement logic to be executed upon returning from get(). (DHT)
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+
+
+</div>
+
+<div id="outline-container-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> ApplicationNode class functionalities</h3>
+<div class="outline-text-3" id="text-1-1">
+
+<p>TO BE CONTINUED&hellip;
+</p>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> cloudProtocol protocol description</h3>
+<div class="outline-text-3" id="text-1-2">
+
+<p>The protocol used for inter-node communication is the following :
+</p>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> Application Specific files</h3>
+<div class="outline-text-3" id="text-1-3">
+
+<p>Each application requires the definition of the following files (ApplicationDeployer): 
+</p><dl>
+<dt>webServer</dt><dd>This file is usually implemented using <b>CherryPy</b> and consist of
+               specifying the content of the web pages composing the application; as well
+               as the application logic to send requests to the webProtocol.
+</dd>
+<dt>webProtocol</dt><dd>This protocol contains the logic to receive requests from the web
+                 server, translating them into task and adding it to the task queues.
+</dd>
+</dl>
+
+<p>Each application requires the definition of the following files (Contributing Nodes):
+</p><dl>
+<dt>data_process</dt><dd>This file contains the logic to create a database instance and any
+                  database related task functionalities to complete the tasks a Data node receives.
+</dd>
+<dt>worker_process</dt><dd>This file contains the logic that is required to complete the tasks a
+                    Worker node receives.
+</dd>
+</dl>
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Calculator</h2>
+<div class="outline-text-2" id="text-2">
+
+<p>This is a toy example on how to create a minimal working example (MWE), it consists of 1
+ApplicationDeployer and Worker nodes only. 
+</p>
+<p>
+There is a web server that accepts two operand and submits it to the Cloud to be
+processed. In other words, it creates a task containing the operands and the name of the
+module where the operator can be found. 
+</p>
+<p>
+Results are returned upon completion.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Multi-Document Text Summarization</h2>
+<div class="outline-text-2" id="text-3">
+
+<p>This is a more complex example, which consists of 1 ApplicationDeployer, 1 Data node,
+and Worker nodes. Multitenancy is enforced through the use of sessions. 
+</p>
+<ol>
+<li>There is a web server that let the user upload a collection of text, and then tasks are
+   created (1 per document) to store the text in a database, then they are queued.
+</li>
+<li>Data Tasks are dispatched.
+</li>
+<li>Then a blocking Data task, periodically inspect the database for results.
+</li>
+<li>Then as a consequence of completing the tasks to store the documents, each completion
+   generates a Worker task to process the corresponding document and storing the results
+   in a database, which are then queued.
+</li>
+<li>Worker Tasks are dispatched.
+</li>
+<li>When all the Worker Tasks are completed, the blocking Data task will completes, and
+   generate a single Worker Task to consolidate the results.
+</li>
+<li>Upon completion the results are written back to the web server and are displayed to
+   the user.
+</li>
+</ol>
+
+
+
+
+
+</div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="date">Date: 2015-04-27T13:54-0400</p>
+<p class="author">Author: Dany Wilson</p>
+<p class="creator"><a href="http://orgmode.org">Org</a> version 7.9.3f with <a href="http://www.gnu.org/software/emacs/">Emacs</a> version 24</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
+</div>
+</body>
+</html>

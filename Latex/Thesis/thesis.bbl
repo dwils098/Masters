@@ -1,0 +1,571 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{MGLPPJ13}
+
+\bibitem[AAC{\etalchar{+}}11]{aversa2011cloud}
+Rocco Aversa, Marco Avvenuti, Antonio Cuomo, Beniamino Di~Martino, Giuseppe
+  Di~Modica, Salvatore Distefano, Antonio Puliafito, Massimiliano Rak, Orazio
+  Tomarchio, Alessio Vecchio, et~al.
+\newblock The cloud@ home project: towards a new enhanced computing paradigm.
+\newblock In {\em Euro-Par 2010 Parallel Processing Workshops}, pages 555--562.
+  Springer, 2011.
+
+\bibitem[AB14]{ahmed2014collaborative}
+Reaz Ahmed and Raouf Boutaba.
+\newblock {\em Collaborative Web Hosting: Challenges and Research Directions}.
+\newblock Springer, 2014.
+
+\bibitem[ABC{\etalchar{+}}11]{aversa2011cloudperf}
+Rocco Aversa, Dario Bruneo, Antonio Cuomo, Beniamino Di~Martino, Salvatore
+  Distefano, Antonio Puliafito, Massimiliano Rak, Salvatore Venticinque, and
+  Umberto Villano.
+\newblock Cloud@ home: Performance management components.
+\newblock In {\em Euro-Par 2010 Parallel Processing Workshops}, pages 579--586.
+  Springer, 2011.
+
+\bibitem[ACK{\etalchar{+}}02]{anderson2002seti}
+David~P Anderson, Jeff Cobb, Eric Korpela, Matt Lebofsky, and Dan Werthimer.
+\newblock Seti@ home: an experiment in public-resource computing.
+\newblock {\em Communications of the ACM}, 45(11):56--61, 2002.
+
+\bibitem[AF06]{anderson2006computational}
+David~P Anderson and Gilles Fedak.
+\newblock The computational and storage potential of volunteer computing.
+\newblock In {\em Cluster Computing and the Grid, 2006. CCGRID 06. Sixth IEEE
+  International Symposium on}, volume~1, pages 73--80. IEEE, 2006.
+
+\bibitem[And03]{anderson2003public}
+David~P Anderson.
+\newblock Public computing: Reconnecting people to science.
+\newblock In {\em Conference on Shared Knowledge and the Web}, pages 17--19,
+  2003.
+
+\bibitem[And04]{anderson2004boinc}
+David~P Anderson.
+\newblock Boinc: A system for public-resource computing and storage.
+\newblock In {\em Grid Computing, 2004. Proceedings. Fifth IEEE/ACM
+  International Workshop on}, pages 4--10. IEEE, 2004.
+
+\bibitem[ASK15]{anjomshoa2015taxonomy}
+Mohammadfazel Anjomshoa, Mazleena Salleh, and Maryam~Pouryazdanpanah Kermani.
+\newblock A taxonomy and survey of distributed computing systems.
+\newblock {\em Journal of Applied Sciences}, 15(1), 2015.
+
+\bibitem[Bar92]{barquin1992pursuit}
+Ramon~C Barquin.
+\newblock In pursuit of a ‘ten commandments’ for computer ethics.
+\newblock {\em Computer Ethics Institute}, 1992.
+
+\bibitem[Bar01]{barkai2001peer}
+David Barkai.
+\newblock {\em Peer-to-Peer Computing: technologies for sharing and
+  collaborating on the net}.
+\newblock Intel Press, 2001.
+
+\bibitem[BDF{\etalchar{+}}03]{barham2003xen}
+Paul Barham, Boris Dragovic, Keir Fraser, Steven Hand, Tim Harris, Alex Ho,
+  Rolf Neugebauer, Ian Pratt, and Andrew Warfield.
+\newblock Xen and the art of virtualization.
+\newblock {\em ACM SIGOPS Operating Systems Review}, 37(5):164--177, 2003.
+
+\bibitem[BFH03]{berman2003grid}
+Fran Berman, Geoffrey Fox, and Anthony~JG Hey.
+\newblock {\em Grid computing: making the global infrastructure a reality},
+  volume~2.
+\newblock John Wiley and sons, 2003.
+
+\bibitem[BG09]{berns2009dissecting}
+Andrew Berns and Sukumar Ghosh.
+\newblock Dissecting self-* properties.
+\newblock In {\em Self-Adaptive and Self-Organizing Systems, 2009. SASO'09.
+  Third IEEE International Conference on}, pages 10--19. IEEE, 2009.
+
+\bibitem[Bir07]{birman2007promise}
+Ken Birman.
+\newblock The promise, and limitations, of gossip protocols.
+\newblock {\em ACM SIGOPS Operating Systems Review}, 41(5):8--13, 2007.
+
+\bibitem[BJ12]{bandara2012evaluation}
+HMN~Dilum Bandara and Anura~P Jayasumana.
+\newblock Evaluation of p2p resource discovery architectures using real-life
+  multi-attribute resource and query characteristics.
+\newblock In {\em Consumer Communications and Networking Conference (CCNC),
+  2012 IEEE}, pages 634--639. IEEE, 2012.
+
+\bibitem[BJ13]{p2p_collab}
+HMN~Dilum Bandara and Anura~P Jayasumana.
+\newblock Collaborative applications over peer-to-peer systems--challenges and
+  solutions.
+\newblock {\em Peer-to-Peer Networking and Applications}, 6(3):257--276, 2013.
+
+\bibitem[BMT12]{P2PCS}
+Ozalp Babaoglu, Moreno Marzolla, and Michele Tamburini.
+\newblock Design and implementation of a p2p cloud system.
+\newblock In {\em Proceedings of the 27th Annual ACM Symposium on Applied
+  Computing}, pages 412--417. ACM, 2012.
+
+\bibitem[CDP10]{cunsolo2010cloud}
+Vincenzo~D Cunsolo, Salvatore Distefano, and Antonio Puliafito.
+\newblock Cloud@ home on top of reservoir.
+\newblock In {\em Cloud Computing}, pages 41--56. Springer, 2010.
+
+\bibitem[CDPS09a]{cathome}
+Vincenzo~D Cunsolo, Salvatore Distefano, Antonio Puliafito, and Marco Scarpa.
+\newblock Cloud@ home: Bridging the gap between volunteer and cloud computing.
+\newblock In {\em Emerging Intelligent Computing Technology and Applications},
+  pages 423--432. Springer, 2009.
+
+\bibitem[CDPS09b]{cunsolo2009volunteer}
+Vincenzo~D Cunsolo, Salvatore Distefano, Antonio Puliafito, and Marco Scarpa.
+\newblock Volunteer computing and desktop cloud: The cloud@ home paradigm.
+\newblock In {\em Network Computing and Applications, 2009. NCA 2009. Eighth
+  IEEE International Symposium on}, pages 134--139. IEEE, 2009.
+
+\bibitem[CDPS10a]{cunsolo2010applying}
+Vincenzo~D Cunsolo, Salvatore Distefano, Antonio Puliafito, and Marco Scarpa.
+\newblock Applying software engineering principles for designing cloud@ home.
+\newblock In {\em Cluster, Cloud and Grid Computing (CCGrid), 2010 10th
+  IEEE/ACM International Conference on}, pages 618--624. IEEE, 2010.
+
+\bibitem[CDPS10b]{cunsolo2010volunteer}
+Vincenzo~D Cunsolo, Salvatore Distefano, Antonio Puliafito, and Marco Scarpa.
+\newblock From volunteer to cloud computing: cloud@ home.
+\newblock In {\em Proceedings of the 7th ACM international conference on
+  Computing frontiers}, pages 103--104. ACM, 2010.
+
+\bibitem[CDPS10c]{cunsolo2010open}
+Vincenzo~D Cunsolo, Salvatore Distefano, Antonio Puliafito, and Marco Scarpa.
+\newblock Open and interoperable clouds: The cloud@ home way.
+\newblock In {\em Cloud Computing}, pages 93--111. Springer, 2010.
+
+\bibitem[CDPS10d]{cathome6}
+Vincenzo~D Cunsolo, Salvatore Distefano, Antonio Puliafito, and Marco Scarpa.
+\newblock Open and interoperable clouds: The cloud@ home way.
+\newblock In {\em Cloud Computing}, pages 93--111. Springer, 2010.
+
+\bibitem[Chi08]{chisnall2008definitive}
+David Chisnall.
+\newblock {\em The definitive guide to the xen hypervisor}.
+\newblock Pearson Education, 2008.
+
+\bibitem[CS99]{carstensen1999computer}
+Peter~H Carstensen and Kjeld Schmidt.
+\newblock Computer supported cooperative work: New challenges to systems
+  design.
+\newblock In {\em In K. Itoh (Ed.), Handbook of Human Factors}. Citeseer, 1999.
+
+\bibitem[CW09]{chandra2009nebulas}
+Abhishek Chandra and Jon Weissman.
+\newblock Nebulas: Using distributed voluntary resources to build clouds.
+\newblock In {\em Proceedings of the 2009 conference on Hot topics in cloud
+  computing}, pages 2--2. USENIX Association, 2009.
+
+\bibitem[DCP10]{distefano2010taxonomic}
+Salvatore Distefano, Vincenzo~D Cunsolo, and Antonio Puliafito.
+\newblock A taxonomic specification of cloud@ home.
+\newblock In {\em Advanced Intelligent Computing Theories and Applications.
+  With Aspects of Artificial Intelligence}, pages 527--534. Springer, 2010.
+
+\bibitem[Dev15]{google_sso}
+Google Developers.
+\newblock Google identity platform.
+\newblock \url{https://developers.google.com/identity/}, 2015.
+\newblock Accessed: 12-05-2015.
+
+\bibitem[DFP11]{cathome9}
+Salvatore Distefano, Maria Fazio, and Antonio Puliafito.
+\newblock The cloud@ home resource management system.
+\newblock In {\em Utility and Cloud Computing (UCC), 2011 Fourth IEEE
+  International Conference on}, pages 122--129. IEEE, 2011.
+
+\bibitem[DKMyC04]{dearle2004flexible}
+Alan Dearle, Graham Kirby, Andrew McCarthy, and Juan Carlos~Diaz y~Carballo.
+\newblock A flexible and secure deployment framework for distributed
+  applications.
+\newblock In {\em Component Deployment}, pages 219--233. Springer, 2004.
+
+\bibitem[DlRB14]{dell}
+Jose De~la Rosa and Kent Baxley.
+\newblock Lxc containers in ubuntu server 14.04 lts.
+\newblock
+  \url{http://en.community.dell.com/techcenter/os-applications/w/wiki/6950.lxc-containers-in-ubuntu-server-14-04-lts},
+  June 2014.
+\newblock Accessed: 30-12-2014.
+
+\bibitem[Dol00]{dolev2000self}
+Shlomi Dolev.
+\newblock {\em Self-stabilization}.
+\newblock MIT press, 2000.
+
+\bibitem[DP80]{draffan1980distributed}
+IW~Draffan and F~Poole.
+\newblock {\em Distributed data bases}.
+\newblock CUP Archive, 1980.
+
+\bibitem[DP12]{cathome11}
+Salvatore Distefano and Antonio Puliafito.
+\newblock Cloud@ home: Toward a volunteer cloud.
+\newblock {\em IT Professional}, 14(1):27--31, 2012.
+
+\bibitem[DPR{\etalchar{+}}11]{distefano2011qos}
+Salvatore Distefano, Antonio Puliafito, Massimiliano Rak, Salvatore
+  Venticinque, Umberto Villano, Antonio Cuomo, Giuseppe Di~Modica, and Orazio
+  Tomarchio.
+\newblock Qos management in cloud@ home infrastructures.
+\newblock In {\em Cyber-Enabled Distributed Computing and Knowledge Discovery
+  (CyberC), 2011 International Conference on}, pages 190--197. IEEE, 2011.
+
+\bibitem[EK07]{emelyanov2007pid}
+Pavel Emelyanov and Kir Kolyshkin.
+\newblock Pid namespaces in the 2.6. 24 kernel.
+\newblock {\em LWN. net, November}, 2007.
+
+\bibitem[ES08]{eiben2008introduction}
+Agoston~E Eiben and James~E Smith.
+\newblock {\em Introduction to evolutionary computing}.
+\newblock Springer Science \& Business Media, 2008.
+
+\bibitem[Fit11]{fitzpatrick2011memcached}
+Brad Fitzpatrick.
+\newblock Memcached: a distributed memory object caching system.
+\newblock {\em Memcached-a Distributed Memory Object Caching System}, 2011.
+
+\bibitem[GGL03]{gfs}
+Sanjay Ghemawat, Howard Gobioff, and Shun-Tak Leung.
+\newblock The google file system.
+\newblock In {\em ACM SIGOPS Operating Systems Review}, volume~37, pages
+  29--43. ACM, 2003.
+
+\bibitem[GMCK00]{goldstein2000multi}
+Jade Goldstein, Vibhu Mittal, Jaime Carbonell, and Mark Kantrowitz.
+\newblock Multi-document summarization by sentence extraction.
+\newblock In {\em Proceedings of the 2000 NAACL-ANLPWorkshop on Automatic
+  summarization-Volume 4}, pages 40--48. Association for Computational
+  Linguistics, 2000.
+
+\bibitem[GSL14]{gergin2014decentralized}
+Ian Gergin, Bradley Simmons, and Marin Litoiu.
+\newblock A decentralized autonomic architecture for performance control in the
+  cloud.
+\newblock In {\em Cloud Engineering (IC2E), 2014 IEEE International Conference
+  on}, pages 574--579. IEEE, 2014.
+
+\bibitem[GSRU07]{ghosh2007self}
+Debanjan Ghosh, Raj Sharman, H~Raghav Rao, and Shambhu Upadhyaya.
+\newblock Self-healing systems—survey and synthesis.
+\newblock {\em Decision Support Systems}, 42(4):2164--2185, 2007.
+
+\bibitem[Hyk14]{dockercon}
+Solomon Hykes.
+\newblock Dockercon.
+\newblock \url{http://www.dockercon.com/}, 2014.
+\newblock Accessed: 30-12-2014.
+
+\bibitem[Hyk15]{docker}
+Solomon Hykes.
+\newblock Docker.
+\newblock \url{http://docs.docker.com/}, 2015.
+\newblock Accessed: 16-02-2015.
+
+\bibitem[inc14a]{fsf}
+Free Software~Foundation inc.
+\newblock Free software foundation -- working together for free software.
+\newblock \url{http://www.fsf.org}, 2014.
+\newblock Accessed: 30-12-2014.
+
+\bibitem[Inc14b]{gae_web}
+Google Inc.
+\newblock Google app engine documentation.
+\newblock \url{https://cloud.google.com/appengine/docs}, 2014.
+\newblock Accessed: 08-01-2015.
+
+\bibitem[Inc14c]{azure}
+Microsoft Inc.
+\newblock What is microsoft azure?
+\newblock \url{https://azure.microsoft.com/en-us/overview/what-is-azure/},
+  2014.
+\newblock Accessed: 30-12-2014.
+
+\bibitem[Inc15]{AWS}
+Amazon Web~Services Inc.
+\newblock Amazon web services.
+\newblock \url{http://aws.amazon.com/}, 2015.
+\newblock Accessed: 08-01-2015.
+
+\bibitem[J{\etalchar{+}}99]{jones1999automatic}
+K~Sparck Jones et~al.
+\newblock Automatic summarizing: factors and directions.
+\newblock {\em Advances in automatic text summarization}, pages 1--12, 1999.
+
+\bibitem[JC10]{jin2010unstructured}
+Xing Jin and S-H~Gary Chan.
+\newblock Unstructured peer-to-peer network architectures.
+\newblock In {\em Handbook of Peer-to-Peer Networking}, pages 117--142.
+  Springer, 2010.
+
+\bibitem[Jel]{jelasitygossip}
+M{\'a}rk Jelasity.
+\newblock Gossip-based protocols for large-scale distributed systems.
+
+\bibitem[JH12]{jones2012oauth}
+M~Jones and Dick Hardt.
+\newblock The oauth 2.0 authorization framework: Bearer token usage.
+\newblock Technical report, RFC 6750, October, 2012.
+
+\bibitem[JK06]{jelasity2006ordered}
+Mark Jelasity and A-M Kermarrec.
+\newblock Ordered slicing of very large-scale overlay networks.
+\newblock In {\em Peer-to-Peer Computing, 2006. P2P 2006. Sixth IEEE
+  International Conference on}, pages 117--124. IEEE, 2006.
+
+\bibitem[JMB05]{jelasity2005gossip}
+M{\'a}rk Jelasity, Alberto Montresor, and Ozalp Babaoglu.
+\newblock Gossip-based aggregation in large dynamic networks.
+\newblock {\em ACM Transactions on Computer Systems (TOCS)}, 23(3):219--252,
+  2005.
+
+\bibitem[JMB09]{jelasity2009t}
+M{\'a}rk Jelasity, Alberto Montresor, and Ozalp Babaoglu.
+\newblock T-man: Gossip-based fast overlay topology construction.
+\newblock {\em Computer networks}, 53(13):2321--2339, 2009.
+
+\bibitem[JOV05]{jagadish2005baton}
+Hosagrahar~V Jagadish, Beng~Chin Ooi, and Quang~Hieu Vu.
+\newblock Baton: A balanced tree structure for peer-to-peer networks.
+\newblock In {\em Proceedings of the 31st international conference on Very
+  large data bases}, pages 661--672. VLDB Endowment, 2005.
+
+\bibitem[JVG{\etalchar{+}}07]{pss}
+M{\'a}rk Jelasity, Spyros Voulgaris, Rachid Guerraoui, Anne-Marie Kermarrec,
+  and Maarten Van~Steen.
+\newblock Gossip-based peer sampling.
+\newblock {\em ACM Transactions on Computer Systems (TOCS)}, 25(3):8, 2007.
+
+\bibitem[KC03]{kephart2003vision}
+Jeffrey~O Kephart and David~M Chess.
+\newblock The vision of autonomic computing.
+\newblock {\em Computer}, 36(1):41--50, 2003.
+
+\bibitem[KL03]{keller2003wsla}
+Alexander Keller and Heiko Ludwig.
+\newblock The wsla framework: Specifying and monitoring service level
+  agreements for web services.
+\newblock {\em Journal of Network and Systems Management}, 11(1):57--81, 2003.
+
+\bibitem[LCP{\etalchar{+}}05]{lua2005survey}
+Eng~Keong Lua, Jon Crowcroft, Marcelo Pias, Ravi Sharma, Steven Lim, et~al.
+\newblock A survey and comparison of peer-to-peer overlay network schemes.
+\newblock {\em IEEE Communications Surveys and Tutorials}, 7(1-4):72--93, 2005.
+
+\bibitem[Lew11]{blewis}
+Brian Lewis.
+\newblock Separation of responsibilities., 2011.
+\newblock Taken from
+  http://mythoughtsonit.com/2011/04/infrastructure-as-a-service-platform-as-a-service-software-as-a-servicetake-a-look-at-the-management-stack,
+  Consulted: November 19th 2014.
+
+\bibitem[Lin76]{linders1976distributed}
+James~G Linders.
+\newblock Distributed data bases.
+\newblock {\em Computers \& Geosciences}, 2(3):293--297, 1976.
+
+\bibitem[LLC11]{luo2011self}
+Zhen Luo, Zhishu Li, and Biao Cai.
+\newblock A self-organized public-key certificate system in p2p network.
+\newblock {\em Journal of Networks}, 6(10):1437--1443, 2011.
+
+\bibitem[Los15]{lxc}
+Canonical Ltd. and open source.
+\newblock Linux containers.
+\newblock \url{https://linuxcontainers.org/}, 2015.
+\newblock Accessed: 12-05-2015.
+
+\bibitem[Men11]{cgroups}
+Paul Menage.
+\newblock Linux kernel documentation/cgroups/cgroups. txt, 2011.
+
+\bibitem[MF13]{mckellar2013twisted}
+Jessica McKellar and Abe Fettig.
+\newblock Twisted network programming essentials.
+\newblock 2013.
+
+\bibitem[MG11]{nist}
+Peter Mell and Tim Grance.
+\newblock The nist definition of cloud computing.
+\newblock x, 2011.
+
+\bibitem[MGLPPJ13]{mondejar2013cloudsnap}
+Rub{\'e}n Mond{\'e}jar, Pedro Garc{\'\i}a-L{\'o}pez, Carles Pairot, and Lluis
+  Pamies-Juarez.
+\newblock Cloudsnap: A transparent infrastructure for decentralized web
+  deployment using distributed interception.
+\newblock {\em Future Generation Computer Systems}, 29(1):370--380, 2013.
+
+\bibitem[Mic06]{michelson2006event}
+Brenda~M Michelson.
+\newblock Event-driven architecture overview.
+\newblock {\em Patricia Seybold Group}, 2, 2006.
+
+\bibitem[MKL{\etalchar{+}}02]{milojicic2002peer}
+Dejan~S Milojicic, Vana Kalogeraki, Rajan Lukose, Kiran Nagaraja, Jim Pruyne,
+  Bruno Richard, Sami Rollins, and Zhichen Xu.
+\newblock Peer-to-peer computing, 2002.
+
+\bibitem[MM99]{mani1999advances}
+Inderjeet Mani and Mark~T Maybury.
+\newblock {\em Advances in automatic text summarization}, volume 293.
+\newblock MIT Press, 1999.
+
+\bibitem[MM02]{maymounkov2002kademlia}
+Petar Maymounkov and David Mazieres.
+\newblock Kademlia: A peer-to-peer information system based on the xor metric.
+\newblock In {\em Peer-to-Peer Systems}, pages 53--65. Springer, 2002.
+
+\bibitem[Mul14]{kademlia_python}
+Brian Muller.
+\newblock Kademlia: A dht in python.
+\newblock
+  \url{http://findingscience.com/python/kademlia/dht/2014/02/14/kademlia:-a-dht-in-python.html},
+  2014.
+\newblock Accessed: 30-12-2014.
+
+\bibitem[NWG89]{ethics1989rfc}
+Internet Activities~Board Network Working~Group.
+\newblock Rfc 1087: Ethics of the internet, 1989.
+
+\bibitem[Ope15]{rethinkdb}
+Opensource.
+\newblock Rethinkdb: The open-source database for the realtime web.
+\newblock \url{http://rethinkdb.com/}, 2015.
+\newblock Accessed: 12-05-2015.
+
+\bibitem[{\"O}V11]{ozsu2011principles}
+M~Tamer {\"O}zsu and Patrick Valduriez.
+\newblock {\em Principles of distributed database systems}.
+\newblock Springer, 2011.
+
+\bibitem[PD11]{psaier2011survey}
+Harald Psaier and Schahram Dustdar.
+\newblock A survey on self-healing systems: approaches and systems.
+\newblock {\em Computing}, 91(1):43--73, 2011.
+
+\bibitem[PG74]{popek1974formal}
+Gerald~J Popek and Robert~P Goldberg.
+\newblock Formal requirements for virtualizable third generation architectures.
+\newblock {\em Communications of the ACM}, 17(7):412--421, 1974.
+
+\bibitem[PMRS14]{pasquet2014autonomous}
+Mathieu Pasquet, Francisco Maia, Etienne Rivi{\`e}re, and Valerio Schiavoni.
+\newblock Autonomous multi-dimensional slicing for large-scale distributed
+  systems.
+\newblock In {\em Distributed Applications and Interoperable Systems}, pages
+  141--155. Springer, 2014.
+
+\bibitem[QHH08]{qazvinian2008summarising}
+Vahed Qazvinian, Leila~Sharif Hassanabadi, and Ramin Halavati.
+\newblock Summarising text with a genetic algorithm-based sentence extraction.
+\newblock {\em International Journal of Knowledge Management Studies},
+  2(4):426--444, 2008.
+
+\bibitem[RCL09]{taxonomy}
+Bhaskar~Prasad Rimal, Eunmi Choi, and Ian Lumb.
+\newblock A taxonomy and survey of cloud computing systems.
+\newblock In {\em INC, IMS and IDC, 2009. NCM'09. Fifth International Joint
+  Conference on}, pages 44--51. Ieee, 2009.
+
+\bibitem[RR08]{richardson2008restful}
+Leonard Richardson and Sam Ruby.
+\newblock {\em RESTful web services}.
+\newblock " O'Reilly Media, Inc.", 2008.
+
+\bibitem[RV11]{riviere2011gossip}
+Etienne Riviere and Spyros Voulgaris.
+\newblock Gossip-based networking for internet-scale distributed systems.
+\newblock In {\em E-Technologies: Transformation in a Connected World}, pages
+  253--284. Springer, 2011.
+
+\bibitem[sal15]{salesforce}
+inc. salesforce.com.
+\newblock Crm and cloud computing to grow your business: Salesforce.com canada.
+\newblock \url{http://www.salesforce.com/ca/}, 2015.
+\newblock Accessed: 16-02-2015.
+
+\bibitem[Sar10]{sarmady2010survey}
+Siamak Sarmady.
+\newblock A survey on peer-to-peer and dht.
+\newblock {\em arXiv preprint arXiv:1006.4708}, 2010.
+
+\bibitem[SMJ00]{sturm2000foundations}
+Rick Sturm, Wayne Morris, and Mary Jander.
+\newblock {\em Foundations of service level management}, volume~13.
+\newblock Sams Indianapolis, IN, 2000.
+
+\bibitem[SMK{\etalchar{+}}01]{stoica2001chord}
+Ion Stoica, Robert Morris, David Karger, M~Frans Kaashoek, and Hari
+  Balakrishnan.
+\newblock Chord: A scalable peer-to-peer lookup service for internet
+  applications.
+\newblock {\em ACM SIGCOMM Computer Communication Review}, 31(4):149--160,
+  2001.
+
+\bibitem[SPEW11]{semnanian2011virtualization}
+Amir~Ali Semnanian, Jeffrey Pham, Burkhard Englert, and Xiaolong Wu.
+\newblock Virtualization technology and its impact on computer hardware
+  architecture.
+\newblock In {\em Information Technology: New Generations (ITNG), 2011 Eighth
+  International Conference on}, pages 719--724. IEEE, 2011.
+
+\bibitem[Spi10]{spinello2010cyberethics}
+Richard Spinello.
+\newblock {\em Cyberethics: Morality and law in cyberspace}.
+\newblock Jones \& Bartlett Learning, 2010.
+
+\bibitem[Tav10]{tavani2010ethics}
+Herman~T Tavani.
+\newblock {\em Ethics and technology: Controversies, questions, and strategies
+  for ethical computing}.
+\newblock John Wiley \& Sons, 2010.
+
+\bibitem[Tav12]{tavangarian2012virtual}
+Djamshid Tavangarian.
+\newblock Virtual computing: The emperor’s new clothes?
+\newblock In {\em Software Service and Application Engineering}, pages 53--70.
+  Springer, 2012.
+
+\bibitem[Tea14]{cherrypy}
+CherryPy Team.
+\newblock Cherrypy: A minimalist python web framework.
+\newblock \url{http://www.cherrypy.org}, 2014.
+\newblock Accessed: 30-12-2014.
+
+\bibitem[twi]{twisted}
+
+
+\bibitem[UPS11]{urdaneta2011survey}
+Guido Urdaneta, Guillaume Pierre, and Maarten~Van Steen.
+\newblock A survey of dht security techniques.
+\newblock {\em ACM Computing Surveys (CSUR)}, 43(2):8, 2011.
+
+\bibitem[Wat08]{watson2008virtualbox}
+Jon Watson.
+\newblock Virtualbox: bits and bytes masquerading as machines.
+\newblock {\em Linux Journal}, 2008(166):1, 2008.
+
+\bibitem[Wik15]{wikiseti}
+Wikipedia.
+\newblock Seti@home wikipedia article.
+\newblock \url{http://en.wikipedia.org/wiki/SETI@home}, 2015.
+\newblock Accessed: 16-02-2015.
+
+\bibitem[YBDS08]{ontology}
+Lamia Youseff, Maria Butrico, and Dilma Da~Silva.
+\newblock Toward a unified ontology of cloud computing.
+\newblock In {\em Grid Computing Environments Workshop, 2008. GCE'08}, pages
+  1--10. IEEE, 2008.
+
+\bibitem[ZCB10]{soa_cloud}
+Qi~Zhang, Lu~Cheng, and Raouf Boutaba.
+\newblock Cloud computing: state-of-the-art and research challenges.
+\newblock {\em Journal of internet services and applications}, 1(1):7--18,
+  2010.
+
+\end{thebibliography}

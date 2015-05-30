@@ -1,0 +1,38 @@
+2015-04-24T15:10:22.845780000 0.641761s info: Initializing directory /Users/danywilson/Desktop/github:Masters/Python/mtds/rethinkdb_data
+2015-04-24T15:10:22.847660000 0.643641s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/Users/danywilson/Desktop/github:Masters/Python/mtds/rethinkdb_data' did not already exist or is empty.)
+2015-04-24T15:10:22.847729000 0.643710s info: Running rethinkdb 1.14.0 (CLANG 4.2 (clang-425.0.28))...
+2015-04-24T15:10:22.872871000 0.668852s info: Running on Darwin 14.1.0 x86_64
+2015-04-24T15:10:22.872943000 0.668924s info: Using cache size of 100 MB
+2015-04-24T15:10:22.872980000 0.668961s warn: Cache size does not leave much memory for server and query overhead (available memory: 232 MB).
+2015-04-24T15:10:22.873004000 0.668984s warn: Cache size is very low and may impact performance.
+2015-04-24T15:10:22.873025000 0.669005s info: Loading data from directory /Users/danywilson/Desktop/github:Masters/Python/mtds/rethinkdb_data
+2015-04-24T15:10:23.035064000 0.831044s info: Listening for intracluster connections on port 29015
+2015-04-24T15:10:23.036860000 0.832841s info: Listening for client driver connections on port 28015
+2015-04-24T15:10:23.036998000 0.832979s info: Listening for administrative HTTP connections on port 8080
+2015-04-24T15:10:23.037017000 0.832998s info: Listening on addresses: 127.0.0.1, ::1
+2015-04-24T15:10:23.037054000 0.833035s info: To fully expose RethinkDB on the network, bind to all addresses
+2015-04-24T15:10:23.037071000 0.833051s info: by running rethinkdb with the `--bind all` command line option.
+2015-04-24T15:10:23.037086000 0.833067s info: Server ready
+2015-04-24T15:15:15.400399000 293.205028s info: Server got SIGINT from pid 814, uid 501; shutting down...
+2015-04-24T15:15:15.400661000 293.205290s info: Shutting down client connections...
+2015-04-24T15:15:15.403354000 293.207983s info: All client connections closed.
+2015-04-24T15:15:15.403363000 293.207991s info: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2015-04-24T15:15:15.409108000 293.213737s info: Storage engine shut down.
+2015-04-25T12:02:26.302545000 0.644453s info: Running rethinkdb 1.14.0 (CLANG 4.2 (clang-425.0.28))...
+2015-04-25T12:02:26.334197000 0.676104s info: Running on Darwin 14.1.0 x86_64
+2015-04-25T12:02:26.334260000 0.676167s info: Using cache size of 100 MB
+2015-04-25T12:02:26.334290000 0.676197s warn: Requested cache size is larger than available memory.
+2015-04-25T12:02:26.334311000 0.676218s warn: Cache size is very low and may impact performance.
+2015-04-25T12:02:26.334333000 0.676240s info: Loading data from directory /Users/danywilson/Desktop/github:Masters/Python/mtds/rethinkdb_data
+2015-04-25T12:02:26.359122000 0.701029s info: Listening for intracluster connections on port 29015
+2015-04-25T12:02:26.362491000 0.704398s info: Listening for client driver connections on port 28015
+2015-04-25T12:02:26.362694000 0.704601s info: Listening for administrative HTTP connections on port 8080
+2015-04-25T12:02:26.362717000 0.704624s info: Listening on addresses: 127.0.0.1, ::1
+2015-04-25T12:02:26.362718000 0.704625s info: To fully expose RethinkDB on the network, bind to all addresses
+2015-04-25T12:02:26.362734000 0.704641s info: by running rethinkdb with the `--bind all` command line option.
+2015-04-25T12:02:26.362751000 0.704659s info: Server ready
+2015-04-25T12:04:41.153150000 135.499474s info: Server got SIGINT from pid 814, uid 501; shutting down...
+2015-04-25T12:04:41.153506000 135.499830s info: Shutting down client connections...
+2015-04-25T12:04:41.153839000 135.500163s info: All client connections closed.
+2015-04-25T12:04:41.153846000 135.500170s info: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2015-04-25T12:04:41.160818000 135.507142s info: Storage engine shut down.

@@ -21,13 +21,16 @@ def simple_web(args):
     
     print(pipe_rfd, pipe_wfd)
     
-    app = args[1]
+    app = args[0]
+    webServer_string = args[0]._webServer_module
     # The os.setsid() is passed in the argument preexec_fn so
     # it's run after the fork() and before  exec() to run the shell.
-    app._web = Popen(['python','-u', args[0]], stdin=rfd, stdout=pipe_wfd, close_fds=False)
+    app._web = Popen(['python','-u', webServer_string], stdin=rfd, stdout=pipe_wfd, close_fds=False)
     app._web_PIPE_Inc = pipe_rfd
     app._web_PIPE_Out = wfd
-
+    app._web_REPLY = 0
+    
+    
 ################################################################################
 #                        Worker USER RELATED CODE                              #
 ################################################################################
@@ -92,10 +95,13 @@ class Task (object):
     def __ne__(self,other):
       return not self.__eq__(other)
 
-    def create(self, func, args):
+    def create(self, package,func, args):
       # simply add a deferred
       print 'in CREATE'
-      self.d.addCallback(func,args)
+      import importlib
+      module_to_call = importlib.import_module(package)
+      method_to_call = getattr(module_to_call, func)
+      self.d.addCallback(method_to_call,args)
 
 
 class ApplicationNode (object): 
@@ -105,7 +111,7 @@ class ApplicationNode (object):
     to use the network implementation interface.
     """
 
-    def __init__(self, aD=False):
+    def __init__(self, aD, webApplication_module, webServer_module):
         
         # any attributes ...
         if aD == 'True':
@@ -122,8 +128,8 @@ class ApplicationNode (object):
             self._appDeployer = False
             self._type = Task.Undefined
         
-        self._secretVal = "adlo"
-        
+        self._webApplication_module = webApplication_module
+        self._webServer_module = webServer_module
 
         # Logic to instantiate using the network implementation interface
         from networkInterface import NetworkInterface
@@ -174,20 +180,28 @@ class ApplicationNode (object):
             print 'response from child process : ',node._web.stdout.readline()
             
           def gotRequests(res, node):
-            #node._netHandle._log.debug('In GOT REQUEST? ' + str(res))
+            
+
             
             from twisted.internet import stdio
-            from webProtocol import WebProtocol
-            res = stdio.StandardIO(WebProtocol(node), 
-                                   stdin=node._web_PIPE_Out, 
-                                   stdout=node._web_PIPE_Inc)
+            import importlib
+            
+            webProtocol_x = importlib.import_module(node._webApplication_module)
+
+
+
+            res = stdio.StandardIO(webProtocol_x.WebProtocol(node), 
+                                   stdin=node._web_PIPE_Inc, 
+                                   stdout=node._web_PIPE_Out)
+            node._netHandle._log.info("In GOT REQUEST --> " + str(res))
             
           print "in handle:", self
           
           if node._appDeployer :
             #start web server...
             node._netHandle._log.info('Starting Web Server...')
-            thread = threads.deferToThread(simple_web, ['cherry_py.py',node])
+            
+            thread = threads.deferToThread(simple_web, [node])
             thread.addCallback(gotRequests, node)
 
             

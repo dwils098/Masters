@@ -1,0 +1,98 @@
+#+OPTIONS: ^:{}
+#+TITLE: Python Distributed Computing Platform Documentation
+
+* Core Classes and Files
+This Distributed Computing Platform is implemented using *Twisted Event-Driven Networking
+Framework*, and makes heavy use of deferreds to chain sequences of actions to be taken
+upon an event occurs. 
+
+There 3 core files to this distributed computing platform:
+- node_netHandle.py :: this file contains two classes: *ApplicationNode*
+     and *Task*.
+  - Task :: this class contains the logic to create Task objects, and to initialize their
+            functionalities by using the *create(* package_name, function_name,
+            args *)*. Tasks uses *deferred* to chain callbacks and to return the
+            results once the task completed. There are two types of task: *Data* task
+            which corresponds to database-related work; and *Worker* task which
+            corresponds to any processing task (which is not database-related).
+ 
+  - ApplicationNode :: this class contains the logic to create ApplicationNode objects,
+       which are either *Application Deployers* or *Contributing Nodes*. Application
+       Deploying nodes are responsible for the task queues, there are queues for each
+       type of tasks, and are hosting the web server. A typical workflow for Application
+       Deploying node involves receiving request(s) from the web server, and translating
+       them into the appropriate tasks, then queues them and dispatch them to nodes upon
+       request. It contains also the logic to connect to the cloud, seek/advertise
+       resources, and starting the protocols. 
+
+- cloudProtocol :: this file defines the protocol for the interactions between nodes
+                   within the Cloud Infrastructure. It contains logic to assign roles,
+                   send task, receive task, receive results and following up with any
+                   post-processing task scheduling. 
+
+- networkInterface :: this class defines an interface that serves as an implementation
+     independent layer to separate the implementation independent logic from the Cloud
+     Infrastructure logic. It wraps the functionalities and provides a unified way to
+     access them. It exposes the following hooks:
+  - bootstrap() :: implement any specific bootstrapping logic for a specific
+                   networking layer.
+  - connect() :: implement logic to connect to the network (by calling *bootstrap()*)
+  - bootstrap_done() :: implement any post-bootstrapping logic.
+  - set() :: implement means to store value on the network. (DHT)
+  - set_done() :: implement logic to be executed upon returning from set(). (DHT)
+  - get() :: implement means to retrieve a value on the network. (DHT)
+  - get_done() :: implement logic to be executed upon returning from get(). (DHT)
+
+** ApplicationNode class functionalities
+TO BE CONTINUED...
+
+
+** cloudProtocol protocol description
+The protocol used for inter-node communication is the following :
+
+
+** Application Specific files
+Each application requires the definition of the following files (ApplicationDeployer): 
+- webServer :: This file is usually implemented using *CherryPy* and consist of
+               specifying the content of the web pages composing the application; as well
+               as the application logic to send requests to the webProtocol.
+- webProtocol :: This protocol contains the logic to receive requests from the web
+                 server, translating them into task and adding it to the task queues.
+Each application requires the definition of the following files (Contributing Nodes):
+- data_process :: This file contains the logic to create a database instance and any
+                  database related task functionalities to complete the tasks a Data node receives.
+- worker_process :: This file contains the logic that is required to complete the tasks a
+                    Worker node receives.
+     
+* Calculator
+This is a toy example on how to create a minimal working example (MWE), it consists of 1
+ApplicationDeployer and Worker nodes only. 
+
+There is a web server that accepts two operand and submits it to the Cloud to be
+processed. In other words, it creates a task containing the operands and the name of the
+module where the operator can be found. 
+
+Results are returned upon completion.
+
+* Multi-Document Text Summarization
+This is a more complex example, which consists of 1 ApplicationDeployer, 1 Data node,
+and Worker nodes. Multitenancy is enforced through the use of sessions. 
+
+1. There is a web server that let the user upload a collection of text, and then tasks are
+   created (1 per document) to store the text in a database, then they are queued.
+2. Data Tasks are dispatched.
+3. Then a blocking Data task, periodically inspect the database for results.
+4. Then as a consequence of completing the tasks to store the documents, each completion
+   generates a Worker task to process the corresponding document and storing the results
+   in a database, which are then queued.
+5. Worker Tasks are dispatched.
+6. When all the Worker Tasks are completed, the blocking Data task will completes, and
+   generate a single Worker Task to consolidate the results.
+7. Upon completion the results are written back to the web server and are displayed to
+   the user.
+
+
+
+#+BEGIN_SRC 
+
+#+END_SRC
