@@ -1,0 +1,44 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Ontological Representation of Cloud \cite {ontology}\relax }}{23}{figure.caption.8}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Cloud Services Separation of Responsibilities \cite {blewis}\relax }}{24}{figure.caption.9}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Example of Overlay Network Virtual Connections.\relax }}{27}{figure.caption.10}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces VM vs. Containers \cite {dell}\relax }}{34}{figure.caption.11}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Framework for Peer-to-Peer Resource Collaboration Problem \cite {p2p_collab}\relax }}{38}{figure.caption.12}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Cloud@Home Architecture\relax }}{40}{figure.caption.13}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Cloud@Home Infrastructure Middleware \cite {aversa2011cloud}\relax }}{42}{figure.caption.14}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Peer-to-Peer Cloud System Architecture \cite {p2p_collab}\relax }}{45}{figure.caption.17}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Overview of the Proposed Architecture.\relax }}{54}{figure.caption.21}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Network Layer Overview\relax }}{55}{figure.caption.22}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Abstract Representation The Ring.\relax }}{56}{figure.caption.23}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Fellowship Abstraction.\relax }}{58}{figure.caption.24}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces API Specification Overview\relax }}{63}{figure.caption.25}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Proportional-Integral-Derivative (PID) Controller \cite {gergin2014decentralized}\relax }}{68}{figure.caption.26}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Advertise and Discover Phases Sequence Diagram.\relax }}{76}{figure.caption.27}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Selection and Match Phases Sequence Diagram.\relax }}{77}{figure.caption.28}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Comparison between Programming Models. \cite {mckellar2013twisted}\relax }}{82}{figure.caption.29}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces The Fellowship Protocol\relax }}{89}{figure.caption.30}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Web Request Translation into Task(s).\relax }}{90}{figure.caption.31}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Calculator's Web Interface\relax }}{91}{figure.caption.32}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Application Deployer Node as part of the Calculator Application.\relax }}{92}{figure.caption.33}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Contributing Node as part of the Calculator Application.\relax }}{93}{figure.caption.34}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Calculator Application Architecture Overview.\relax }}{94}{figure.caption.35}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Event Flow: Incoming Request.\relax }}{101}{figure.caption.36}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Event Flow: Processing a Request.\relax }}{102}{figure.caption.37}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Event Flow: Returning a Response.\relax }}{102}{figure.caption.38}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces MDTS: General Workflow.\relax }}{103}{figure.caption.39}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Application Deployer Node as part of the MDTS Application.\relax }}{104}{figure.caption.40}
+\contentsline {figure}{\numberline {6.6}{\ignorespaces MDTS Application's Web Interface\relax }}{105}{figure.caption.41}
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Data Node as part of the MDTS Application.\relax }}{106}{figure.caption.42}
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Files table schema.\relax }}{106}{figure.caption.43}
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Results table schema.\relax }}{107}{figure.caption.44}
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Worker Node as part of the MDTS Application.\relax }}{108}{figure.caption.45}
+\contentsline {figure}{\numberline {6.11}{\ignorespaces MDTS Application Heap Memory Profile.\relax }}{110}{figure.caption.46}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }

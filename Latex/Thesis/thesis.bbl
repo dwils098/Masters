@@ -45,6 +45,12 @@ David~P Anderson.
 \newblock In {\em Grid Computing, 2004. Proceedings. Fifth IEEE/ACM
   International Workshop on}, pages 4--10. IEEE, 2004.
 
+\bibitem[APHB14]{antoine2014generic}
+Maeva Antoine, Laurent Pellegrino, Fabrice Huet, and Fran{\c{c}}oise Baude.
+\newblock A generic api for load balancing in structured p2p systems.
+\newblock In {\em Computer Architecture and High Performance Computing Workshop
+  (SBAC-PADW), 2014 International Symposium on}, pages 138--143. IEEE, 2014.
+
 \bibitem[ASK15]{anjomshoa2015taxonomy}
 Mohammadfazel Anjomshoa, Mazleena Salleh, and Maryam~Pouryazdanpanah Kermani.
 \newblock A taxonomy and survey of distributed computing systems.
@@ -147,17 +153,38 @@ David Chisnall.
 \newblock {\em The definitive guide to the xen hypervisor}.
 \newblock Pearson Education, 2008.
 
+\bibitem[Cit12]{cloud_citrix}
+Citrix.
+\newblock Most american confused by cloud computing according to national
+  survey, 2012.
+\newblock Taken from
+  https://www.citrix.com/news/announcements/aug-2012/most-americans-confused-by-cloud-computing-according-to-national.html,
+  Consulted: June 4th 2015.
+
 \bibitem[CS99]{carstensen1999computer}
 Peter~H Carstensen and Kjeld Schmidt.
 \newblock Computer supported cooperative work: New challenges to systems
   design.
 \newblock In {\em In K. Itoh (Ed.), Handbook of Human Factors}. Citeseer, 1999.
 
+\bibitem[CS14]{cloud_oneil}
+O'Neil~Software Christine~Spisto.
+\newblock Cloud computing confusion – the root cause?, 2014.
+\newblock Taken from
+  https://www.oneilsoft.com/news-portal/blogs/780-cloud-computing-confusion-the-root-cause,
+  Consulted: June 4th 2015.
+
 \bibitem[CW09]{chandra2009nebulas}
 Abhishek Chandra and Jon Weissman.
 \newblock Nebulas: Using distributed voluntary resources to build clouds.
 \newblock In {\em Proceedings of the 2009 conference on Hot topics in cloud
   computing}, pages 2--2. USENIX Association, 2009.
+
+\bibitem[Dar14]{dara2014multi}
+Sashank Dara.
+\newblock Multi-user protocols with access control for computational privacy in
+  public clouds.
+\newblock {\em arXiv preprint arXiv:1406.1823}, 2014.
 
 \bibitem[DCP10]{distefano2010taxonomic}
 Salvatore Distefano, Vincenzo~D Cunsolo, and Antonio Puliafito.
@@ -317,6 +344,14 @@ Mark Jelasity and A-M Kermarrec.
 \newblock In {\em Peer-to-Peer Computing, 2006. P2P 2006. Sixth IEEE
   International Conference on}, pages 117--124. IEEE, 2006.
 
+\bibitem[JM14]{cloud_forbes}
+Forbes Joe~MecKendrick.
+\newblock What cloud computing customers want: Clarity, simplicity, support,
+  2014.
+\newblock Taken from
+  http://www.forbes.com/sites/joemckendrick/2014/07/19/what-cloud-computing-customers-want-clarity-simplicity-support/,
+  Consulted: June 4th 2015.
+
 \bibitem[JMB05]{jelasity2005gossip}
 M{\'a}rk Jelasity, Alberto Montresor, and Ozalp Babaoglu.
 \newblock Gossip-based aggregation in large dynamic networks.
@@ -344,6 +379,13 @@ M{\'a}rk Jelasity, Spyros Voulgaris, Rachid Guerraoui, Anne-Marie Kermarrec,
 Jeffrey~O Kephart and David~M Chess.
 \newblock The vision of autonomic computing.
 \newblock {\em Computer}, 36(1):41--50, 2003.
+
+\bibitem[KC12]{kansal2012existing}
+Nidhi~Jain Kansal and Inderveer Chana.
+\newblock Existing load balancing techniques in cloud computing: a systematic
+  review.
+\newblock {\em Journal of Information Systems and Communication}, 3(1):87--91,
+  2012.
 
 \bibitem[KL03]{keller2003wsla}
 Alexander Keller and Heiko Ludwig.
@@ -428,9 +470,20 @@ Brian Muller.
   2014.
 \newblock Accessed: 30-12-2014.
 
+\bibitem[NO95]{nyanchama1995modeling}
+Matunda Nyanchama and Sylvia~L Osborn.
+\newblock Modeling mandatory access control in role-based security systems.
+\newblock In {\em DBSec}, pages 129--144. Citeseer, 1995.
+
 \bibitem[NWG89]{ethics1989rfc}
 Internet Activities~Board Network Working~Group.
 \newblock Rfc 1087: Ethics of the internet, 1989.
+
+\bibitem[Olk06]{olkkonen2006generic}
+Timo Olkkonen.
+\newblock Generic authentication architecture.
+\newblock In {\em Security and Privacy in Pervasive Computing, Seminar on
+  Network Security, Espoo}, 2006.
 
 \bibitem[Ope15]{rethinkdb}
 Opensource.
@@ -555,6 +608,14 @@ Wikipedia.
 \newblock Seti@home wikipedia article.
 \newblock \url{http://en.wikipedia.org/wiki/SETI@home}, 2015.
 \newblock Accessed: 16-02-2015.
+
+\bibitem[WR15]{cloud_tech}
+Cloud Tech~News William~Rabis.
+\newblock The confusion around hybrid: Cloud isn’t for everyone, but everyone
+  can use a bit of cloud, 2015.
+\newblock Taken from
+  http://www.cloudcomputing-news.net/news/2015/jun/01/confusion-around-hybrid-cloud-isnt-everyone-everyone-can-use-bit-cloud/,
+  Consulted: June 4th 2015.
 
 \bibitem[YBDS08]{ontology}
 Lamia Youseff, Maria Butrico, and Dilma Da~Silva.

@@ -1,91 +1,103 @@
-\contentsline {chapter}{\numberline {1}Introduction}{7}{chapter.1}
-\contentsline {section}{\numberline {1.1}Motivations}{7}{section.1.1}
-\contentsline {section}{\numberline {1.2}Problem Definition}{9}{section.1.2}
-\contentsline {section}{\numberline {1.3}Contributions}{10}{section.1.3}
-\contentsline {section}{\numberline {1.4}Outline}{10}{section.1.4}
-\contentsline {chapter}{\numberline {2}Background}{12}{chapter.2}
-\contentsline {section}{\numberline {2.1}Collaborative Systems}{12}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}SETI@Home}{13}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}BOINC: Berkeley Open Infrastructure for Network Computing}{14}{subsection.2.1.2}
-\contentsline {section}{\numberline {2.2}Cloud Computing}{15}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Deployment Models}{16}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Service Models}{16}{subsection.2.2.2}
-\contentsline {subsection}{\numberline {2.2.3}Volunteer Cloud Computing}{17}{subsection.2.2.3}
-\contentsline {section}{\numberline {2.3}Peer-to-Peer Computing}{18}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Overview}{19}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}Overlay Networks}{20}{subsection.2.3.2}
-\contentsline {subsection}{\numberline {2.3.3}Structured Overlay Network}{20}{subsection.2.3.3}
-\contentsline {subsection}{\numberline {2.3.4}Unstructured}{21}{subsection.2.3.4}
-\contentsline {subsection}{\numberline {2.3.5}Slicing}{22}{subsection.2.3.5}
-\contentsline {subsection}{\numberline {2.3.6}Comparison}{24}{subsection.2.3.6}
-\contentsline {section}{\numberline {2.4}Virtualization Technologies}{25}{section.2.4}
-\contentsline {subsection}{\numberline {2.4.1}Overview}{25}{subsection.2.4.1}
-\contentsline {subsection}{\numberline {2.4.2}Full Virtualization vs. Light Virtualization}{26}{subsection.2.4.2}
-\contentsline {subsection}{\numberline {2.4.3}Containers}{28}{subsection.2.4.3}
-\contentsline {subsection}{\numberline {2.4.4}LxC}{28}{subsection.2.4.4}
-\contentsline {subsection}{\numberline {2.4.5}Docker}{29}{subsection.2.4.5}
-\contentsline {chapter}{\numberline {3}Related Work}{30}{chapter.3}
-\contentsline {section}{\numberline {3.1}Evaluation Framework}{30}{section.3.1}
-\contentsline {section}{\numberline {3.2}Cloud@Home}{32}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Architecture}{33}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Evaluation}{35}{subsection.3.2.2}
-\contentsline {subsubsection}{Evaluation Framework}{35}{section*.11}
-\contentsline {subsubsection}{Functional Requirements}{36}{section*.12}
-\contentsline {section}{\numberline {3.3}Peer-to-Peer Cloud System}{37}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Architecture}{38}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Evaluation}{40}{subsection.3.3.2}
-\contentsline {subsubsection}{Evaluation Framework}{40}{section*.14}
-\contentsline {subsubsection}{Functional Requirements}{42}{section*.15}
-\contentsline {section}{\numberline {3.4}Discussion}{43}{section.3.4}
-\contentsline {chapter}{\numberline {4}Architecture}{45}{chapter.4}
-\contentsline {section}{\numberline {4.1}Overview}{45}{section.4.1}
-\contentsline {section}{\numberline {4.2}Network Layer}{46}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}The Ring}{48}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}The Fellowships}{50}{subsection.4.2.2}
-\contentsline {section}{\numberline {4.3}Virtual Layer}{52}{section.4.3}
-\contentsline {section}{\numberline {4.4}Application Layer}{54}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Overview}{55}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}Databases and Storages}{56}{subsection.4.4.2}
-\contentsline {subsection}{\numberline {4.4.3}Communication and Networking}{58}{subsection.4.4.3}
-\contentsline {subsection}{\numberline {4.4.4}Load Balancing and Scalability}{58}{subsection.4.4.4}
-\contentsline {subsection}{\numberline {4.4.5}Security}{61}{subsection.4.4.5}
-\contentsline {subsection}{\numberline {4.4.6}Application Deployment and Management}{63}{subsection.4.4.6}
-\contentsline {section}{\numberline {4.5}Discussion}{65}{section.4.5}
-\contentsline {subsection}{\numberline {4.5.1}Collaborative Peer-to-Peer System Framework Implementation}{65}{subsection.4.5.1}
-\contentsline {subsection}{\numberline {4.5.2}Research Requirements}{67}{subsection.4.5.2}
-\contentsline {chapter}{\numberline {5}Implementation}{69}{chapter.5}
-\contentsline {section}{\numberline {5.1}Technology Used}{69}{section.5.1}
-\contentsline {section}{\numberline {5.2}Constructs}{71}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Task}{71}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}ApplicationNode}{72}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}The Ring}{73}{subsection.5.2.3}
-\contentsline {subsection}{\numberline {5.2.4}The Fellowships}{74}{subsection.5.2.4}
-\contentsline {subsection}{\numberline {5.2.5}Conclusions}{74}{subsection.5.2.5}
-\contentsline {section}{\numberline {5.3}Workflows and Protocols}{75}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}Initializing a Node}{75}{subsection.5.3.1}
-\contentsline {subsection}{\numberline {5.3.2}Fellowship's Protocol}{76}{subsection.5.3.2}
-\contentsline {subsection}{\numberline {5.3.3}Web Protocol}{76}{subsection.5.3.3}
-\contentsline {section}{\numberline {5.4}Proof of Concept: Calculator}{78}{section.5.4}
-\contentsline {subsection}{\numberline {5.4.1}Overview}{78}{subsection.5.4.1}
-\contentsline {subsection}{\numberline {5.4.2}Component Interaction}{78}{subsection.5.4.2}
-\contentsline {subsection}{\numberline {5.4.3}Application Deploying Node}{80}{subsection.5.4.3}
-\contentsline {subsection}{\numberline {5.4.4}Contributing Node}{81}{subsection.5.4.4}
-\contentsline {section}{\numberline {5.5}Conclusion}{82}{section.5.5}
-\contentsline {chapter}{\numberline {6}Use-Case: Multi-Document Text Summarization using Genetic Algorithms}{84}{chapter.6}
-\contentsline {section}{\numberline {6.1}Problem at Hand}{85}{section.6.1}
-\contentsline {subsection}{\numberline {6.1.1}Automatic Summarization}{85}{subsection.6.1.1}
-\contentsline {subsection}{\numberline {6.1.2}Genetic Algorithms}{86}{subsection.6.1.2}
-\contentsline {subsection}{\numberline {6.1.3}Extensions Proposed for MDTS}{86}{subsection.6.1.3}
-\contentsline {section}{\numberline {6.2}Translation of the Problem for this Architecture}{88}{section.6.2}
-\contentsline {section}{\numberline {6.3}Implementation Details}{91}{section.6.3}
-\contentsline {subsection}{\numberline {6.3.1}Application Deploying Node}{91}{subsection.6.3.1}
-\contentsline {subsection}{\numberline {6.3.2}Data Node}{93}{subsection.6.3.2}
-\contentsline {subsection}{\numberline {6.3.3}Worker Node}{95}{subsection.6.3.3}
-\contentsline {section}{\numberline {6.4}Conclusions}{96}{section.6.4}
-\contentsline {chapter}{\numberline {7}Discussion}{98}{chapter.7}
-\contentsline {section}{\numberline {7.1}Positioning of the System}{98}{section.7.1}
-\contentsline {section}{\numberline {7.2}Problems Encountered}{100}{section.7.2}
-\contentsline {chapter}{\numberline {8}Conclusion}{104}{chapter.8}
-\contentsline {subsection}{\numberline {8.0.1}Requirements Fulfilled}{104}{subsection.8.0.1}
-\contentsline {subsection}{\numberline {8.0.2}Contributions}{106}{subsection.8.0.2}
-\contentsline {subsection}{\numberline {8.0.3}Future Work}{107}{subsection.8.0.3}
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }Abstract}{2}{chapter*.1}
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }Acknowledgements}{4}{chapter*.2}
+\contentsline {chapter}{\numberline {1}Introduction}{14}{chapter.1}
+\contentsline {section}{\numberline {1.1}Motivations}{14}{section.1.1}
+\contentsline {section}{\numberline {1.2}Problem Definition}{16}{section.1.2}
+\contentsline {section}{\numberline {1.3}Contributions}{17}{section.1.3}
+\contentsline {section}{\numberline {1.4}Outline}{17}{section.1.4}
+\contentsline {chapter}{\numberline {2}Background}{19}{chapter.2}
+\contentsline {section}{\numberline {2.1}Collaborative Systems}{19}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}SETI@Home}{20}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}BOINC: Berkeley Open Infrastructure for Network Computing}{21}{subsection.2.1.2}
+\contentsline {section}{\numberline {2.2}Cloud Computing}{22}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Deployment Models}{23}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Service Models}{23}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Volunteer Cloud Computing}{25}{subsection.2.2.3}
+\contentsline {section}{\numberline {2.3}Peer-to-Peer Computing}{25}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Overview}{25}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Overlay Networks}{26}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}Structured Overlay Network}{27}{subsection.2.3.3}
+\contentsline {subsection}{\numberline {2.3.4}Unstructured}{28}{subsection.2.3.4}
+\contentsline {subsection}{\numberline {2.3.5}Slicing}{29}{subsection.2.3.5}
+\contentsline {subsection}{\numberline {2.3.6}Comparison}{31}{subsection.2.3.6}
+\contentsline {section}{\numberline {2.4}Virtualization Technologies}{32}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Overview}{32}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Full Virtualization vs. Light Virtualization}{33}{subsection.2.4.2}
+\contentsline {subsection}{\numberline {2.4.3}Containers}{35}{subsection.2.4.3}
+\contentsline {subsection}{\numberline {2.4.4}LxC}{35}{subsection.2.4.4}
+\contentsline {subsection}{\numberline {2.4.5}Docker}{36}{subsection.2.4.5}
+\contentsline {chapter}{\numberline {3}Related Work}{37}{chapter.3}
+\contentsline {section}{\numberline {3.1}Evaluation Framework}{37}{section.3.1}
+\contentsline {section}{\numberline {3.2}Cloud@Home}{39}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Architecture}{40}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Evaluation}{42}{subsection.3.2.2}
+\contentsline {subsubsection}{Evaluation Framework}{42}{section*.15}
+\contentsline {subsubsection}{Functional Requirements}{43}{section*.16}
+\contentsline {section}{\numberline {3.3}Peer-to-Peer Cloud System}{44}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Architecture}{45}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Evaluation}{47}{subsection.3.3.2}
+\contentsline {subsubsection}{Evaluation Framework}{47}{section*.18}
+\contentsline {subsubsection}{Functional Requirements}{49}{section*.19}
+\contentsline {section}{\numberline {3.4}Discussion}{50}{section.3.4}
+\contentsline {chapter}{\numberline {4}Architecture}{53}{chapter.4}
+\contentsline {section}{\numberline {4.1}Overview}{53}{section.4.1}
+\contentsline {section}{\numberline {4.2}Network Layer}{54}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}The Ring}{56}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}The Fellowships}{58}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}Virtual Layer}{60}{section.4.3}
+\contentsline {section}{\numberline {4.4}Application Layer}{62}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Overview}{63}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Databases and Storages}{64}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}Communication and Networking}{66}{subsection.4.4.3}
+\contentsline {subsection}{\numberline {4.4.4}Load Balancing and Scalability}{66}{subsection.4.4.4}
+\contentsline {subsection}{\numberline {4.4.5}Security}{69}{subsection.4.4.5}
+\contentsline {subsection}{\numberline {4.4.6}Application Deployment and Management}{71}{subsection.4.4.6}
+\contentsline {section}{\numberline {4.5}Component Interaction}{73}{section.4.5}
+\contentsline {section}{\numberline {4.6}Discussion}{75}{section.4.6}
+\contentsline {subsection}{\numberline {4.6.1}Collaborative Peer-to-Peer System Framework Implementation}{75}{subsection.4.6.1}
+\contentsline {subsection}{\numberline {4.6.2}Research Requirements}{78}{subsection.4.6.2}
+\contentsline {chapter}{\numberline {5}Implementation}{81}{chapter.5}
+\contentsline {section}{\numberline {5.1}Technology Used}{81}{section.5.1}
+\contentsline {section}{\numberline {5.2}Constructs}{83}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Task}{84}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}ApplicationNode}{85}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}The Ring}{86}{subsection.5.2.3}
+\contentsline {subsection}{\numberline {5.2.4}The Fellowships}{86}{subsection.5.2.4}
+\contentsline {subsection}{\numberline {5.2.5}Conclusions}{87}{subsection.5.2.5}
+\contentsline {section}{\numberline {5.3}Workflows and Protocols}{87}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Initializing a Node}{88}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Fellowship's Protocol}{88}{subsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}Web Protocol}{89}{subsection.5.3.3}
+\contentsline {section}{\numberline {5.4}Proof of Concept: Calculator}{90}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Overview}{91}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}Application Deploying Node}{91}{subsection.5.4.2}
+\contentsline {subsection}{\numberline {5.4.3}Contributing Node}{92}{subsection.5.4.3}
+\contentsline {section}{\numberline {5.5}Conclusion}{93}{section.5.5}
+\contentsline {chapter}{\numberline {6}Case Study: Multi-Document Text Summarization using Genetic Algorithms}{95}{chapter.6}
+\contentsline {section}{\numberline {6.1}Problem at Hand}{95}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Automatic Summarization}{96}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Genetic Algorithms}{97}{subsection.6.1.2}
+\contentsline {subsection}{\numberline {6.1.3}Extensions Proposed for MDTS}{97}{subsection.6.1.3}
+\contentsline {section}{\numberline {6.2}Translation of the Problem for this Architecture}{98}{section.6.2}
+\contentsline {section}{\numberline {6.3}Implementation Details}{103}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Application Deploying Node}{103}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Data Node}{105}{subsection.6.3.2}
+\contentsline {subsection}{\numberline {6.3.3}Worker Node}{108}{subsection.6.3.3}
+\contentsline {section}{\numberline {6.4}Experimentation}{109}{section.6.4}
+\contentsline {section}{\numberline {6.5}Conclusions}{112}{section.6.5}
+\contentsline {chapter}{\numberline {7}Discussion}{113}{chapter.7}
+\contentsline {section}{\numberline {7.1}Positioning of the System}{113}{section.7.1}
+\contentsline {section}{\numberline {7.2}Problems Encountered}{115}{section.7.2}
+\contentsline {chapter}{\numberline {8}Conclusion}{119}{chapter.8}
+\contentsline {section}{\numberline {8.1}Requirements Fulfilled}{119}{section.8.1}
+\contentsline {section}{\numberline {8.2}Contributions}{121}{section.8.2}
+\contentsline {section}{\numberline {8.3}Future Work}{122}{section.8.3}
+\contentsline {chapter}{Appendices}{124}{section*.50}
+\contentsline {chapter}{\numberline {A}API Specification}{124}{Appendix.1.A}
+\contentsline {chapter}{\numberline {B}Code Samples}{127}{Appendix.1.B}
+\contentsline {section}{\numberline {B.1}Calculator}{127}{section.1.B.1}
+\contentsline {subsection}{\numberline {B.1.1}Web Server}{127}{subsection.1.B.1.1}
+\contentsline {subsection}{\numberline {B.1.2}Web Protocol}{128}{subsection.1.B.1.2}
+\contentsline {section}{\numberline {B.2}Multi-Document Text Summarization}{130}{section.1.B.2}
+\contentsline {subsection}{\numberline {B.2.1}Web Server}{130}{subsection.1.B.2.1}
+\contentsline {subsection}{\numberline {B.2.2}Web Protocol}{133}{subsection.1.B.2.2}

@@ -1,87 +1,99 @@
-\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
-\BOOKMARK [1][-]{section.1.1}{Motivations}{chapter.1}% 2
-\BOOKMARK [1][-]{section.1.2}{Problem Definition}{chapter.1}% 3
-\BOOKMARK [1][-]{section.1.3}{Contributions}{chapter.1}% 4
-\BOOKMARK [1][-]{section.1.4}{Outline}{chapter.1}% 5
-\BOOKMARK [0][-]{chapter.2}{Background}{}% 6
-\BOOKMARK [1][-]{section.2.1}{Collaborative Systems}{chapter.2}% 7
-\BOOKMARK [2][-]{subsection.2.1.1}{SETI@Home}{section.2.1}% 8
-\BOOKMARK [2][-]{subsection.2.1.2}{BOINC: Berkeley Open Infrastructure for Network Computing}{section.2.1}% 9
-\BOOKMARK [1][-]{section.2.2}{Cloud Computing}{chapter.2}% 10
-\BOOKMARK [2][-]{subsection.2.2.1}{Deployment Models}{section.2.2}% 11
-\BOOKMARK [2][-]{subsection.2.2.2}{Service Models}{section.2.2}% 12
-\BOOKMARK [2][-]{subsection.2.2.3}{Volunteer Cloud Computing}{section.2.2}% 13
-\BOOKMARK [1][-]{section.2.3}{Peer-to-Peer Computing}{chapter.2}% 14
-\BOOKMARK [2][-]{subsection.2.3.1}{Overview}{section.2.3}% 15
-\BOOKMARK [2][-]{subsection.2.3.2}{Overlay Networks}{section.2.3}% 16
-\BOOKMARK [2][-]{subsection.2.3.3}{Structured Overlay Network}{section.2.3}% 17
-\BOOKMARK [2][-]{subsection.2.3.4}{Unstructured}{section.2.3}% 18
-\BOOKMARK [2][-]{subsection.2.3.5}{Slicing}{section.2.3}% 19
-\BOOKMARK [2][-]{subsection.2.3.6}{Comparison}{section.2.3}% 20
-\BOOKMARK [1][-]{section.2.4}{Virtualization Technologies}{chapter.2}% 21
-\BOOKMARK [2][-]{subsection.2.4.1}{Overview}{section.2.4}% 22
-\BOOKMARK [2][-]{subsection.2.4.2}{Full Virtualization vs. Light Virtualization}{section.2.4}% 23
-\BOOKMARK [2][-]{subsection.2.4.3}{Containers}{section.2.4}% 24
-\BOOKMARK [2][-]{subsection.2.4.4}{LxC}{section.2.4}% 25
-\BOOKMARK [2][-]{subsection.2.4.5}{Docker}{section.2.4}% 26
-\BOOKMARK [0][-]{chapter.3}{Related Work}{}% 27
-\BOOKMARK [1][-]{section.3.1}{Evaluation Framework}{chapter.3}% 28
-\BOOKMARK [1][-]{section.3.2}{Cloud@Home}{chapter.3}% 29
-\BOOKMARK [2][-]{subsection.3.2.1}{Architecture}{section.3.2}% 30
-\BOOKMARK [2][-]{subsection.3.2.2}{Evaluation}{section.3.2}% 31
-\BOOKMARK [1][-]{section.3.3}{Peer-to-Peer Cloud System}{chapter.3}% 32
-\BOOKMARK [2][-]{subsection.3.3.1}{Architecture}{section.3.3}% 33
-\BOOKMARK [2][-]{subsection.3.3.2}{Evaluation}{section.3.3}% 34
-\BOOKMARK [1][-]{section.3.4}{Discussion}{chapter.3}% 35
-\BOOKMARK [0][-]{chapter.4}{Architecture}{}% 36
-\BOOKMARK [1][-]{section.4.1}{Overview}{chapter.4}% 37
-\BOOKMARK [1][-]{section.4.2}{Network Layer}{chapter.4}% 38
-\BOOKMARK [2][-]{subsection.4.2.1}{The Ring}{section.4.2}% 39
-\BOOKMARK [2][-]{subsection.4.2.2}{The Fellowships}{section.4.2}% 40
-\BOOKMARK [1][-]{section.4.3}{Virtual Layer}{chapter.4}% 41
-\BOOKMARK [1][-]{section.4.4}{Application Layer}{chapter.4}% 42
-\BOOKMARK [2][-]{subsection.4.4.1}{Overview}{section.4.4}% 43
-\BOOKMARK [2][-]{subsection.4.4.2}{Databases and Storages}{section.4.4}% 44
-\BOOKMARK [2][-]{subsection.4.4.3}{Communication and Networking}{section.4.4}% 45
-\BOOKMARK [2][-]{subsection.4.4.4}{Load Balancing and Scalability}{section.4.4}% 46
-\BOOKMARK [2][-]{subsection.4.4.5}{Security}{section.4.4}% 47
-\BOOKMARK [2][-]{subsection.4.4.6}{Application Deployment and Management}{section.4.4}% 48
-\BOOKMARK [1][-]{section.4.5}{Discussion}{chapter.4}% 49
-\BOOKMARK [2][-]{subsection.4.5.1}{Collaborative Peer-to-Peer System Framework Implementation}{section.4.5}% 50
-\BOOKMARK [2][-]{subsection.4.5.2}{Research Requirements}{section.4.5}% 51
-\BOOKMARK [0][-]{chapter.5}{Implementation}{}% 52
-\BOOKMARK [1][-]{section.5.1}{Technology Used}{chapter.5}% 53
-\BOOKMARK [1][-]{section.5.2}{Constructs}{chapter.5}% 54
-\BOOKMARK [2][-]{subsection.5.2.1}{Task}{section.5.2}% 55
-\BOOKMARK [2][-]{subsection.5.2.2}{ApplicationNode}{section.5.2}% 56
-\BOOKMARK [2][-]{subsection.5.2.3}{The Ring}{section.5.2}% 57
-\BOOKMARK [2][-]{subsection.5.2.4}{The Fellowships}{section.5.2}% 58
-\BOOKMARK [2][-]{subsection.5.2.5}{Conclusions}{section.5.2}% 59
-\BOOKMARK [1][-]{section.5.3}{Workflows and Protocols}{chapter.5}% 60
-\BOOKMARK [2][-]{subsection.5.3.1}{Initializing a Node}{section.5.3}% 61
-\BOOKMARK [2][-]{subsection.5.3.2}{Fellowship's Protocol}{section.5.3}% 62
-\BOOKMARK [2][-]{subsection.5.3.3}{Web Protocol}{section.5.3}% 63
-\BOOKMARK [1][-]{section.5.4}{Proof of Concept: Calculator}{chapter.5}% 64
-\BOOKMARK [2][-]{subsection.5.4.1}{Overview}{section.5.4}% 65
-\BOOKMARK [2][-]{subsection.5.4.2}{Component Interaction}{section.5.4}% 66
-\BOOKMARK [2][-]{subsection.5.4.3}{Application Deploying Node}{section.5.4}% 67
-\BOOKMARK [2][-]{subsection.5.4.4}{Contributing Node}{section.5.4}% 68
-\BOOKMARK [1][-]{section.5.5}{Conclusion}{chapter.5}% 69
-\BOOKMARK [0][-]{chapter.6}{Use-Case: Multi-Document Text Summarization using Genetic Algorithms}{}% 70
-\BOOKMARK [1][-]{section.6.1}{Problem at Hand}{chapter.6}% 71
-\BOOKMARK [2][-]{subsection.6.1.1}{Automatic Summarization}{section.6.1}% 72
-\BOOKMARK [2][-]{subsection.6.1.2}{Genetic Algorithms}{section.6.1}% 73
-\BOOKMARK [2][-]{subsection.6.1.3}{Extensions Proposed for MDTS}{section.6.1}% 74
-\BOOKMARK [1][-]{section.6.2}{Translation of the Problem for this Architecture}{chapter.6}% 75
-\BOOKMARK [1][-]{section.6.3}{Implementation Details}{chapter.6}% 76
-\BOOKMARK [2][-]{subsection.6.3.1}{Application Deploying Node}{section.6.3}% 77
-\BOOKMARK [2][-]{subsection.6.3.2}{Data Node}{section.6.3}% 78
-\BOOKMARK [2][-]{subsection.6.3.3}{Worker Node}{section.6.3}% 79
-\BOOKMARK [1][-]{section.6.4}{Conclusions}{chapter.6}% 80
-\BOOKMARK [0][-]{chapter.7}{Discussion}{}% 81
-\BOOKMARK [1][-]{section.7.1}{Positioning of the System}{chapter.7}% 82
-\BOOKMARK [1][-]{section.7.2}{Problems Encountered}{chapter.7}% 83
-\BOOKMARK [0][-]{chapter.8}{Conclusion}{}% 84
-\BOOKMARK [1][-]{subsection.8.0.1}{Requirements Fulfilled}{chapter.8}% 85
-\BOOKMARK [2][-]{subsection.8.0.2}{Contributions}{subsection.8.0.1}% 86
-\BOOKMARK [2][-]{subsection.8.0.3}{Future Work}{subsection.8.0.1}% 87
+\BOOKMARK [0][-]{chapter*.1}{Abstract}{}% 1
+\BOOKMARK [0][-]{chapter*.2}{Acknowledgements}{}% 2
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 3
+\BOOKMARK [1][-]{section.1.1}{Motivations}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.2}{Problem Definition}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.3}{Contributions}{chapter.1}% 6
+\BOOKMARK [1][-]{section.1.4}{Outline}{chapter.1}% 7
+\BOOKMARK [0][-]{chapter.2}{Background}{}% 8
+\BOOKMARK [1][-]{section.2.1}{Collaborative Systems}{chapter.2}% 9
+\BOOKMARK [2][-]{subsection.2.1.1}{SETI@Home}{section.2.1}% 10
+\BOOKMARK [2][-]{subsection.2.1.2}{BOINC: Berkeley Open Infrastructure for Network Computing}{section.2.1}% 11
+\BOOKMARK [1][-]{section.2.2}{Cloud Computing}{chapter.2}% 12
+\BOOKMARK [2][-]{subsection.2.2.1}{Deployment Models}{section.2.2}% 13
+\BOOKMARK [2][-]{subsection.2.2.2}{Service Models}{section.2.2}% 14
+\BOOKMARK [2][-]{subsection.2.2.3}{Volunteer Cloud Computing}{section.2.2}% 15
+\BOOKMARK [1][-]{section.2.3}{Peer-to-Peer Computing}{chapter.2}% 16
+\BOOKMARK [2][-]{subsection.2.3.1}{Overview}{section.2.3}% 17
+\BOOKMARK [2][-]{subsection.2.3.2}{Overlay Networks}{section.2.3}% 18
+\BOOKMARK [2][-]{subsection.2.3.3}{Structured Overlay Network}{section.2.3}% 19
+\BOOKMARK [2][-]{subsection.2.3.4}{Unstructured}{section.2.3}% 20
+\BOOKMARK [2][-]{subsection.2.3.5}{Slicing}{section.2.3}% 21
+\BOOKMARK [2][-]{subsection.2.3.6}{Comparison}{section.2.3}% 22
+\BOOKMARK [1][-]{section.2.4}{Virtualization Technologies}{chapter.2}% 23
+\BOOKMARK [2][-]{subsection.2.4.1}{Overview}{section.2.4}% 24
+\BOOKMARK [2][-]{subsection.2.4.2}{Full Virtualization vs. Light Virtualization}{section.2.4}% 25
+\BOOKMARK [2][-]{subsection.2.4.3}{Containers}{section.2.4}% 26
+\BOOKMARK [2][-]{subsection.2.4.4}{LxC}{section.2.4}% 27
+\BOOKMARK [2][-]{subsection.2.4.5}{Docker}{section.2.4}% 28
+\BOOKMARK [0][-]{chapter.3}{Related Work}{}% 29
+\BOOKMARK [1][-]{section.3.1}{Evaluation Framework}{chapter.3}% 30
+\BOOKMARK [1][-]{section.3.2}{Cloud@Home}{chapter.3}% 31
+\BOOKMARK [2][-]{subsection.3.2.1}{Architecture}{section.3.2}% 32
+\BOOKMARK [2][-]{subsection.3.2.2}{Evaluation}{section.3.2}% 33
+\BOOKMARK [1][-]{section.3.3}{Peer-to-Peer Cloud System}{chapter.3}% 34
+\BOOKMARK [2][-]{subsection.3.3.1}{Architecture}{section.3.3}% 35
+\BOOKMARK [2][-]{subsection.3.3.2}{Evaluation}{section.3.3}% 36
+\BOOKMARK [1][-]{section.3.4}{Discussion}{chapter.3}% 37
+\BOOKMARK [0][-]{chapter.4}{Architecture}{}% 38
+\BOOKMARK [1][-]{section.4.1}{Overview}{chapter.4}% 39
+\BOOKMARK [1][-]{section.4.2}{Network Layer}{chapter.4}% 40
+\BOOKMARK [2][-]{subsection.4.2.1}{The Ring}{section.4.2}% 41
+\BOOKMARK [2][-]{subsection.4.2.2}{The Fellowships}{section.4.2}% 42
+\BOOKMARK [1][-]{section.4.3}{Virtual Layer}{chapter.4}% 43
+\BOOKMARK [1][-]{section.4.4}{Application Layer}{chapter.4}% 44
+\BOOKMARK [2][-]{subsection.4.4.1}{Overview}{section.4.4}% 45
+\BOOKMARK [2][-]{subsection.4.4.2}{Databases and Storages}{section.4.4}% 46
+\BOOKMARK [2][-]{subsection.4.4.3}{Communication and Networking}{section.4.4}% 47
+\BOOKMARK [2][-]{subsection.4.4.4}{Load Balancing and Scalability}{section.4.4}% 48
+\BOOKMARK [2][-]{subsection.4.4.5}{Security}{section.4.4}% 49
+\BOOKMARK [2][-]{subsection.4.4.6}{Application Deployment and Management}{section.4.4}% 50
+\BOOKMARK [1][-]{section.4.5}{Component Interaction}{chapter.4}% 51
+\BOOKMARK [1][-]{section.4.6}{Discussion}{chapter.4}% 52
+\BOOKMARK [2][-]{subsection.4.6.1}{Collaborative Peer-to-Peer System Framework Implementation}{section.4.6}% 53
+\BOOKMARK [2][-]{subsection.4.6.2}{Research Requirements}{section.4.6}% 54
+\BOOKMARK [0][-]{chapter.5}{Implementation}{}% 55
+\BOOKMARK [1][-]{section.5.1}{Technology Used}{chapter.5}% 56
+\BOOKMARK [1][-]{section.5.2}{Constructs}{chapter.5}% 57
+\BOOKMARK [2][-]{subsection.5.2.1}{Task}{section.5.2}% 58
+\BOOKMARK [2][-]{subsection.5.2.2}{ApplicationNode}{section.5.2}% 59
+\BOOKMARK [2][-]{subsection.5.2.3}{The Ring}{section.5.2}% 60
+\BOOKMARK [2][-]{subsection.5.2.4}{The Fellowships}{section.5.2}% 61
+\BOOKMARK [2][-]{subsection.5.2.5}{Conclusions}{section.5.2}% 62
+\BOOKMARK [1][-]{section.5.3}{Workflows and Protocols}{chapter.5}% 63
+\BOOKMARK [2][-]{subsection.5.3.1}{Initializing a Node}{section.5.3}% 64
+\BOOKMARK [2][-]{subsection.5.3.2}{Fellowship's Protocol}{section.5.3}% 65
+\BOOKMARK [2][-]{subsection.5.3.3}{Web Protocol}{section.5.3}% 66
+\BOOKMARK [1][-]{section.5.4}{Proof of Concept: Calculator}{chapter.5}% 67
+\BOOKMARK [2][-]{subsection.5.4.1}{Overview}{section.5.4}% 68
+\BOOKMARK [2][-]{subsection.5.4.2}{Application Deploying Node}{section.5.4}% 69
+\BOOKMARK [2][-]{subsection.5.4.3}{Contributing Node}{section.5.4}% 70
+\BOOKMARK [1][-]{section.5.5}{Conclusion}{chapter.5}% 71
+\BOOKMARK [0][-]{chapter.6}{Case Study: Multi-Document Text Summarization using Genetic Algorithms}{}% 72
+\BOOKMARK [1][-]{section.6.1}{Problem at Hand}{chapter.6}% 73
+\BOOKMARK [2][-]{subsection.6.1.1}{Automatic Summarization}{section.6.1}% 74
+\BOOKMARK [2][-]{subsection.6.1.2}{Genetic Algorithms}{section.6.1}% 75
+\BOOKMARK [2][-]{subsection.6.1.3}{Extensions Proposed for MDTS}{section.6.1}% 76
+\BOOKMARK [1][-]{section.6.2}{Translation of the Problem for this Architecture}{chapter.6}% 77
+\BOOKMARK [1][-]{section.6.3}{Implementation Details}{chapter.6}% 78
+\BOOKMARK [2][-]{subsection.6.3.1}{Application Deploying Node}{section.6.3}% 79
+\BOOKMARK [2][-]{subsection.6.3.2}{Data Node}{section.6.3}% 80
+\BOOKMARK [2][-]{subsection.6.3.3}{Worker Node}{section.6.3}% 81
+\BOOKMARK [1][-]{section.6.4}{Experimentation}{chapter.6}% 82
+\BOOKMARK [1][-]{section.6.5}{Conclusions}{chapter.6}% 83
+\BOOKMARK [0][-]{chapter.7}{Discussion}{}% 84
+\BOOKMARK [1][-]{section.7.1}{Positioning of the System}{chapter.7}% 85
+\BOOKMARK [1][-]{section.7.2}{Problems Encountered}{chapter.7}% 86
+\BOOKMARK [0][-]{chapter.8}{Conclusion}{}% 87
+\BOOKMARK [1][-]{section.8.1}{Requirements Fulfilled}{chapter.8}% 88
+\BOOKMARK [1][-]{section.8.2}{Contributions}{chapter.8}% 89
+\BOOKMARK [1][-]{section.8.3}{Future Work}{chapter.8}% 90
+\BOOKMARK [0][-]{section*.50}{Appendices}{}% 91
+\BOOKMARK [0][-]{Appendix.1.A}{API Specification}{}% 92
+\BOOKMARK [0][-]{Appendix.1.B}{Code Samples}{}% 93
+\BOOKMARK [1][-]{section.1.B.1}{Calculator}{Appendix.1.B}% 94
+\BOOKMARK [2][-]{subsection.1.B.1.1}{Web Server}{section.1.B.1}% 95
+\BOOKMARK [2][-]{subsection.1.B.1.2}{Web Protocol}{section.1.B.1}% 96
+\BOOKMARK [1][-]{section.1.B.2}{Multi-Document Text Summarization}{Appendix.1.B}% 97
+\BOOKMARK [2][-]{subsection.1.B.2.1}{Web Server}{section.1.B.2}% 98
+\BOOKMARK [2][-]{subsection.1.B.2.2}{Web Protocol}{section.1.B.2}% 99

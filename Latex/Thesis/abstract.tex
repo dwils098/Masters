@@ -1,0 +1,55 @@
+\documentclass{article}
+\usepackage[latin1]{inputenc}
+
+\usepackage{geometry}
+
+\begin{document}
+
+\title{An Architecture for a Fully Decentralized Peer-to-Peer Collaborative Computing
+  Platform}
+\author{Dany Wilson -- Dr. St\'ephane Som\'e}
+\date
+
+\maketitle
+
+We present an architecture for a fully decentralized peer-to-peer collaborative computing
+platform, offering services similar to Cloud Service Provider's Platform-as-a-Service
+(PaaS) model, using volunteered resources rather than dedicated resources. This thesis is
+motivated by three research questions: (1) Is it possible to build a peer-to-peer
+collaborative system using a fully decentralized infrastructure relying only on
+volunteered resources?, (2) How can light virtualization be used to mitigate the
+complexity inherent to the volunteered resources?, and (3) What are the minimal
+requirements for a computing platform similar to the PaaS cloud computing platform?
+Previous research on the \emph{volunteer cloud computing} paradigm, focused on providing
+various service models and even full-fledged volunteer cloud computing
+infrastructures. Whereas previous literature on \emph{peer-to-peer collaborative systems}
+expressed the requirements inherent to the peer-to-peer resource collaboration
+problem. Bridging these two fields of research, we evaluate two major projects offering a
+volunteer cloud computing infrastructure, \emph{Cloud@Home} and \emph{Peer-to-Peer Cloud
+  System}, using the requirements identified for peer-to-peer collaborative systems. This
+thesis shifts the perspective from peer-to-peer collaborative systems, to their use as the
+underlying foundation of volunteer cloud computing infrastructures.
+
+The architecture proposed is composed of three layers: the \emph{Network layer}, the
+\emph{Virtual layer}, and the \emph{Application layer}. We propose to implement the
+\emph{Network layer} using two novel abstractions: the \emph{Ring}, for the public
+peer-to-peer networking primitive, and the \emph{Fellowship(s)}, for the private
+application networking primitive. We also propose to use \emph{light virtualization}
+technologies, or containers, to provide a uniform abstraction of the contributing
+resources and to isolate the host environment from the contributed environment. Then,
+we propose a minimal API specification for this computing platform, which is also
+applicable to PaaS computing platforms.
+
+We showcase the architecture with a proof of concept, a distributed web calculator, and by
+presenting a more complex application for \emph{Multi-Document Text Summarization using
+  Genetic Algorithm}. 
+
+The findings of this thesis corroborate the hypothesis that peer-to-peer collaborative
+systems can be used as a basis for developing volunteer cloud computing
+infrastructures. We outline the implications of using light virtualization as an integral
+virtualization primitive in public distributed computing platform. Finally, this thesis
+lays out a starting point for most volunteer cloud computing infrastructure development
+effort, because it circumscribes the essential requirements and presents solutions to
+mitigate the complexities inherent to this paradigm.
+
+\end{document}
